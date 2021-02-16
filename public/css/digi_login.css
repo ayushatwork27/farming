@@ -1,0 +1,83 @@
+.login {
+    background-color: #1e688c!important;
+}
+
+.login .content .form-title {
+    color: #1e688c!important;
+    text-transform: uppercase;
+    font-weight: bold!important;
+    margin-bottom: 7px!important; 
+}
+
+.login .content .form-control {
+    background-color: #f9f9f9!important;
+    height: 43px!important;
+    color: #1e688c!important;
+    border: 1px solid #f1f1f1!important;
+}
+
+.login .content .create-account{
+	background-color: #f9f9f9!important;
+}
+
+.login .content .create-account>p .btn.green:not(.btn-outline){    
+	background-color: #1e688c!important;
+	border-color: #1e688c!important;
+	padding: 6px 50px;
+}
+
+.login .copyright{    
+	color: #bdbdbd!important;
+}
+
+
+.login .content{ 
+	width:70%;
+}
+
+.login-left-logo{ 
+	background-color: #1e688c;
+	padding-top: 50px;
+}
+
+.login-left-logo img{    
+	margin: 0 auto;
+    display: block;
+}
+.login .content .form-actions{ 
+	margin:0px!important;
+	text-align: center;
+}
+.login .content .create-account{ 
+	margin:0px!important;
+}
+
+.login-wrap{    
+	border: 1px solid #fff;
+    margin: 0;
+}
+.login-wrap .col-sm-6{
+	padding: 0!important;
+    margin: 0!important;
+}
+	
+.login .content{
+	width: 70%;
+	padding: 0;
+	background: #1e688c;
+	box-shadow: 0px 0px 0px 6px #267196;
+}
+.form-wrap{
+	background-color: #fff;
+	
+}
+	
+.form-wrap.col-sm-6 {
+    padding: 15px!important;
+    margin: 0!important;
+}
+.login .content p.sub-hd{ text-align:center;
+margin-top: 5px!important;
+color: #9e9e9e;
+font-size: 17px;
+}
