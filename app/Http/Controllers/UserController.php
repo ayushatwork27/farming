@@ -21,3 +21,5 @@ class UserController extends Controller
         return view('user.dashboard');
     }
 }
+
+//this is comment to test github push command
