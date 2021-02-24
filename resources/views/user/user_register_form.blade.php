@@ -66,6 +66,12 @@
                                         </a>
                                     </div>
                                 </div>
+                                
+                                @if(session()->has('feedback'))
+                                    <div class="alert alert-success">
+                                        <strong>Success:</strong> {{ session()->get('feedback') }}
+                                    </div>
+                                @endif
 
                                 <div class="portlet-body">
                                     <form class="form-horizontal" role="form" action="{{route('user.save_user_details')}}" method="post" enctype="multipart/form-data">
@@ -75,46 +81,46 @@
                                          <div class="form-group">
                                             <label for="name" class="col-md-2 control-label">Name</label>
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" id="name" placeholder="Name" name="name"> 
+                                                <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="{{$user->name}}"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="father_name" class="col-md-2 control-label">Father's Name</label>
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" id="father_name" placeholder="Father's Name" name="father_name"> 
+                                                <input type="text" class="form-control" placeholder="Father's Name" name="father_name" value="{{$user_detail->father_name}}"> 
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="dob" class="col-md-2 control-label">DOB</label>
                                             <div class="col-md-5">
-                                                <input type="date" class="form-control" id="dob" placeholder="Date of birth" name="dob"> 
+                                                <input type="date" class="form-control" id="dob" placeholder="Date of birth" name="dob"  value="{{$user_detail->dob}}"> 
                                             </div>
                                         </div>
                                          <div class="form-group">
                                             <label for="aadhar_number" class="col-md-2 control-label">Aadhar Number</label>
                                             <div class="col-md-5">
-                                                <input type="number" class="form-control" id="aadhar_number" placeholder="Aadhar Number" name="aadhar_number"> 
+                                                <input type="number" class="form-control" id="aadhar_number" placeholder="Aadhar Number" name="aadhar_number" value="{{$user_detail->aadhar_number}}"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="family_member" class="col-md-2 control-label">Family Member</label>
                                             <div class="col-md-5">
-                                                <input type="number" class="form-control" id="family_member" placeholder="Family Member" name="family_member"> 
+                                                <input type="number" class="form-control" id="family_member" placeholder="Family Member" name="family_member" value="{{$user_detail->family_member}}"> 
                                             </div>
                                         </div>
 
                                          <div class="form-group">
                                             <label for="mobile" class="col-md-2 control-label">Mobile Number</label>
                                             <div class="col-md-5">
-                                                <input type="tel" maxlength="10" class="form-control" id="mobile" placeholder="Mobile Number" name="mobile"> 
+                                                <input type="tel" maxlength="10" class="form-control" id="mobile" placeholder="Mobile Number" name="mobile" value="{{$user_detail->mobile}}"> 
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="email" class="col-md-2 control-label">Email</label>
                                             <div class="col-md-5">
-                                                <input type="email" class="form-control" id="email" placeholder="Email" name="email"> 
+                                                <input type="email" class="form-control" id="email" placeholder="Email" name="email" value="{{$user->email}}"> 
                                             </div>
                                         </div>
                                         <hr>
@@ -123,31 +129,31 @@
                                          <div class="form-group">
                                             <label for="state" class="col-md-2 control-label">State</label>
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" id="state" placeholder="State" name="state"> 
+                                                <input type="text" class="form-control" id="state" placeholder="State" name="state" value="{{$user_detail->state}}"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="district" class="col-md-2 control-label">District</label>
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" id="district" placeholder="District" name="district" name="district"> 
+                                                <input type="text" class="form-control" id="district" placeholder="District" name="district" name="district" value="{{$user_detail->district}}"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="city" class="col-md-2 control-label">City</label>
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" id="city" placeholder="City" name="city"> 
+                                                <input type="text" class="form-control" id="city" placeholder="City" name="city" value="{{$user_detail->city}}"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="pincode" class="col-md-2 control-label">Pincode</label>
                                             <div class="col-md-5">
-                                                <input type="number" class="form-control" id="pincode" placeholder="Pincode" name="pincode"> 
+                                                <input type="number" class="form-control" id="pincode" placeholder="Pincode" name="pincode" value="{{$user_detail->pincode}}"> 
                                             </div>
                                         </div> 
                                         <div class="form-group">
                                             <label for="address" class="col-md-2 control-label">Address</label>
                                             <div class="col-md-5">
-                                                 <textarea class="form-control" id="address" placeholder="Address" rows="3" name="address"></textarea>
+                                                 <textarea class="form-control" id="address" placeholder="Address" rows="3" name="address" value="{{$user_detail->address}}"></textarea>
                                             </div>
                                         </div>
                                         <hr>
@@ -156,20 +162,20 @@
                                         <div class="form-group">
                                             <label for="area" class="col-md-2 control-label">Crop Area in Akad</label>
                                             <div class="col-md-5">
-                                                <input type="number" class="form-control" id="area" placeholder="Crop Area in Akad" name="area"> 
+                                                <input type="number" class="form-control" id="area" placeholder="Crop Area in Akad" name="area" value="{{$user_detail->area}}"> 
                                             </div>
                                         </div> 
                                         
                                         <div class="form-group">
                                             <label class="col-md-2 control-label" for="land_type">Land Type</label>
                                             <div class="col-md-5">
-                                                <select class="form-control" id="land_type" placeholder="Land Type" name="land_type">
+                                                <select class="form-control" id="land_type" placeholder="Land Type" name="land_type" value="{{$user_detail->land_type}}">
                                                     <option>Self</option>
                                                     <option>Rented</option>
                                                 </select>
                                             </div>
                                         </div>
-
+                                        <!--
                                         <div class="form-group">
                                             <label class="col-md-2 control-label" for="crop_types">Types of crop</label>
                                             <div class="col-md-5">
@@ -180,34 +186,35 @@
                                                 </select>
                                             </div>
                                         </div>
+                                    -->
                                         <hr>
                                         <h4>Bank Details</h4>
                                         <hr>
                                         <div class="form-group">
                                             <label for="bank_name" class="col-md-2 control-label">Bank Name</label>
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" id="bank_name" placeholder="Bank Name" name="bank_name"> 
+                                                <input type="text" class="form-control" id="bank_name" placeholder="Bank Name" name="bank_name" value="{{$user_detail->bank_name}}"> 
                                             </div>
                                         </div> 
 
                                         <div class="form-group">
                                             <label for="name_on_bank" class="col-md-2 control-label">Account Holder Name</label>
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" id="name_on_bank" placeholder="Account Holder Name" name="name_on_bank"> 
+                                                <input type="text" class="form-control" id="name_on_bank" placeholder="Account Holder Name" name="name_on_bank" value="{{$user_detail->name_on_bank}}">  
                                             </div>
                                         </div> 
 
                                          <div class="form-group">
                                             <label for="account_number" class="col-md-2 control-label">Account Number</label>
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" id="account_number" placeholder="Account Number" name="account_number"> 
+                                                <input type="text" class="form-control" id="account_number" placeholder="Account Number" name="account_number" value="{{$user_detail->account_number}}"> 
                                             </div>
                                         </div> 
 
                                         <div class="form-group">
                                             <label for="ifsc_code" class="col-md-2 control-label">IFSC Code</label>
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" id="ifsc_code" placeholder="IFSC Code" name="ifsc_code"> 
+                                                <input type="text" class="form-control" id="ifsc_code" placeholder="IFSC Code" name="ifsc_code" value="{{$user_detail->ifsc_code}}"> 
                                             </div>
                                         </div> 
                                         <div class="form-group">
@@ -222,9 +229,9 @@
                                         <h4>Upload Files</h4>
                                         <hr>
                                         <div class="form-group">
-                                            <label for="passport_image" class="col-md-2 control-label">Passport Image</label>
+                                            <label for="passport_size_image" class="col-md-2 control-label">Passport Size Image</label>
                                             <div class="col-md-5">
-                                                <input type="file" id="passport_image" placeholder="passport_image" name="passport_image">
+                                                <input type="file" id="passport_size_image" placeholder="passport_size_image" name="passport_size_image">
                                                 <p class="help-block">*png / *jpeg are only allowed</p>
                                             </div>
                                         </div>

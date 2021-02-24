@@ -20,117 +20,17 @@
                             </a>
                             
                         </li>
-                        <li class="nav-item start ">
-                            <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="fa fa-diamond"></i>
-                                <span class="title">Module</span>
-                                <span class="arrow"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item start ">
-                                    <a href="#" class="nav-link ">
-                                        <i class="icon-bar-chart"></i>
-                                        <span class="title">Add New Module</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item start ">
-                                    <a href="#" class="nav-link ">
-                                        <i class="icon-bulb"></i>
-                                        <span class="title">View All Modules</span>
-                                        {{-- <span class="badge badge-success">1</span> --}}
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                        </li>
-                       <li class="nav-item start ">
-                            <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="fa fa-diamond"></i>
-                                <span class="title">Company</span>
-                                <span class="arrow"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item start ">
-                                    <a href="#" class="nav-link ">
-                                        <i class="icon-bar-chart"></i>
-                                        <span class="title">Add New Company</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item start ">
-                                    <a href="#" class="nav-link ">
-                                        <i class="icon-bulb"></i>
-                                        <span class="title">View All Companies</span>
-                                        {{-- <span class="badge badge-success">1</span> --}}
-                                    </a>
-                                </li>
-                                 
-                            </ul>
-                        </li>
-                         <li class="nav-item start ">
-                            <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="fa fa-diamond"></i>
-                                <span class="title">Licence</span>
-                                <span class="arrow"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item start ">
-                                    <a href="#" class="nav-link ">
-                                        <i class="icon-bar-chart"></i>
-                                        <span class="title">Add New Licence</span>
-                                </a>
-                                </li>
-                                <li class="nav-item start ">
-                                    <a href="#" class="nav-link ">
-                                        <i class="icon-bulb"></i>
-                                        <span class="title">View All Licences</span>
-                                        {{-- <span class="badge badge-success">1</span> --}}
-                                    </a>
-                                </li>
-                                 
-                            </ul>
-                        </li>
 
                         <li class="nav-item start ">
-                            <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="fa fa-diamond"></i>
-                                <span class="title">Reseller</span>
+                            <a href="{{route('admin.registered_user_list')}}" class="nav-link nav-toggle">
+                                <i class="fa fa-user-plus"></i>
+                                <span class="title">Registered User</span>
                                 <span class="arrow"></span>
                             </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item start ">
-                                    <a href="#" class="nav-link ">
-                                        <i class="icon-bar-chart"></i>
-                                        <span class="title">Add Reseller</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item start ">
-                                    <a href="#" class="nav-link ">
-                                        <i class="icon-bulb"></i>
-                                        <span class="title">View All Reseller</span>
-                                       {{--  <span class="badge badge-success">1</span> --}}
-                                    </a>
-                                </li>
-                                 
-                            </ul>
                         </li>
+                        
+                       
 
-                        <li class="nav-item start ">
-                            <a href="#" class="nav-link nav-toggle">
-                                <i class="fa fa-mobile"></i>
-                                <span class="title">Free Version App</span>
-                                <span class="arrow"></span>
-                            </a>
-                            
-                        </li>
-
-                        <li class="nav-item start ">
-                            <a href="#" class="nav-link nav-toggle">
-                                <i class="fa fa-mobile"></i>
-                                <span class="title">Setting</span>
-                                <span class="arrow"></span>
-                            </a>
-                            
-                        </li>
                        
                     </ul>
                     <!-- END SIDEBAR MENU -->
