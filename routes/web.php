@@ -35,8 +35,10 @@ Route::group(['prefix'=>'user'],function(){
 	Route::group(['middleware'=>'auth'],function(){
 		
 		Route::get('dasboard', [App\Http\Controllers\User\DashboardController::class, 'dashboard_view'])->name('user.dashboard');
-		Route::get('register', [App\Http\Controllers\User\UserController::class, 'user_register_form'])->name('user.register_form');
-		Route::post('save_user_details', [App\Http\Controllers\User\UserController::class, 'save_user_details'])->name('user.save_user_details');
+
+		Route::get('register', [App\Http\Controllers\User\UserDetailsController::class, 'user_register_form'])->name('user.register_form');
+
+		Route::post('save_user_details', [App\Http\Controllers\User\UserDetailsController::class, 'save_user_details'])->name('user.save_user_details');
 
 	});
 });
@@ -45,9 +47,11 @@ Route::group(['prefix'=>'user'],function(){
 
 
 Route::group(['prefix'=>'admin'],function(){
+
 	Route::group(['middleware'=>'guest:admin'],function(){
 
 		Route::get('login', [App\Http\Controllers\Auth\AdminLoginController::class, 'showLoginForm'])->name('admin.login');
+		
 		Route::post('login', [App\Http\Controllers\Auth\AdminLoginController::class, 'login'])->name('admin.login.submit');
 		//Route::post('login', [App\Http\Controllers\AdminController::class, 'authenticate'])->name('admin.auth');
 
@@ -56,6 +60,9 @@ Route::group(['prefix'=>'admin'],function(){
 	Route::group(['middleware'=>'auth:admin'],function(){
 		
 		Route::get('dasboard', [App\Http\Controllers\Admin\DashboardController::class, 'dashboard_view'])->name('admin.dashboard');
+		Route::get('registered_user_list', [App\Http\Controllers\Admin\UserManagementController::class, 'registered_user_list'])->name('admin.registered_user_list');
+
+		Route::get('user_detail/{user_id}', [App\Http\Controllers\Admin\UserManagementController::class, 'user_detail'])->name('admin.user_detail');
 
 	});
 });

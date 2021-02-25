@@ -1,0 +1,37 @@
+User (Farmer) 15/kg
+
+	Create Trade
+		->Crop [Sarso / Bajra/ Rice] 
+		->Qua
+		->Area
+		->Price (According to own price normal text field) 
+
+			(Submit)
+
+
+Todays Price 
+		golden (Rs. 20/kg)
+		Silver (Rs. 15/kg)  ====>
+		normal (Rs. 10/kg) 
+
+
+
+
+Admin Module -------- >
+	Crop Defination    (New)
+		Crop listing
+
+
+New 
+	--->
+		Crop Name : Sarso
+		Category: Xyz
+		Price Type : 
+
+			golden (Rs. 25/kg)
+			Silver (Rs. 20/kg)
+			normal (Rs. 10/kg) 
+
+
+Category
+	--->

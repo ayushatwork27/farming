@@ -10,6 +10,7 @@ class DashboardController extends UserController
 {
    public function dashboard_view(Request $request)
    {
-   		return view('user.dashboard');
+   		$is_active = 0;
+   		return view('user.dashboard',['is_active'=>$is_active]);
    }
 }
