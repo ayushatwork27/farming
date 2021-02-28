@@ -54,32 +54,23 @@
                                         <span class="caption-subject font-green sbold uppercase">Crop List</span>
                                     </div>
                                     <div class="col-lg-12 margin-tb">
-
-                                <div class="pull-right">
-                                    <a class="btn btn-success" href="{{ route('admin.createcrop') }}">Create New Crop</a>
-
+                                        <div class="pull-right">
+                                            <a class="btn btn-success" href="{{ route('admin.createcrop') }}">Create New Crop</a>
+                                        </div>
+                                            
+                                    </div>
                                     
                                 </div>
-                                
-                            </div>
-                                    
-                                </div>
-
-                            
-
-                        </div>
-
-                               
-                               
-                                <div class="portlet-body">
+                                 <div class="portlet-body">
                                     <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_2">
                                         <thead>
                                             <tr>
                                                 
                                                 <th> Name </th>
                                                 <th> Category </th>
-                                                
-                                                
+                                                <th> Normal </th>
+                                                <th> Silver </th>
+                                                <th> Gold </th>
                                                 <th> Registered ON </th>
                                                 <th> Active</th>
                                                 <th> Action </th>
@@ -87,33 +78,83 @@
                                         </thead>
 
                                         <tbody>
-                                            @if(! count($users) > 0)
-                                                <th>No User Added</th>
+                                            @if(! count($crops) > 0)
+                                                <th>No Crop Added</th>
                                             @endif
-                                                @foreach($users as $user)
+                                                @foreach($crops as $crop)
                                                   <tr class="odd gradeX">
-                                                
+                                                    <td>{{$crop->name}}</td>
+                                                    <td>{{$crop->category}}</td>
+                                                    <td>{{$crop->normal}}</td>
+                                                    <td>{{$crop->silver}}</td>
+                                                    <td>{{$crop->gold}}</td>
+                                                    <td>{{$crop->created_at->format('d.m.Y') }}</td>
+                                                    <!-- <td>{{$crop->is_active == 1 ? 'Yes' : 'No'}}</td> -->
+                                                   <td>@if($crop ?? ''->active == '1') 
 
-                                                    <td>{{$user->name}}</td>
-                                                    <td>{{$user->category}}</td>
-                                                    <td>{{$user->created_at->format('d.m.Y') }}</td>
-                                                    <td>{{$user->is_active == 1 ? 'Yes' : 'No'}}</td>
-                                                    
-                                                    
+                                                    <a href="{{url('admin/status_update',$crop->id)}}" class="btn btn-success">Active</a>
+
+                                                     @else 
+
+                                                    <a href="{{url('admin/status_update',$crop->id)}}" class="btn btn-danger">Inactive</a>
+
+                                                     @endif                                   </td>
                                                    
                                                     <td>
-                                                        {!! Html::linkRoute('admin.user_detail',' View',[$user->id],['class'=>'btn btn-outline btn-circle btn-sm blue jquery-btn-view']) !!}
+                                                        {!! Html::linkRoute('admin.updatecrop',' Edit',[$crop->id],['class'=>'btn btn-outline btn-circle btn-sm blue jquery-btn-view']) !!}
+
         
                                                     </td>
                                                   </tr>
                                                 @endforeach
                                         </tbody>
                                     </table>
-        <!-- {{$users->links()}} -->
 
-                                </div>
+                                   {{-- {{$users->links()}}  --}} 
+                                </div>                            
+
+                        </div>
+                     
+                               
+                               
+
                             </div>
                             <!-- END EXAMPLE TABLE PORTLET-->
                         </div>
                     </div>
 @endsection
+<script>
+
+  $(function() {
+
+    $('.toggle-class').change(function() {
+
+        var status = $(this).prop('checked') == true ? 1 : 0; 
+
+        var user_id = $(this).data('id'); 
+
+         
+
+        $.ajax({
+
+            type: "GET",
+
+            dataType: "json",
+
+            url: '/changeStatus',
+
+            data: {'status': status, 'user_id': user_id},
+
+            success: function(data){
+
+              console.log(data.success)
+
+            }
+
+        });
+
+    })
+
+  })
+
+</script>

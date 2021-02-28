@@ -10,6 +10,6 @@ class Crop extends Model
     use HasFactory;
     protected $table = 'crops';
     protected $fillable = [
-		'name','category'
+		'name','category','normal','silver','gold'
     ];
 }

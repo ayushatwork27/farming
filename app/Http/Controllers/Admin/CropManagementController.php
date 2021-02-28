@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Crop;
 use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 
 class CropManagementController extends Controller
 {
@@ -28,8 +28,10 @@ class CropManagementController extends Controller
 
     public function crop_user_list(Request $request)
     {
-    	$users=Crop::latest()->paginate(5);
-    	return view('admin.crop',['users'=>$users]);
+
+    	$crops =  Crop::all();
+    	return view('admin.crop',['crops'=>$crops]);
+
     }
 
    
@@ -38,6 +40,12 @@ class CropManagementController extends Controller
     public function createcrop()
     {
         return view('admin.createcrop');
+    } 
+
+    public function updatecrop(Request $request,$crop_id)
+    {
+        $crop = Crop::find($crop_id);
+        return view('admin.createcrop',['crop'=>$crop]);
     }
 
     
@@ -51,7 +59,13 @@ class CropManagementController extends Controller
 
          // ]);
 
+        if($request->id){
+            Crop::find($request->id)->update($request->all());
+        }else{
+
          Crop::create($request->all());
+
+        }
 
          return redirect()->route('admin.crop_user_list')
          ->with('success','Created Successfully');
@@ -80,6 +94,30 @@ class CropManagementController extends Controller
         return redirect()->route('admin.crop')
         ->with('success','Update Successfully');
     }
+     
+
+     public function status_update($id)
+{
+	//get product status with the help of product ID
+	$crop = DB::table('crops')
+				->select('active')
+				->where('id','=',$id)
+				->first();
+
+	//Check user status
+	if($crop->active == '1'){
+		$active = '0';
+	}else{
+		$active = '1';
+	}
+
+	//update product status
+	$values = array('active' => $active );
+	DB::table('crops')->where('id',$id)->update($values);
+
+	session()->flash('msg','crop status has been updated successfully.');
+	return redirect('admin/crop_user_list');
+}
 
     
     public function destroy(crop $crop)

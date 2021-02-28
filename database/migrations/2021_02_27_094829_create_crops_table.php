@@ -15,10 +15,12 @@ class CreateCropsTable extends Migration
     {
         Schema::create('crops', function (Blueprint $table) {
             $table->id();
-            
             $table->string('name')->nullable();
             $table->string('category')->nullable();
-            $table->string('active')->nullable();
+            $table->string('normal')->nullable();
+            $table->string('silver')->nullable();
+            $table->string('gold')->nullable();
+            $table->boolean('active')->default('0')->nullable();
             $table->softDeletes();
             $table->timestamps();
 
