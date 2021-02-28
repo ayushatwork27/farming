@@ -28,6 +28,15 @@
                                 <span class="arrow"></span>
                             </a>
                         </li>
+
+                        <li class="nav-item start ">
+                            <a href="{{route('admin.crop_user_list')}}" class="nav-link nav-toggle">
+                                <i class="fa fa-user-plus"></i>
+                                <span class="title">Crops</span>
+                                <span class="arrow"></span>
+                            </a>
+                        </li>
+                        
                         
                        
 
