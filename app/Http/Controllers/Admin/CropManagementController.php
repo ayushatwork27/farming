@@ -5,28 +5,30 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Crop;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\DB;
 
 class CropManagementController extends Controller
 {
     //
-	 public function index()
-    {
-       // $crops=Crop::latest()->paginate(5);
-       // return view('admin.crop',compact('crops'))
-       // ->with('i',(request()->input('page',1)-1)*5);
-    	 $users  =   Crop::paginate(10);
+	 // public function index()
+  //   {
+  //      $users=Crop::latest()->paginate(5);
+  //      return view('admin.crop',compact('crops'))
+  //      ->with('i',(request()->input('page',1)-1)*5);
+    	 
+  //   	 // $data=DB::table('crops')->pagination(4);
+  //   	 // return view('ropManagementController',['data'=>$users]);
 
-       return view("crop", compact('crops'));
 
        
     
-    }
+  //   }
 
 
 
     public function crop_user_list(Request $request)
     {
-    	$users =  Crop::all();
+    	$users=Crop::latest()->paginate(5);
     	return view('admin.crop',['users'=>$users]);
     }
 

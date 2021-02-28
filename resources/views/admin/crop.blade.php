@@ -1,6 +1,7 @@
 @extends('admin.adminlayout.container')
 
-@section('container')<!--
+@section('container')
+<!--
 <h1 class="page-title">User List
                     </h1>
                 -->
@@ -108,7 +109,8 @@
                                                 @endforeach
                                         </tbody>
                                     </table>
-                                    {{$users->links()}}
+        <!-- {{$users->links()}} -->
+
                                 </div>
                             </div>
                             <!-- END EXAMPLE TABLE PORTLET-->
