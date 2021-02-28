@@ -61,8 +61,13 @@ Route::group(['prefix'=>'admin'],function(){
 		
 		Route::get('dasboard', [App\Http\Controllers\Admin\DashboardController::class, 'dashboard_view'])->name('admin.dashboard');
 		Route::get('registered_user_list', [App\Http\Controllers\Admin\UserManagementController::class, 'registered_user_list'])->name('admin.registered_user_list');
+
 		Route::get('crop_user_list', [App\Http\Controllers\Admin\CropManagementController::class, 'crop_user_list'])->name('admin.crop_user_list');
+
 		Route::get('createcrop', [App\Http\Controllers\Admin\CropManagementController::class, 'createcrop'])->name('admin.createcrop');
+
+		Route::get('updatecrop/{crop_id}', [App\Http\Controllers\Admin\CropManagementController::class, 'updatecrop'])->name('admin.updatecrop');
+		
 		Route::post('storecrop', [App\Http\Controllers\Admin\CropManagementController::class, 'storecrop'])->name('admin.storecrop');
 
 		Route::get('user_detail/{user_id}', [App\Http\Controllers\Admin\UserManagementController::class, 'user_detail'])->name('admin.user_detail');

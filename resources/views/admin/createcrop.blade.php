@@ -41,18 +41,18 @@
 
 		<div class="col-xs-12 col-sm-12 col-md-12">
 			<div class="form-group">
-
 				<strong>Name:</strong>
-				<input type="text" name="name" class="form-control" placeholder="Name">
-				
+				<input type="text" name="name" class="form-control" placeholder="Name" value="{{ @$crop->name}}">
 			</div>
+			<input type="hidden" name="id" class="form-control" placeholder="id" value="{{ @$crop->id}}">
+
 			
 		</div>
 
 		<div class="col-xs-12 col-sm-12 col-md-12">
 			<div class="form-group">
 				<strong>Category</strong>
-				<input type="text" name="category" class="form-control" placeholder="Category">
+				<input type="text" name="category" class="form-control" placeholder="Category" value="{{ @$crop->category}}">
 				
 			</div>
 			

@@ -28,6 +28,17 @@ Crop  (list)
 		(Edit)
 		(Delete)
 
+
+Mistakes
+	Migration:
+		Proper datatype should define
+	Controller:
+		variable name should be proper 
+	Model
+		Soft Delete not mentioned
+	Html
+		formating of html
+
 	
 
 

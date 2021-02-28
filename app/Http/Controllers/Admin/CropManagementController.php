@@ -26,8 +26,8 @@ class CropManagementController extends Controller
 
     public function crop_user_list(Request $request)
     {
-    	$users =  Crop::all();
-    	return view('admin.crop',['users'=>$users]);
+    	$crops =  Crop::all();
+    	return view('admin.crop',['crops'=>$crops]);
     }
 
    
@@ -36,6 +36,12 @@ class CropManagementController extends Controller
     public function createcrop()
     {
         return view('admin.createcrop');
+    } 
+
+    public function updatecrop(Request $request,$crop_id)
+    {
+        $crop = Crop::find($crop_id);
+        return view('admin.createcrop',['crop'=>$crop]);
     }
 
     
@@ -49,7 +55,13 @@ class CropManagementController extends Controller
 
          // ]);
 
+        if($request->id){
+            Crop::find($request->id)->update($request->all());
+        }else{
+
          Crop::create($request->all());
+
+        }
 
          return redirect()->route('admin.crop_user_list')
          ->with('success','Created Successfully');

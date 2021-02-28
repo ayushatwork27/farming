@@ -15,7 +15,6 @@ class CreateCropsTable extends Migration
     {
         Schema::create('crops', function (Blueprint $table) {
             $table->id();
-            
             $table->string('name')->nullable();
             $table->string('category')->nullable();
             $table->string('active')->nullable();
