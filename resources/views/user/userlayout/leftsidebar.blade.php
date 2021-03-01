@@ -1,4 +1,4 @@
-<!-- BEGIN SIDEBAR -->
+BEGIN SIDEBAR -->
             <div class="page-sidebar-wrapper">
                 <!-- END SIDEBAR -->
                 <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
@@ -28,21 +28,21 @@
                                 <span class="arrow"></span>
                             </a>
                         </li>
-                        <li class="nav-item start ">
+                        <!-- <li class="nav-item start ">
                             <a href="#" class="nav-link nav-toggle">
                                 <i class="fa fa-bell"></i>
                                 <span class="title">Notification</span>
                                 <span class="arrow"></span>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item start ">
-                            <a href="#" class="nav-link nav-toggle">
+                            <a href="" class="nav-link nav-toggle">
                                 <i class="fa fa-trademark"></i>
                                 <span class="title">Trades</span>
                                 <span class="arrow"></span>
                             </a>
                         </li>
-                        <li class="nav-item start ">
+                        <!-- <li class="nav-item start ">
                             <a href="#" class="nav-link nav-toggle">
                                 <i class="fa fa-inr"></i>
                                 <span class="title">My Bonus</span>
@@ -69,7 +69,7 @@
                                 <span class="title">Feedback</span>
                                 <span class="arrow"></span>
                             </a>
-                        </li>
+                        </li> -->
                         
 
                      
@@ -80,4 +80,4 @@
                 </div>
                 <!-- END SIDEBAR -->
             </div>
-            <!-- END SIDEBAR -->
+            <!-- END SIDEBAR
