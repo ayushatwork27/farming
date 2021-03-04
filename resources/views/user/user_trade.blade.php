@@ -1,8 +1,8 @@
-@extends('admin.adminlayout.container')
+@extends('user.userlayout.container')
 
 @section('container')
 
-<h1 class="page-title"> Create New Crop 
+<h1 class="page-title"> Create Trade 
                         <small></small>
                     </h1>
                     <div class="page-bar">
@@ -13,7 +13,7 @@
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <a href="#">Create New Crop</a>
+                                <a href="#">Create Trade</a>
                             </li>
                         </ul>
                         <div class="page-toolbar">
@@ -53,7 +53,7 @@
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-share font-dark"></i>
-                                        <span class="caption-subject font-dark bold uppercase">Create New Crop</span>
+                                        <span class="caption-subject font-dark bold uppercase">Create Trade</span>
                                     </div>
                                     <div class="actions">
                                         <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
@@ -75,48 +75,31 @@
                                 @endif
 
                                 <div class="portlet-body">
-                                    <form class="form-horizontal" role="form" action="{{ route('admin.storecrop') }}" method="POST">
+                                    <form class="form-horizontal" role="form" action="{{ route('user.user_tradedetail') }}" method="POST">
                                         {{ csrf_field() }}
-                                        <h4>Crop Details</h4>
+                                        <h4>Trade Details</h4>
                                          <hr>
                                          <div class="form-group">
-                                            <label for="name" class="col-md-2 control-label">Name</label>
+                                            <label for="name" class="col-md-2 control-label">Quantity</label>
                                             <div class="col-md-5">
-                                                <input type="text" name="name" class="form-control" placeholder="Name" value="{{ @$crop->name}}"> 
+                                                <input type="number" name="quantity" class="form-control" placeholder="Quantity" > 
                                             </div>
-                                            <input type="hidden" name="id" class="form-control" placeholder="id" value="{{ @$crop->id}}">
+                                            
                                         </div>
                                         <div class="form-group">
-                                            <label for="category" class="col-md-2 control-label">Category</label>
+                                            <label for="category" class="col-md-2 control-label">Area</label>
                                             <div class="col-md-5">
-                                                <input type="text" name="category" class="form-control" placeholder="Category" value="{{ @$crop->category}}">
+                                                <input type="number" name="area" class="form-control" placeholder="Area" >
                                             </div>
                                         </div>
 
-                                        
-                                        <hr>
-                                        <h4>Rate Of Fasal</h4>
-                                        <hr>
                                          <div class="form-group">
-                                            <label for="normal" class="col-md-2 control-label">Normal</label>
+                                            <label for="normal" class="col-md-2 control-label">Accepected Rate</label>
                                             <div class="col-md-5">
-                                                <input type="text" name="normal" class="form-control" placeholder="Normal Price" value="{{ @$crop->normal}}"> 
+                                                <input type="text" name="accepected_rate" class="form-control" placeholder="Accepected Rate Price" value=""> 
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="silver" class="col-md-2 control-label">Silver</label>
-                                            <div class="col-md-5">
-                                                <input type="text" name="silver" class="form-control" placeholder="Silver Price" value="{{ @$crop->silver}}">
-                                            </div>
-                                        </div>
-
-                                          <div class="form-group">
-                                            <label for="gold" class="col-md-2 control-label">Gold</label>
-                                            <div class="col-md-5">
-                                                <input type="text" name="gold" class="form-control" placeholder="Gold Price" value="{{ @$crop->gold}}">
-                                            </div>  
-                                        </div>
-                              			
+                                        
                                            
 
 
@@ -124,7 +107,7 @@
                               				
                                             <div class="col-md-offset-2 col-md-10">
                                                 <button type="submit" class="btn blue pull-left">Save</button>
-                                                <a class="btn btn-primary pull-right" href="{{ route('admin.crop_user_list') }}">Back</a>
+                                                
 
                                             </div>
                                         </div>
