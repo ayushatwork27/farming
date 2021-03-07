@@ -113,7 +113,7 @@
                                           <div class="form-group">
                                             <label for="gold" class="col-md-2 control-label">Gold</label>
                                             <div class="col-md-5">
-                                                <input type="text" name="golg" class="form-control" placeholder="Gold Price" value="{{ @$crop->gold}}">
+                                                <input type="text" name="gold" class="form-control" placeholder="Gold Price" value="{{ @$crop->gold}}">
                                             </div>  
                                         </div>
                               			

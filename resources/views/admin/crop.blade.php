@@ -71,7 +71,7 @@
                                                 <th> Normal </th>
                                                 <th> Silver </th>
                                                 <th> Gold </th>
-                                                <th> Registered ON </th>
+                                                <th> Registered On </th>
                                                 <th> Active</th>
                                                 <th> Action </th>
                                             </tr>
@@ -79,7 +79,10 @@
 
                                         <tbody>
                                             @if(! count($crops) > 0)
-                                                <th>No Crop Added</th>
+                                                <tr  class="odd gradeX">
+                                                      <th colspan="8">No Crop Added</th>
+                                                </tr>
+                                              
                                             @endif
                                                 @foreach($crops as $crop)
                                                   <tr class="odd gradeX">

@@ -19,9 +19,9 @@ Crops
 	active
 	timestamp
 	deleted_at
-	gold
-	silver
-	normal
+	normal 
+	silver 
+	gold 
 
 Crop  (list) 
 		(New)
