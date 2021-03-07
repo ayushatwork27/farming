@@ -37,6 +37,11 @@ License: You must have a valid license purchased only from themeforest(the above
         {{Html::style('/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}
         
         <!-- END GLOBAL MANDATORY STYLES -->
+
+
+        {{Html::style('/assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css')}}
+
+
         <!-- BEGIN THEME GLOBAL STYLES -->
         {{Html::style('/assets/global/css/components.min.css')}}
         {{Html::style('/assets/global/css/plugins.min.css')}}
@@ -100,12 +105,18 @@ License: You must have a valid license purchased only from themeforest(the above
             {{ Html::script('/assets/global/plugins/jquery-validation/js/jquery.validate.min.js') }}
             {{ Html::script('/assets/global/plugins/jquery-validation/js/additional-methods.min.js') }}
             {{ Html::script('/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}
+
+            {{ Html::script('/assets/global/plugins/bootstrap-markdown/lib/markdown.js') }}
+            {{ Html::script('/assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js') }}
+
+
             
             {{ Html::script('/assets/global/plugins/ckeditor/ckeditor.js') }}
             
             {{ Html::script('/assets/global/scripts/datatable.js') }}
             {{ Html::script('/assets/global/plugins/datatables/datatables.min.js') }}
             {{ Html::script('/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}
+
             
             {{ Html::script('/assets/pages/scripts/table-datatables-buttons.min.js') }}
             <!-- END PAGE LEVEL PLUGINS -->
