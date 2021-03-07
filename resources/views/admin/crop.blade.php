@@ -99,7 +99,7 @@
 
                                                      @else 
 
-                                                    <a href="{{url('admin/status_update',$crop->id)}}" class="btn btn-danger">Inactive</a>
+                                                    <a href="{{url('admin/status_update',$crop->id)}}" class="btn btn-danger">Deactive</a>
 
                                                      @endif                                   </td>
                                                    

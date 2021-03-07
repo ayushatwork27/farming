@@ -103,10 +103,30 @@
                                                 <input type="text" name="normal" class="form-control" placeholder="Normal Price" value="{{ @$crop->normal}}"> 
                                             </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label for="normal" class="col-md-2 control-label">Terms and Condition For Normal Policy</label>
+                                            <div class="col-md-9">
+
+                                               
+                                                <textarea data-provide="markdown" rows="10" data-error-container="#editor_error" name="normal_terms">{{ @$crop->normal_terms}}</textarea>
+                                                 <div id="editor1_error"> </div>
+                                            </div>
+                                        </div>
+
+
                                         <div class="form-group">
                                             <label for="silver" class="col-md-2 control-label">Silver</label>
                                             <div class="col-md-5">
                                                 <input type="text" name="silver" class="form-control" placeholder="Silver Price" value="{{ @$crop->silver}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="normal" class="col-md-2 control-label">Terms and Condition For Silver Policy</label>
+                                            <div class="col-md-9">
+                                               
+                                                <textarea  data-provide="markdown" rows="10" data-error-container="#editor_error" name="silver_terms"> {{ @$crop->silver_terms}}</textarea>
+                                                 <div id="editor1_error"> </div>
                                             </div>
                                         </div>
 
@@ -115,6 +135,16 @@
                                             <div class="col-md-5">
                                                 <input type="text" name="gold" class="form-control" placeholder="Gold Price" value="{{ @$crop->gold}}">
                                             </div>  
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="normal" class="col-md-2 control-label">Terms and Condition For Gold Policy</label>
+                                            <div class="col-md-9">
+
+                                               
+                                                <textarea data-provide="markdown" rows="10" data-error-container="#editor_error" name="gold_terms">{!! @$crop->gold_terms !!}</textarea>
+                                                 <div id="editor1_error"> </div>
+                                            </div>
                                         </div>
                               			
                                            

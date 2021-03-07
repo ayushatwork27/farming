@@ -11,7 +11,5 @@ class Crop extends Model
 {
     use HasFactory, SoftDeletes;
     protected $table = 'crops';
-    protected $fillable = [
-		'name','category','normal','silver','gold'
-    ];
+    protected $guarded = [];
 }

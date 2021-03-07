@@ -62,7 +62,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN LOGIN -->
         <div class="content">
             <div class="row login-wrap">
-                <div class="col-sm-6">
+                <div class="col-sm-6 text-center">
                     <div class="login-left-logo">
                         <img src="../assets/pages/img/login-left-logo.png" alt="" />
                     </div>

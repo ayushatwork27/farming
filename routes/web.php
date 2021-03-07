@@ -76,6 +76,9 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::get('status_update/{id}',[App\Http\Controllers\Admin\CropManagementController::class,'status_update'])->name('admin.status_update');
 
 		Route::get('user_detail/{user_id}', [App\Http\Controllers\Admin\UserManagementController::class, 'user_detail'])->name('admin.user_detail');
+		Route::get('download_image/{user_id}/{path}', [App\Http\Controllers\Admin\UserManagementController::class, 'download_image'])->name('admin.download_image');
+
+		Route::get('update_user_status/{user_id}', [App\Http\Controllers\Admin\UserManagementController::class, 'update_user_status'])->name('admin.update_user_status');
 
 	});
 });

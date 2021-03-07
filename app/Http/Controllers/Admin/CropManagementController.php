@@ -45,6 +45,7 @@ class CropManagementController extends Controller
     public function updatecrop(Request $request,$crop_id)
     {
         $crop = Crop::find($crop_id);
+
         return view('admin.createcrop',['crop'=>$crop]);
     }
 
@@ -63,12 +64,12 @@ class CropManagementController extends Controller
             Crop::find($request->id)->update($request->all());
         }else{
 
-         Crop::create($request->all());
+            Crop::create($request->all());
 
         }
 
          return redirect()->route('admin.crop_user_list')
-         ->with('success','Created Successfully');
+                        ->with('success','Created Successfully');
     }
 
     
@@ -92,7 +93,7 @@ class CropManagementController extends Controller
         $student->update($request->all());
 
         return redirect()->route('admin.crop')
-        ->with('success','Update Successfully');
+                        ->with('success','Update Successfully');
     }
      
 
@@ -100,9 +101,9 @@ class CropManagementController extends Controller
     {
     	//get product status with the help of product ID
     	$crop = DB::table('crops')
-    				->select('active')
-    				->where('id','=',$id)
-    				->first();
+          				->select('active')
+          				->where('id','=',$id)
+          				->first();
 
     	//Check user status
     	if($crop->active == '1'){
