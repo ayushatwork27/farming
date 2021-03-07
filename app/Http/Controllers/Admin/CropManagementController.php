@@ -97,27 +97,27 @@ class CropManagementController extends Controller
      
 
      public function status_update($id)
-{
-	//get product status with the help of product ID
-	$crop = DB::table('crops')
-				->select('active')
-				->where('id','=',$id)
-				->first();
+    {
+    	//get product status with the help of product ID
+    	$crop = DB::table('crops')
+    				->select('active')
+    				->where('id','=',$id)
+    				->first();
 
-	//Check user status
-	if($crop->active == '1'){
-		$active = '0';
-	}else{
-		$active = '1';
-	}
+    	//Check user status
+    	if($crop->active == '1'){
+    		$active = '0';
+    	}else{
+    		$active = '1';
+    	}
 
-	//update product status
-	$values = array('active' => $active );
-	DB::table('crops')->where('id',$id)->update($values);
+    	//update product status
+    	$values = array('active' => $active );
+    	DB::table('crops')->where('id',$id)->update($values);
 
-	session()->flash('msg','crop status has been updated successfully.');
-	return redirect('admin/crop_user_list');
-}
+    	session()->flash('msg','crop status has been updated successfully.');
+    	return redirect('admin/crop_user_list');
+    }
 
     
     public function destroy(crop $crop)

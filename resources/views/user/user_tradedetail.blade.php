@@ -80,9 +80,15 @@ $(document).ready(function(){
                                         <strong>Success:</strong> {{ session()->get('feedback') }}
                                     </div>
                                 @endif
+                                <h2> {{ $crop->name }}</h2>
+                                <ul>
+                                     <li>Gold : {{ $crop->gold }}</li>
+                                     <li>Silver : {{ $crop->silver }}</li>
+                                     <li>Normal : {{ $crop->normal }} </li>
+                                </ul>
 
                                 <div class="portlet-body">
-                                    <form class="form-horizontal" role="form" action="{{ route('user.user_tradedetail') }}" method="POST">
+                                    <form class="form-horizontal" role="form" action="{{ route('user.save_user_tradedetail') }}" method="POST">
                                         {{ csrf_field() }}
                                         <h4>Trade Details</h4>
                                          <hr>
@@ -105,9 +111,16 @@ $(document).ready(function(){
                                         </div> -->
 
                                          <div class="form-group">
-                                            <label for="normal" class="col-md-2 control-label">Accepected Rate</label>
+                                            <label for="normal" class="col-md-2 control-label">Select Policy Type</label>
                                             <div class="col-md-5">
-                                                <input type="text" name="accepected_rate" class="form-control" placeholder="Accepected Rate Price" value="{{ $data ?? '' }} rupess" disabled> 
+
+
+                                                <select class="form-control" id="policy_type" placeholder="Policy Type" name="policy_type" value="">
+                                                    <option value="gold">Gold</option>
+                                                    <option value="silver">Silver</option>
+                                                    <option value="normal">Normal</option>
+                                                </select>
+
                                             </div>
                                         </div>
                                         <div class="form-group">

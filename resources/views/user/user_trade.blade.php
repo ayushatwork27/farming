@@ -79,6 +79,21 @@
                                         {{ csrf_field() }}
                                         <h4>Trade Details</h4>
                                          <hr>
+                                        
+                                        <div class="form-group">
+                                            <label for="name" class="col-md-2 control-label">Crops</label>
+                                            <div class="col-md-5">
+                                                
+                                                <select class="form-control" id="crop_id" placeholder="Crop" name="crop_id" value="">
+                                                    <option value="1">Sarso</option>
+                                                    <option value="2">Gehu</option>
+                                                    <option value="3">Chamwal</option>
+                                                </select>
+
+                                            </div>
+                                            
+                                        </div>
+
                                          <div class="form-group">
                                             <label for="name" class="col-md-2 control-label">ID</label>
                                             <div class="col-md-5">
