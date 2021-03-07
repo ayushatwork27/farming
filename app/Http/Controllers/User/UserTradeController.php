@@ -20,6 +20,20 @@ class UserTradeController extends Controller
     	return view('user.user_trade',['crops'=>$crops]);
 
     }
+    public function usertrades_show(Request $request)
+    {
+
+    	$trades = Crop::join('trades', 'crops.id', '=', 'trades.crop_id')
+				   ->select('crops.name','crops.category','trades.quantity','trades.area','trades.accepected_rate','trades.policy_type','trades.actual_price','trades.created_at')
+				   
+				   ->get();
+				   // print($trades);die;
+
+    	return view('user.usertrades_show',['trades'=>$trades]);
+    	
+
+    }
+   
 
     public function user_tradedetail(Request $request)
     {

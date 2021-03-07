@@ -84,10 +84,15 @@
                                             <label for="name" class="col-md-2 control-label">Crops</label>
                                             <div class="col-md-5">
                                                 
-                                                <select class="form-control" id="crop_id" placeholder="Crop" name="crop_id" value="">
+                                                <!-- <select class="form-control" id="crop_id" placeholder="Crop" name="crop_id" value="">
                                                     <option value="1">Sarso</option>
                                                     <option value="2">Gehu</option>
                                                     <option value="3">Chamwal</option>
+                                                </select> -->
+                                                <select class="form-control" name="item_id">
+                                                    @foreach($crops as $crop)
+                                                        <option value="{{$crop->crop_id}}">{{$crop->name}}</option> 
+                                                    @endforeach
                                                 </select>
 
                                             </div>
@@ -96,10 +101,10 @@
 
                                          <div class="form-group">
                                             <label for="name" class="col-md-2 control-label">ID</label>
-                                            <div class="col-md-5">
+                                            <!-- <div class="col-md-5">
 
                                                 <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="{{ Auth::user()->name }}" disabled>  
-                                            </div>
+                                            </div> -->
                                             
                                         </div>
                                          <div class="form-group">

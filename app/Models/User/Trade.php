@@ -9,7 +9,8 @@ class Trade extends Model
 {
     use HasFactory;
     protected $table = 'trades';
-    protected $fillable = [
-		'quantity','area','accepected_rate'
+    protected $gaurded = [
+		
     ];
+    protected $dates = ['created_at'];
 }

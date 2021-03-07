@@ -36,7 +36,7 @@ BEGIN SIDEBAR -->
                             </a>
                         </li> -->
                         <li class="nav-item start ">
-                            <a href="{{route('user.user_trade')}}" class="nav-link nav-toggle">
+                            <a href="{{route('user.usertrades_show')}}" class="nav-link nav-toggle">
                                 <i class="fa fa-trademark"></i>
                                 <span class="title">Trades</span>
                                 <span class="arrow"></span>

@@ -37,7 +37,8 @@ Route::group(['prefix'=>'user'],function(){
 		Route::get('dasboard', [App\Http\Controllers\User\DashboardController::class, 'dashboard_view'])->name('user.dashboard');
 
 		Route::get('register', [App\Http\Controllers\User\UserDetailsController::class, 'user_register_form'])->name('user.register_form');
-		Route::get('user_trade', [App\Http\Controllers\User\UserTradeController::class, 'user_trade'])->name('user.user_trade');
+		Route::get('usertrades_show', [App\Http\Controllers\User\UserTradeController::class, 'usertrades_show'])->name('user.usertrades_show');
+		Route::get('trade_user_list', [App\Http\Controllers\User\UserTradeController::class, 'user_trade'])->name('user.trade_user_list');
 		Route::post('user_tradedetail', [App\Http\Controllers\User\UserTradeController::class, 'user_tradedetail'])->name('user.user_tradedetail');
 		Route::post('save_user_tradedetail', [App\Http\Controllers\User\UserTradeController::class, 'save_user_tradedetail'])->name('user.save_user_tradedetail');
 

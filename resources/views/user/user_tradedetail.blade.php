@@ -80,13 +80,13 @@ $(document).ready(function(){
                                         <strong>Success:</strong> {{ session()->get('feedback') }}
                                     </div>
                                 @endif
-                                <h2> {{ $crop->name }}</h2>
-                                <ul>
-                                     <li>Gold : {{ $crop->gold }}</li>
-                                     <li>Silver : {{ $crop->silver }}</li>
-                                     <li>Normal : {{ $crop->normal }} </li>
+                                <h2 color=red;><b> {{ $crop->name }}</b></h2>
+                                <ul >
+                                     <li class="list-group-item list-group-item-success">Gold : {{ $crop->gold }}</li>
+                                     <li class="list-group-item list-group-item-secondary">Silver : {{ $crop->silver }}</li>
+                                     <li class="list-group-item active">Normal : {{ $crop->normal }} </li>
                                 </ul>
-
+                        
                                 <div class="portlet-body">
                                     <form class="form-horizontal" role="form" action="{{ route('user.save_user_tradedetail') }}" method="POST">
                                         {{ csrf_field() }}
@@ -94,7 +94,7 @@ $(document).ready(function(){
                                          <hr>
 
                                          
-                                         <h3>today{{ $bhavit ?? ''}}</h3>
+                                         
                                         
                                         <!--  <div class="form-group">
                                             <label for="name" class="col-md-2 control-label">Quantity</label>
@@ -110,24 +110,26 @@ $(document).ready(function(){
                                             </div>
                                         </div> -->
 
-                                         <div class="form-group">
-                                            <label for="normal" class="col-md-2 control-label">Select Policy Type</label>
+                                        <div class="form-group">
+                                           <label for="normal" class="col-md-2 control-label">Select Policy Type</label>
                                             <div class="col-md-5">
 
 
-                                                <select class="form-control" id="policy_type" placeholder="Policy Type" name="policy_type" value="">
+                                                <!-- <select class="form-control" id="policy_type" placeholder="Policy Type" name="policy_type" value="">
                                                     <option value="gold">Gold</option>
                                                     <option value="silver">Silver</option>
                                                     <option value="normal">Normal</option>
+                                                </select> -->
+                                                <select class="form-control" name="item_id">
+                                                    @foreach($crops as $crop)
+                                                        <option value="{{$crop->crop_id}}">{{$crop->name}}</option> 
+                                                    @endforeach
                                                 </select>
 
-                                            </div>
+                                             </div>
                                         </div>
-                                        <div class="form-group">
-  <h3>Choose</h3>
-  <input type="checkbox" name="skill" value="male"> Male
-<input type="checkbox" name="skill" value="female"> Female
-<input type="checkbox" name="skill" value="other"> Other
+                                       
+  
 
                                         
                                            
