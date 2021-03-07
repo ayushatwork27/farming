@@ -80,6 +80,14 @@
                                         <h4>Trade Details</h4>
                                          <hr>
                                          <div class="form-group">
+                                            <label for="name" class="col-md-2 control-label">ID</label>
+                                            <div class="col-md-5">
+
+                                                <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="{{ Auth::user()->name }}" disabled>  
+                                            </div>
+                                            
+                                        </div>
+                                         <div class="form-group">
                                             <label for="name" class="col-md-2 control-label">Quantity</label>
                                             <div class="col-md-5">
                                                 <input type="number" name="quantity" class="form-control" placeholder="Quantity" > 

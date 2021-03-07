@@ -1,7 +1,14 @@
 @extends('user.userlayout.container')
 
 @section('container')
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('input:checkbox').click(function() {
+        $('input:checkbox').not(this).prop('checked', false);
+    });
+});
+</script>
 <h1 class="page-title"> Create Trade 
                         <small></small>
                     </h1>
@@ -79,6 +86,10 @@
                                         {{ csrf_field() }}
                                         <h4>Trade Details</h4>
                                          <hr>
+
+                                         
+                                         <h3>today{{ $bhavit ?? ''}}</h3>
+                                        
                                         <!--  <div class="form-group">
                                             <label for="name" class="col-md-2 control-label">Quantity</label>
                                             <div class="col-md-5">
@@ -96,9 +107,15 @@
                                          <div class="form-group">
                                             <label for="normal" class="col-md-2 control-label">Accepected Rate</label>
                                             <div class="col-md-5">
-                                                <input type="text" name="accepected_rate" class="form-control" placeholder="Accepected Rate Price" value="{{ $data ?? '' }}"> 
+                                                <input type="text" name="accepected_rate" class="form-control" placeholder="Accepected Rate Price" value="{{ $data ?? '' }} rupess" disabled> 
                                             </div>
                                         </div>
+                                        <div class="form-group">
+  <h3>Choose</h3>
+  <input type="checkbox" name="skill" value="male"> Male
+<input type="checkbox" name="skill" value="female"> Female
+<input type="checkbox" name="skill" value="other"> Other
+
                                         
                                            
 
