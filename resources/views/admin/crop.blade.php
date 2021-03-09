@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="col-lg-12 margin-tb">
                                         <div class="pull-right">
-                                            <a class="btn btn-success" href="{{ route('admin.createcrop') }}">Create New Crop</a>
+                                            <a class="btn btn-success" href="{{ route('admin.create') }}">Create New Crop</a>
                                         </div>
                                             
                                     </div>
@@ -104,7 +104,7 @@
                                                      @endif                                   </td>
                                                    
                                                     <td>
-                                                        {!! Html::linkRoute('admin.updatecrop',' Edit',[$crop->id],['class'=>'btn btn-outline btn-circle btn-sm blue jquery-btn-view']) !!}
+                                                        {!! Html::linkRoute('admin.update',' Edit',[$crop->id],['class'=>'btn btn-outline btn-circle btn-sm blue jquery-btn-view']) !!}
 
         
                                                     </td>

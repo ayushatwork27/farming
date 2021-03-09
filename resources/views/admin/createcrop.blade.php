@@ -75,7 +75,7 @@
                                 @endif
 
                                 <div class="portlet-body">
-                                    <form class="form-horizontal" role="form" action="{{ route('admin.storecrop') }}" method="POST">
+                                    <form class="form-horizontal" role="form" action="{{ route('admin.store') }}" method="POST">
                                         {{ csrf_field() }}
                                         <h4>Crop Details</h4>
                                          <hr>
@@ -154,7 +154,7 @@
                               				
                                             <div class="col-md-offset-2 col-md-10">
                                                 <button type="submit" class="btn blue pull-left">Save</button>
-                                                <a class="btn btn-primary pull-right" href="{{ route('admin.crop_user_list') }}">Back</a>
+                                                <a class="btn btn-primary pull-right" href="{{ route('admin.index') }}">Back</a>
 
                                             </div>
                                         </div>

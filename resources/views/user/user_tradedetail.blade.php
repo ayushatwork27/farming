@@ -80,11 +80,11 @@ $(document).ready(function(){
                                         <strong>Success:</strong> {{ session()->get('feedback') }}
                                     </div>
                                 @endif
-                                <h2 color=red;><b> {{ $crop->name }}</b></h2>
+                                <h2><b> {{ @$crop->name }}</b></h2>
                                 <ul >
-                                     <li class="list-group-item list-group-item-success">Gold : {{ $crop->gold }}</li>
-                                     <li class="list-group-item list-group-item-secondary">Silver : {{ $crop->silver }}</li>
-                                     <li class="list-group-item active">Normal : {{ $crop->normal }} </li>
+                                     <li class="list-group-item list-group-item-success">Gold : {{ @$crop->gold }}</li>
+                                     <li class="list-group-item list-group-item-secondary">Silver : {{ @$crop->silver }}</li>
+                                     <li class="list-group-item active">Normal : {{ @$crop->normal }} </li>
                                 </ul>
                         
                                 <div class="portlet-body">
@@ -115,16 +115,14 @@ $(document).ready(function(){
                                             <div class="col-md-5">
 
 
-                                                <!-- <select class="form-control" id="policy_type" placeholder="Policy Type" name="policy_type" value="">
+                                                <select class="form-control" id="policy_type" placeholder="Policy Type" name="policy_type" value="">
                                                     <option value="gold">Gold</option>
                                                     <option value="silver">Silver</option>
                                                     <option value="normal">Normal</option>
-                                                </select> -->
-                                                <select class="form-control" name="item_id">
-                                                    @foreach($crops as $crop)
-                                                        <option value="{{$crop->crop_id}}">{{$crop->name}}</option> 
-                                                    @endforeach
                                                 </select>
+                                                
+
+                                                
 
                                              </div>
                                         </div>

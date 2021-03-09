@@ -1,8 +1,8 @@
-@extends('user.userlayout.container')
+@extends('admin.adminlayout.container')
 
 @section('container')
 
-<h1 class="page-title"> Create Trade 
+<h1 class="page-title"> Create New trade 
                         <small></small>
                     </h1>
                     <div class="page-bar">
@@ -13,7 +13,7 @@
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             <li>
-                                <a href="#">Create Trade</a>
+                                <a href="#">Create New trade</a>
                             </li>
                         </ul>
                         <div class="page-toolbar">
@@ -53,7 +53,7 @@
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-share font-dark"></i>
-                                        <span class="caption-subject font-dark bold uppercase">Create Trade</span>
+                                        <span class="caption-subject font-dark bold uppercase">Create New trade</span>
                                     </div>
                                     <div class="actions">
                                         <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
@@ -75,54 +75,78 @@
                                 @endif
 
                                 <div class="portlet-body">
-                                    <form class="form-horizontal" role="form" action="{{ route('user.user_tradedetail') }}" method="POST">
+                                    <form class="form-horizontal" role="form" action="{{ route('admin.store') }}" method="POST">
                                         {{ csrf_field() }}
-                                        <h4>Trade Details</h4>
+                                        <h4>trade Details</h4>
                                          <hr>
-                                        
-                                        <div class="form-group">
-                                            <label for="name" class="col-md-2 control-label">Crops</label>
-                                            <div class="col-md-5">
-                                                
-                                                <select class="form-control" name="id">
-                                                    @foreach($crops as $crop)
-                                                        <option value="{{$crop->id}}">{{$crop->name}}</option> 
-                                                    @endforeach
-                                                </select>
-
-                                            </div>
-                                            
-                                        </div>
-
-                                         <!-- <div class="form-group">
-                                            <label for="name" class="col-md-2 control-label">ID</label>
-                                            <div class="col-md-5">
-
-                                                <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="{{ Auth::user()->name }}" disabled>  
-                                            </div>
-                                            
-                                        </div> -->
                                          <div class="form-group">
-                                            <label for="name" class="col-md-2 control-label">Quantity</label>
+                                            <label for="name" class="col-md-2 control-label">Name</label>
                                             <div class="col-md-5">
-                                                <input type="number" name="quantity" class="form-control" placeholder="Quantity" > 
+                                                <input type="text" name="name" class="form-control" placeholder="Name" value="{{ @$trade->name}}"> 
                                             </div>
-                                            
+                                            <input type="hidden" name="id" class="form-control" placeholder="id" value="{{ @$trade->id}}">
                                         </div>
                                         <div class="form-group">
-                                            <label for="category" class="col-md-2 control-label">Area</label>
+                                            <label for="category" class="col-md-2 control-label">Category</label>
                                             <div class="col-md-5">
-                                                <input type="number" name="area" class="form-control" placeholder="Area" >
+                                                <input type="text" name="category" class="form-control" placeholder="Category" value="{{ @$trade->category}}">
                                             </div>
                                         </div>
 
+                                        
+                                        <hr>
+                                        <h4>Rate Of Fasal</h4>
+                                        <hr>
                                          <div class="form-group">
-                                            <label for="normal" class="col-md-2 control-label">Accepected Rate</label>
+                                            <label for="normal" class="col-md-2 control-label">Normal</label>
                                             <div class="col-md-5">
-                                                <input type="number" name="accepected_rate" class="form-control" placeholder="Accepected Rate Price" value=""> 
+                                                <input type="text" name="normal" class="form-control" placeholder="Normal Price" value="{{ @$trade->normal}}"> 
                                             </div>
                                         </div>
-                                        
+
+                                        <div class="form-group">
+                                            <label for="normal" class="col-md-2 control-label">Terms and Condition For Normal Policy</label>
+                                            <div class="col-md-9">
+
+                                               
+                                                <textarea data-provide="markdown" rows="10" data-error-container="#editor_error" name="normal_terms">{{ @$trade->normal_terms}}</textarea>
+                                                 <div id="editor1_error"> </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="silver" class="col-md-2 control-label">Silver</label>
+                                            <div class="col-md-5">
+                                                <input type="text" name="silver" class="form-control" placeholder="Silver Price" value="{{ @$trade->silver}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="normal" class="col-md-2 control-label">Terms and Condition For Silver Policy</label>
+                                            <div class="col-md-9">
+                                               
+                                                <textarea  data-provide="markdown" rows="10" data-error-container="#editor_error" name="silver_terms"> {{ @$trade->silver_terms}}</textarea>
+                                                 <div id="editor1_error"> </div>
+                                            </div>
+                                        </div>
+
+                                          <div class="form-group">
+                                            <label for="gold" class="col-md-2 control-label">Gold</label>
+                                            <div class="col-md-5">
+                                                <input type="text" name="gold" class="form-control" placeholder="Gold Price" value="{{ @$trade->gold}}">
+                                            </div>  
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="normal" class="col-md-2 control-label">Terms and Condition For Gold Policy</label>
+                                            <div class="col-md-9">
+
+                                               
+                                                <textarea data-provide="markdown" rows="10" data-error-container="#editor_error" name="gold_terms">{!! @$trade->gold_terms !!}</textarea>
+                                                 <div id="editor1_error"> </div>
+                                            </div>
+                                        </div>
+                              			
                                            
 
 
@@ -130,7 +154,7 @@
                               				
                                             <div class="col-md-offset-2 col-md-10">
                                                 <button type="submit" class="btn blue pull-left">Save</button>
-                                                
+                                                <a class="btn btn-primary pull-right" href="{{ route('admin.index') }}">Back</a>
 
                                             </div>
                                         </div>

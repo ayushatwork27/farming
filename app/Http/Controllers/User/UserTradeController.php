@@ -5,7 +5,6 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Crop;
 use App\Models\User\Trade;
-
 use Illuminate\Http\Request;
 
 
@@ -16,7 +15,7 @@ class UserTradeController extends Controller
 
     {
         $crops =  Crop::all();
-
+        // dd($request->all());
     	return view('user.user_trade',['crops'=>$crops]);
 
     }
@@ -25,22 +24,28 @@ class UserTradeController extends Controller
 
     	$trades = Crop::join('trades', 'crops.id', '=', 'trades.crop_id')
 				   ->select('crops.name','crops.category','trades.quantity','trades.area','trades.accepected_rate','trades.policy_type','trades.actual_price','trades.created_at')
-				   
 				   ->get();
 				   // print($trades);die;
-
+				  
     	return view('user.usertrades_show',['trades'=>$trades]);
     	
 
     }
-   
+    
+    // public function view_trades(Request $request,$id)
+    // {
+        
+    //     $trades = Trade::find($id);
+
+    //     return view('user.view_trade',['trade'=>$trades]);
+    // }
 
     public function user_tradedetail(Request $request)
     {
 
 
         $request->session()->put('create_trade', [
-                                'crop_id'=>$request->crop_id, 
+                                'id'=>$request->id, 
                                 'quantity'=>$request->quantity, 
                                 'area'=>$request->area, 
                                 'accepected_rate'=>$request->accepected_rate, 
@@ -48,7 +53,9 @@ class UserTradeController extends Controller
 
        // dd($request->all());
 
-        $crop = Crop::find($request->crop_id);
+        $crop = Crop::find($request->id);
+        // dd($request->all());
+
     	return view('user.user_tradedetail',['crop'=>$crop]);
     }
 
@@ -57,14 +64,16 @@ class UserTradeController extends Controller
        $create_trade =  \Session::get('create_trade'); 
       // dd($create_trade);
        $trade =  new Trade;
-       $trade->crop_id= $create_trade['crop_id'];
+       $trade->id= $create_trade['id'];
        $trade->quantity= $create_trade['quantity'];
        $trade->area= $create_trade['area'];
        $trade->accepected_rate= $create_trade['accepected_rate'];
        $trade->policy_type= $request->policy_type;
 
 
-       $crop = Crop::find($create_trade['crop_id']);
+       $crop = Crop::find($create_trade['id']);
+       $trade->crop_id=$create_trade['id'];
+       // dd($request->all());
 
        if($request->policy_type == 'gold'){
 
@@ -86,6 +95,7 @@ class UserTradeController extends Controller
 
        $trade->save();
 
+       // return view('user.usertrades_show',['trade'=>$trade]);
 
 
     }

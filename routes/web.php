@@ -41,6 +41,7 @@ Route::group(['prefix'=>'user'],function(){
 		Route::get('trade_user_list', [App\Http\Controllers\User\UserTradeController::class, 'user_trade'])->name('user.trade_user_list');
 		Route::post('user_tradedetail', [App\Http\Controllers\User\UserTradeController::class, 'user_tradedetail'])->name('user.user_tradedetail');
 		Route::post('save_user_tradedetail', [App\Http\Controllers\User\UserTradeController::class, 'save_user_tradedetail'])->name('user.save_user_tradedetail');
+		Route::get('view_trades/{id}', [App\Http\Controllers\Admin\UserTradeController::class, 'view_trades'])->name('user.view_trades');
 
 		Route::post('save_user_details', [App\Http\Controllers\User\UserDetailsController::class, 'save_user_details'])->name('user.save_user_details');
 
@@ -66,13 +67,13 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::get('dasboard', [App\Http\Controllers\Admin\DashboardController::class, 'dashboard_view'])->name('admin.dashboard');
 		Route::get('registered_user_list', [App\Http\Controllers\Admin\UserManagementController::class, 'registered_user_list'])->name('admin.registered_user_list');
 
-		Route::get('crop_user_list', [App\Http\Controllers\Admin\CropManagementController::class, 'crop_user_list'])->name('admin.crop_user_list');
+		Route::get('index', [App\Http\Controllers\Admin\CropManagementController::class, 'index'])->name('admin.index');
 
-		Route::get('createcrop', [App\Http\Controllers\Admin\CropManagementController::class, 'createcrop'])->name('admin.createcrop');
+		Route::get('create', [App\Http\Controllers\Admin\CropManagementController::class, 'create'])->name('admin.create');
 
-		Route::get('updatecrop/{crop_id}', [App\Http\Controllers\Admin\CropManagementController::class, 'updatecrop'])->name('admin.updatecrop');
+		Route::get('update/{crop_id}', [App\Http\Controllers\Admin\CropManagementController::class, 'update'])->name('admin.update');
 		
-		Route::post('storecrop', [App\Http\Controllers\Admin\CropManagementController::class, 'storecrop'])->name('admin.storecrop');
+		Route::post('store', [App\Http\Controllers\Admin\CropManagementController::class, 'store'])->name('admin.store');
 		Route::get('status_update/{id}',[App\Http\Controllers\Admin\CropManagementController::class,'status_update'])->name('admin.status_update');
 
 		Route::get('user_detail/{user_id}', [App\Http\Controllers\Admin\UserManagementController::class, 'user_detail'])->name('admin.user_detail');
