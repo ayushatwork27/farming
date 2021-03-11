@@ -20,7 +20,7 @@ class AddColumnInCropsTable extends Migration
             $table->text('normal_terms')->nullable()->after('gold');
             $table->text('silver_terms')->nullable()->after('normal_terms');
             $table->text('gold_terms')->nullable()->after('silver_terms');
-            $table->text('active')->nullable()->default(0)->after('gold_terms');
+            $table->boolean('active')->nullable()->default(0)->after('gold_terms');
         });
     }
 
