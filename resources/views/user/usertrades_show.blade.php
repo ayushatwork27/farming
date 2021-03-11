@@ -9,7 +9,7 @@
                         <ul class="page-breadcrumb">
                             <li>
                                 <i class="icon-home"></i>
-                                <a href="index.html">Crop List</a>
+                                <a href="index.html">Trade List</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             
@@ -51,11 +51,11 @@
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class=" icon-layers font-green"></i>
-                                        <span class="caption-subject font-green sbold uppercase">Crop List</span>
+                                        <span class="caption-subject font-green sbold uppercase">Trade List</span>
                                     </div>
                                     <div class="col-lg-12 margin-tb">
                                         <div class="pull-right">
-                                            <a class="btn btn-success" href="{{ route('user.trade_user_list') }}">Create New Crop</a>
+                                            <a class="btn btn-success" href="{{ route('user.trade_user_list') }}">Create New Trade</a>
                                         </div>
                                             
                                     </div>
@@ -68,12 +68,12 @@
                                                 
                                                 <th> Name </th>
                                                 <th> Crop </th>
-                                                <th> quantity </th>
-                                                <th> area</th>
-                                                <th> accepected rate </th>
-                                                <th> policy type </th>
-                                                <th> actual price</th>
-                                                <th> date</th>
+                                                <th> Quantity </th>
+                                                <th> Area </th>
+                                                <th> Accepected rate </th>
+                                                <th> Policy type  </th>
+                                                <th> Actual price </th>
+                                                <th> Date </th>
                                                 <th> Action </th>
                                             </tr>
                                         </thead>
@@ -92,7 +92,6 @@
                                                     <td>{{$trade->quantity}}</td>
                                                     <td>{{$trade->area}}</td>
                                                     <td>{{$trade->accepected_rate}}</td>
-
                                                     <td>{{$trade->policy_type}}</td>
                                                     <td>{{$trade->actual_price}}</td>
                                                     <td>{{$trade->created_at->format('d/m/Y') }}</td>
@@ -108,12 +107,8 @@
                                    {{-- {{$users->links()}}  --}} 
                                 </div>                            
 
-                        </div>
-                     
-                               
-                               
-
-                            </div>
+                          </div>
+                       </div>
                             <!-- END EXAMPLE TABLE PORTLET-->
                         </div>
                     </div>
