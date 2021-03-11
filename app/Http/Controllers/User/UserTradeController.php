@@ -19,12 +19,15 @@ class UserTradeController extends Controller
     	return view('user.user_trade',['crops'=>$crops]);
 
     }
+
+
+
     public function usertrades_show(Request $request)
     {
 
     	$trades = Crop::join('trades', 'crops.id', '=', 'trades.crop_id')
-				   ->select('crops.name','crops.category','trades.quantity','trades.area','trades.accepected_rate','trades.policy_type','trades.actual_price','trades.created_at')
-				   ->get();
+            				   ->select('crops.name','crops.category','trades.*')
+            				   ->get();
 				   // print($trades);die;
 				  
     	return view('user.usertrades_show',['trades'=>$trades]);
@@ -32,13 +35,15 @@ class UserTradeController extends Controller
 
     }
     
-    // public function view_trades(Request $request,$id)
-    // {
+    public function trade_show(Request $request,$id)
+    {
         
-    //     $trades = Trade::find($id);
+        $trade = Trade::find($id);
 
-    //     return view('user.view_trade',['trade'=>$trades]);
-    // }
+        return view('user.view_trade',['trade'=>$trade]);
+    }
+
+
 
     public function user_tradedetail(Request $request)
     {
@@ -64,7 +69,6 @@ class UserTradeController extends Controller
        $create_trade =  \Session::get('create_trade'); 
       // dd($create_trade);
        $trade =  new Trade;
-       $trade->id= $create_trade['id'];
        $trade->quantity= $create_trade['quantity'];
        $trade->area= $create_trade['area'];
        $trade->accepected_rate= $create_trade['accepected_rate'];
@@ -95,7 +99,7 @@ class UserTradeController extends Controller
 
        $trade->save();
 
-       // return view('user.usertrades_show',['trade'=>$trade]);
+       return redirect()->route('user.usertrades_show');
 
 
     }
