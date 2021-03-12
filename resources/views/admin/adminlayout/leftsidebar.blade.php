@@ -36,6 +36,13 @@
                                 <span class="arrow"></span>
                             </a>
                         </li>
+                        <li class="nav-item start ">
+                            <a href="{{route('admin.indextrades')}}" class="nav-link nav-toggle">
+                                <i class="fa fa-user-plus"></i>
+                                <span class="title">Trade Show</span>
+                                <span class="arrow"></span>
+                            </a>
+                        </li>
                         
                         
                        

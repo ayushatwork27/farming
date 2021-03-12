@@ -14,10 +14,13 @@ class AddColumnInCropsTable extends Migration
     public function up()
     {
         Schema::table('crops', function (Blueprint $table) {
-            
+            $table->string('normal')->nullable();
+            $table->string('silver')->nullable();
+            $table->string('gold')->nullable();
             $table->text('normal_terms')->nullable()->after('gold');
             $table->text('silver_terms')->nullable()->after('normal_terms');
             $table->text('gold_terms')->nullable()->after('silver_terms');
+            $table->boolean('active')->nullable()->default(0)->after('gold_terms');
         });
     }
 

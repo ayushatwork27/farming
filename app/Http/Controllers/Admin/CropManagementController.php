@@ -95,7 +95,7 @@ class CropManagementController extends Controller
 
         session()->flash('msg','crop status has been updated successfully.');
 
-            return redirect('admin/crop_user_list');
+            return redirect('admin/index');
     }
 
     public function destroy($id)

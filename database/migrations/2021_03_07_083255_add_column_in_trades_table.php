@@ -18,6 +18,7 @@ class AddColumnInTradesTable extends Migration
             $table->string('policy_type');
             $table->integer('actual_price');
             $table->integer('created_by');
+            $table->integer('status');
         });
     }
 

@@ -120,18 +120,10 @@ $(document).ready(function(){
                                                     <option value="silver">Silver</option>
                                                     <option value="normal">Normal</option>
                                                 </select>
-                                                
-
-                                                
 
                                              </div>
                                         </div>
                                        
-  
-
-                                        
-                                           
-
 
                               			<div class="form-group">
                               				

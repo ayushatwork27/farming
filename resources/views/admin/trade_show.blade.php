@@ -1,4 +1,4 @@
-@extends('user.userlayout.container')
+@extends('admin.adminlayout.container')
 
 @section('container')
 <!--
@@ -9,7 +9,7 @@
                         <ul class="page-breadcrumb">
                             <li>
                                 <i class="icon-home"></i>
-                                <a href="index.html">Trade List</a>
+                                <a href="index.html">Crop List</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
                             
@@ -51,14 +51,9 @@
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class=" icon-layers font-green"></i>
-                                        <span class="caption-subject font-green sbold uppercase">Trade List</span>
+                                        <span class="caption-subject font-green sbold uppercase">Crop List</span>
                                     </div>
-                                    <div class="col-lg-12 margin-tb">
-                                        <div class="pull-right">
-                                            <a class="btn btn-success" href="{{ route('user.trade_user_list') }}">Create New Trade</a>
-                                        </div>
-                                            
-                                    </div>
+                                    
                                     
                                 </div>
                                  <div class="portlet-body">
@@ -75,7 +70,7 @@
                                                 <th> Policy type </th>
                                                 <th> Actual price</th>
                                                 <th> Date</th>
-
+                                                <th> Created By</th>
                                                 <th> Action </th>
                                             </tr>
                                         </thead>
@@ -97,8 +92,8 @@
                                                     <td>{{$trade->policy_type}}</td>
                                                     <td>{{$trade->actual_price}}</td>
                                                     <td>{{$trade->created_at->format('d/m/Y') }}</td>
-
-                                                    <td>{!! Html::linkRoute('user.trade_show',' View',[$trade->id],['class'=>'btn btn-outline btn-circle btn-sm blue jquery-btn-view']) !!}</td>
+                                                    <td>{{ Auth::user()->name }}</td>
+                                                    <!-- td>{!! Html::linkRoute('user.trade_show',' View',[$trade->id],['class'=>'btn btn-outline btn-circle btn-sm blue jquery-btn-view']) !!}</td> -->
                                                     
                                                    
                                                    
@@ -111,9 +106,48 @@
                                    {{-- {{$users->links()}}  --}} 
                                 </div>                            
 
-                          </div>
-                       </div>
+                        </div>
+                     
+                               
+                               
+
+                            </div>
                             <!-- END EXAMPLE TABLE PORTLET-->
                         </div>
                     </div>
 @endsection
+<script>
+
+  $(function() {
+
+    $('.toggle-class').change(function() {
+
+        var status = $(this).prop('checked') == true ? 1 : 0; 
+
+        var user_id = $(this).data('id'); 
+
+         
+
+        $.ajax({
+
+            type: "GET",
+
+            dataType: "json",
+
+            url: '/changeStatus',
+
+            data: {'status': status, 'user_id': user_id},
+
+            success: function(data){
+
+              console.log(data.success)
+
+            }
+
+        });
+
+    })
+
+  })
+
+</script>
