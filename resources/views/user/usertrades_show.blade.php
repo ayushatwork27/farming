@@ -5,6 +5,7 @@
 <h1 class="page-title">User List
                     </h1>
                 -->
+                
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
                             <li>
@@ -61,8 +62,8 @@
                                     </div>
                                     
                                 </div>
-                                 <div class="portlet-body">
-                                    <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_2">
+                                 <div class="portlet-body" >
+                                   <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_2">
                                         <thead>
                                             <tr>
                                                 
@@ -107,8 +108,11 @@
                                                 @endforeach
                                         </tbody>
                                     </table>
-
-                                   {{-- {{$users->links()}}  --}} 
+                                    <div class="row">  
+                                     <div class="col-lg-12">
+                                     {{ $trades->links() }}
+                                     </div>
+                                    </div>
                                 </div>                            
 
                           </div>
@@ -116,4 +120,5 @@
                             <!-- END EXAMPLE TABLE PORTLET-->
                         </div>
                     </div>
+
 @endsection

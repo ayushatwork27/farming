@@ -9,6 +9,7 @@ class Trade extends Model
 {
     use HasFactory;
     protected $table = 'trades';
+    protected $guarded = array('id');
     protected $gaurded = [
 		
     ];

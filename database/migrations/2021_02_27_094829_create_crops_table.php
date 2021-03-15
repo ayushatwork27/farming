@@ -17,11 +17,7 @@ class CreateCropsTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('category')->nullable();
-            $table->string('normal')->nullable();
-            $table->string('silver')->nullable();
-            $table->string('gold')->nullable();
-            $table->boolean('active')->default('0')->nullable();
-            $table->softDeletes();
+            
             $table->timestamps();
 
         });

@@ -41,6 +41,8 @@ Route::group(['prefix'=>'user'],function(){
 		Route::get('trade_user_list', [App\Http\Controllers\User\UserTradeController::class, 'user_trade'])->name('user.trade_user_list');
 		Route::post('user_tradedetail', [App\Http\Controllers\User\UserTradeController::class, 'user_tradedetail'])->name('user.user_tradedetail');
 		Route::post('save_user_tradedetail', [App\Http\Controllers\User\UserTradeController::class, 'save_user_tradedetail'])->name('user.save_user_tradedetail');
+		
+		// Route::get('user/post', [App\Http\Controllers\User\UserTradeController::class, 'usertrades_show'])->name('user.post');
 
 		Route::get('trade_show/{id}', [App\Http\Controllers\User\UserTradeController::class, 'trade_show'])->name('user.trade_show');
 

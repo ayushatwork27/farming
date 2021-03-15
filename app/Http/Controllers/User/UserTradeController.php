@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Crop;
 use App\Models\User\Trade;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\View;
 
 class UserTradeController extends Controller
 {
@@ -27,14 +27,24 @@ class UserTradeController extends Controller
 
     	$trades = Crop::join('trades', 'crops.id', '=', 'trades.crop_id')
             				   ->select('crops.name','crops.category','trades.*')
-            				   ->get();
-				   // print($trades);die;
-				  
-    	return view('user.usertrades_show',['trades'=>$trades]);
+            				   
+            				   ->Paginate(3);
+            				   // dd($trades);
+           
+        if ($request->ajax()) {
+            return Response::json(view::make('user.usertrades_show', array('trades' => $trades))->render());
+
+          }
+
+          return view('user.post',['trades'=>$trades]);
+            
     	
 
-    }
+     }
+
     
+
+   
     public function trade_show(Request $request,$id)
     {
         
