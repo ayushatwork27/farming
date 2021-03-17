@@ -1,0 +1,21 @@
+10000
+	4 installment
+1 year
+1000 kg/4
+
+10000
+	70000 /4
+
+	1650  barcode(5 digit) 250 kg  trade_date (even number)  [add payment]
+	1650  barcode(5 digit) 250 kg  trade_date (even number)  [add payment]
+	1650  barcode(5 digit) 250 kg  trade_date (even number)  [add payment]
+	1650  barcode(5 digit) 250 kg  trade_date (even number)  [add payment]
+
+
+
+Silver 70%
+Gold 50 %
+Normal 0%
+
+
+

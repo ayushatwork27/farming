@@ -1,0 +1,226 @@
+@extends('admin.adminlayout.container')
+
+@section('container')
+<h1 class="page-title"> Trade Details 
+                        <small></small>
+                    </h1>
+                   
+                    <!-- END PAGE HEADER-->
+                    <div class="profile">
+                        <div class="tabbable-line tabbable-full-width">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#tab_1_1" data-toggle="tab"> Overview </a>
+                                </li>
+                               
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab_1_1">
+                                    <div class="row">
+                                        
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-8 profile-info">
+                                                    <h1 class="font-green sbold uppercase">
+                                                        {{ @$trade->name}}</h1>
+                                                    <p>
+                                                        </p>
+                                                    <p>
+                                                        
+                                                    </p>
+                                                    <ul class="list-inline">
+                                                        <li>
+                                                            <i class="fa fa-calendar"></i> <strong>Created on:</strong> 
+                                                            {{@$trade->created_at->format('d.m.Y')}} 
+                                                        </li>
+                                                         <li>
+                                                            <i class="fa fa-calendar"></i> <strong>Last Updated on:</strong> 
+                                                            {{@$trade->updated_at->format('d.m.Y')}} 
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa-trademark"></i> <strong>Trade Status</strong> 
+                                                            {{@ucfirst($trade->status)}} 
+                                                        </li>
+                                                        @if($trade->status == 0)
+                                                            <li>
+                                                               <button type="button" class="btn btn-success" id="edit-item" data-item-id="{{$trade->id}}">Approve</button>
+                                                               <input type="hidden" class="form-control" name="trade_id" value="{{$trade->id}}" id="#trade_id">
+
+                                                            </li>
+                                                        @endif
+
+                                                       
+                                                    </ul>
+                                                </div>
+                                                <!--end col-md-8-->
+                                               
+                                                
+                                            </div>
+                                            
+                                            <!--end row-->
+                                            <div class="tabbable-line tabbable-custom-profile">
+                                                <ul class="nav nav-tabs">
+                                                    <li class="active">
+                                                        <a href="#tab_1_11" data-toggle="tab"> Trade Information </a>
+                                                    </li>
+                                                    
+                                                </ul>
+                                                <div class="tab-content">
+                                                    <div class="tab-pane active" id="tab_1_11">
+                                                        
+                                                        <div class="portlet-body">
+                                                            <table class="table table-striped table-bordered table-advance table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th> <i class="fa fa-briefcase"></i> Trade</th>
+                                                                        <th> <i class="fa fa-briefcase"></i> Detail</th>
+                                                                    </tr>
+                                                                    
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td> 
+                                                                             Crop
+                                                                        </td>
+                                                                        <td>
+                                                                           {{ @$trade->crop_name}} 
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td> 
+                                                                             Quantity
+                                                                        </td>
+                                                                        <td>
+                                                                           {{ @$trade->quantity}} 
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td> 
+                                                                             Area
+                                                                        </td>
+                                                                        <td>
+                                                                            {{ @$trade->area}} 
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td> 
+                                                                             Accepected Rate
+                                                                        </td>
+                                                                        <td>
+                                                                            {{ @$trade->accepected_rate}} 
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td> 
+                                                                             Policy Type
+                                                                        </td>
+                                                                        <td>
+                                                                            {{ @ucfirst($trade->policy_type) }} 
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td> 
+                                                                            Actual Price
+                                                                        </td>
+                                                                        <td>
+                                                                            {{ @$trade->actual_price }} 
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td> 
+                                                                            Customer Name
+                                                                        </td>
+                                                                        <td>
+                                                                            {{ @$trade->created_by_name }} 
+                                                                        </td>
+                                                                    </tr>
+                                                                    
+                                                                    
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <!--tab-pane-->
+                                                   
+                                                    <!--tab-pane-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Attachment Modal -->
+                    <div class="modal fade" id="edit-modal">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" align="center"><b>Approve Trade</b></h4>
+                          </div>
+                          <div class="modal-body">
+                            <form role="form" action="{{ route('admin.trade.approve') }}">
+                              <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                              <div class="box-body">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">No. of Installment</label> 
+                                  <input type="text" class="form-control" name="installment_number" placeholder="No. of Installment" >
+                                
+                                </div>
+                                  <input type="hidden" class="form-control" name="user_id" placeholder="No. of Installment"  id="#modal-input-id">
+                               
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                      <!-- /Attachment Modal -->
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+      /**
+       * for showing edit item popup
+       */
+
+      $(document).on('click', "#edit-item", function() {
+        $(this).addClass('edit-item-trigger-clicked'); //useful for identifying which trigger was clicked and consequently grab data from the correct row and not the wrong one.
+
+        var options = {
+          'backdrop': 'static'
+        };
+        $('#edit-modal').modal(options)
+      })
+
+      // on modal show
+      $('#edit-modal').on('show.bs.modal', function() {
+        var el = $("#trade_id"); // See how its usefull right here? 
+        console.log(el);
+        var row = el.closest(".data-row");
+
+        // get the data
+        var id = el.data('#trade');
+        console.log(id);
+
+        // fill the data in the input fields
+        $("#modal-input-id").val(id);
+
+      })
+
+      // on modal hide
+      $('#edit-modal').on('hide.bs.modal', function() {
+        $('.edit-item-trigger-clicked').removeClass('edit-item-trigger-clicked')
+        $("#edit-form").trigger("reset");
+      })
+    })
+</script>
+@endsection

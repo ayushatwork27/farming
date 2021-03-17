@@ -13,7 +13,7 @@
                     <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
                     <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
                         <li class="nav-item start ">
-                            <a href="#" class="nav-link nav-toggle">
+                            <a href="{{route('admin.dashboard')}}" class="nav-link nav-toggle">
                                 <i class="icon-home"></i>
                                 <span class="title">Dashboard</span>
                                 <span class="arrow"></span>
@@ -33,6 +33,13 @@
                             <a href="{{route('admin.index')}}" class="nav-link nav-toggle">
                                 <i class="fa fa-user-plus"></i>
                                 <span class="title">Crops</span>
+                                <span class="arrow"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item start ">
+                            <a href="{{route('admin.trade.list')}}" class="nav-link nav-toggle">
+                                <i class="fa fa-user-plus"></i>
+                                <span class="title">Trades</span>
                                 <span class="arrow"></span>
                             </a>
                         </li>
