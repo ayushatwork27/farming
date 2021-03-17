@@ -118,7 +118,9 @@ License: You must have a valid license purchased only from themeforest(the above
             
             {{ Html::script('/assets/pages/scripts/table-datatables-buttons.min.js') }}
             {{ Html::script('/assets/global/plugins/select2/js/select2.full.min.js') }}
+            {{ Html::script('/assets/global/plugins/select2/js/select2.full.min.js') }}
             {{-- {{ Html::script('/assets/pages/scripts/components-select2.min.js') }} --}}
+            <!-- {{ Html::script('/assets/pages/scripts/table-datatables-managed.min.js') }} -->
 
 
             <!-- END PAGE LEVEL PLUGINS -->

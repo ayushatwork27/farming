@@ -34,13 +34,15 @@ Route::group(['prefix'=>'user'],function(){
 	
 	Route::group(['middleware'=>'auth'],function(){
 		
-		Route::get('dasboard', [App\Http\Controllers\User\DashboardController::class, 'dashboard_view'])->name('user.dashboard');
+		Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, 'dashboard_view'])->name('user.dashboard');
 
 		Route::get('register', [App\Http\Controllers\User\UserDetailsController::class, 'user_register_form'])->name('user.register_form');
 		Route::get('usertrades_show', [App\Http\Controllers\User\UserTradeController::class, 'usertrades_show'])->name('user.usertrades_show');
 		Route::get('trade_user_list', [App\Http\Controllers\User\UserTradeController::class, 'user_trade'])->name('user.trade_user_list');
 		Route::post('user_tradedetail', [App\Http\Controllers\User\UserTradeController::class, 'user_tradedetail'])->name('user.user_tradedetail');
 		Route::post('save_user_tradedetail', [App\Http\Controllers\User\UserTradeController::class, 'save_user_tradedetail'])->name('user.save_user_tradedetail');
+		
+		// Route::get('user/post', [App\Http\Controllers\User\UserTradeController::class, 'usertrades_show'])->name('user.post');
 
 		Route::get('trade_show/{id}', [App\Http\Controllers\User\UserTradeController::class, 'trade_show'])->name('user.trade_show');
 
@@ -65,10 +67,11 @@ Route::group(['prefix'=>'admin'],function(){
 	
 	Route::group(['middleware'=>'auth:admin'],function(){
 		
-		Route::get('dasboard', [App\Http\Controllers\Admin\DashboardController::class, 'dashboard_view'])->name('admin.dashboard');
+		Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'dashboard_view'])->name('admin.dashboard');
 		Route::get('registered_user_list', [App\Http\Controllers\Admin\UserManagementController::class, 'registered_user_list'])->name('admin.registered_user_list');
 
 		Route::get('index', [App\Http\Controllers\Admin\CropManagementController::class, 'index'])->name('admin.index');
+		Route::get('indextrades', [App\Http\Controllers\Admin\TradeShowController::class, 'indextrades'])->name('admin.indextrades');
 
 		Route::get('create', [App\Http\Controllers\Admin\CropManagementController::class, 'create'])->name('admin.create');
 

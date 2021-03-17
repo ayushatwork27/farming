@@ -18,7 +18,7 @@ class AdminLoginController extends Controller
 	
     public function admin_register_form(Request $request){
 
-    	//return view('admin.admin_register_form');
+    	return view('admin.admin_register_form');
 
     }
 

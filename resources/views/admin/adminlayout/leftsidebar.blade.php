@@ -40,6 +40,7 @@
                             <a href="{{route('admin.trade.list')}}" class="nav-link nav-toggle">
                                 <i class="fa fa-user-plus"></i>
                                 <span class="title">Trades</span>
+
                                 <span class="arrow"></span>
                             </a>
                         </li>

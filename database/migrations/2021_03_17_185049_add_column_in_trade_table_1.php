@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCropsTable extends Migration
+class AddColumnInTradeTable1 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateCropsTable extends Migration
      */
     public function up()
     {
-        Schema::create('crops', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->nullable();
-            $table->string('category')->nullable();
-            
-            $table->timestamps();
-
+        Schema::table('trades', function (Blueprint $table) {
+            $table->integer('installment_number')->nullable();
         });
     }
 
@@ -30,6 +25,8 @@ class CreateCropsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('crops');
+        Schema::table('trades', function (Blueprint $table) {
+            //
+        });
     }
 }

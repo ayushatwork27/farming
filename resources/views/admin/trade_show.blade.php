@@ -1,6 +1,7 @@
 @extends('admin.adminlayout.container')
 
-@section('container')<!--
+@section('container')
+<!--
 <h1 class="page-title">User List
                     </h1>
                 -->
@@ -8,9 +9,11 @@
                         <ul class="page-breadcrumb">
                             <li>
                                 <i class="icon-home"></i>
-                                <a href="#">Trade List</a>
+                                <a href="index.html">Crop List</a>
                                 <i class="fa fa-angle-right"></i>
                             </li>
+                            
+
                         </ul>
                         <div class="page-toolbar">
                             <div class="btn-group pull-right">
@@ -48,80 +51,103 @@
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class=" icon-layers font-green"></i>
-                                        <span class="caption-subject font-green sbold uppercase">Trade List</span>
+                                        <span class="caption-subject font-green sbold uppercase">Crop List</span>
                                     </div>
                                     
+                                    
                                 </div>
-                               
-                               
-                                <div class="portlet-body">
-                                    {{-- <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_2"> --}}
-                                    <table class="table table-bordered mb-5" >
+                                 <div class="portlet-body">
+                                    <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_2">
                                         <thead>
                                             <tr>
                                                 
-                                                <th>Trade Id</th>
-                                                <th>Quantity</th>
-                                                <th>Area</th>
-                                                <th>Accepected Rate</th>
-                                                <th>Crop</th>
-                                                <th>Policy Type</th>
-                                                <th>Policy Price</th>
-                                                <th>Customer Name</th>
-                                                <th>Created On</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
+                                                <th> Name </th>
+                                                <th> Crop </th>
+                                                <th> Quantity </th>
+
+                                                <th> Area</th>
+                                                <th> Accepected rate </th>
+                                                <th> Policy type </th>
+                                                <th> Actual price</th>
+                                                <th> Date</th>
+                                                <th> Created By</th>
+                                                <th> Action </th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
-                                            @if(! count($trades) > 0)
-                                                <th>No Trade Present</th>
+                                            @if(! count(array(@$trades)) > 0)
+                                                <tr  class="odd gradeX">
+                                                      <th colspan="8">No trade Added</th>
+                                                </tr>
+                                              
                                             @endif
                                                 @foreach($trades as $trade)
                                                   <tr class="odd gradeX">
-                                                
-
-                                                    <td>{{$trade->id}}</td>
+                                                    <td>{{$trade->name}}</td>
+                                                    <td>{{$trade->category}}</td>
                                                     <td>{{$trade->quantity}}</td>
                                                     <td>{{$trade->area}}</td>
                                                     <td>{{$trade->accepected_rate}}</td>
-                                                    <td>{{$trade->crop_name}}</td>
                                                     <td>{{$trade->policy_type}}</td>
                                                     <td>{{$trade->actual_price}}</td>
-                                                    <td>{{$trade->created_by_name}}</td>
                                                     <td>{{$trade->created_at->format('d/m/Y') }}</td>
-                                                    @if($trade->status == 0)
-                                                         <td>Pending</td>
-                                                    @endif
-                                                    @if($trade->status == 1)
-                                                         <td>Active</td>
-                                                    @endif
-                                                    @if($trade->status == 2)
-                                                         <td>Completed</td>
-                                                    @endif
-                                                    @if($trade->status == 3)
-                                                         <td>Rejected</td>
-                                                    @endif
+                                                    <td>{{ Auth::user()->name }}</td>
+                                                    <!-- td>{!! Html::linkRoute('user.trade_show',' View',[$trade->id],['class'=>'btn btn-outline btn-circle btn-sm blue jquery-btn-view']) !!}</td> -->
+                                                    
                                                    
-                                                    <td>
-                                                        {!! Html::linkRoute('admin.trade.detail',' View',[$trade->id],['class'=>'btn btn-outline btn-circle btn-sm blue jquery-btn-view']) !!}
-        
-                                                    </td>
+                                                   
+                                                   
                                                   </tr>
                                                 @endforeach
                                         </tbody>
-
                                     </table>
 
-                                    <div class="d-flex justify-content-center">
-                                        {!! $trades->links() !!}
-                                    </div>
-                                </div>
+                                   {{-- {{$users->links()}}  --}} 
+                                </div>                            
+
+                        </div>
+                     
+                               
+                               
 
                             </div>
-
                             <!-- END EXAMPLE TABLE PORTLET-->
                         </div>
                     </div>
 @endsection
+<script>
+
+  $(function() {
+
+    $('.toggle-class').change(function() {
+
+        var status = $(this).prop('checked') == true ? 1 : 0; 
+
+        var user_id = $(this).data('id'); 
+
+         
+
+        $.ajax({
+
+            type: "GET",
+
+            dataType: "json",
+
+            url: '/changeStatus',
+
+            data: {'status': status, 'user_id': user_id},
+
+            success: function(data){
+
+              console.log(data.success)
+
+            }
+
+        });
+
+    })
+
+  })
+
+</script>

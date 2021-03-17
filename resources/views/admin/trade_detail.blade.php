@@ -44,7 +44,7 @@
                                                         @if($trade->status == 0)
                                                             <li>
                                                                <button type="button" class="btn btn-success" id="edit-item" data-item-id="{{$trade->id}}">Approve</button>
-                                                               <input type="hidden" class="form-control" name="trade_id" value="{{$trade->id}}" id="#trade_id">
+                                                               <input type="hidden" class="form-control" name="trade_id" value="{{$trade->id}}" id="trade_id">
 
                                                             </li>
                                                         @endif
@@ -52,6 +52,22 @@
                                                        
                                                     </ul>
                                                 </div>
+                                                <div class="clear"></div>
+                                                <div class="row">
+                                                    <div class="col-md-8 col-sm-12">
+                                                          @if(session()->has('feedback'))
+                                                            <div class="alert alert-success">
+                                                                <strong>Success:</strong> {{ session()->get('feedback') }}
+                                                            </div>
+                                                           @endif
+                                                           @if(session()->has('failed'))
+                                                            <div class="alert alert-danger">
+                                                                <strong>Failed:</strong> {{ session()->get('failed') }}
+                                                            </div>
+                                                           @endif
+                                                    </div>
+                                                </div>
+
                                                 <!--end col-md-8-->
                                                
                                                 
@@ -163,15 +179,15 @@
                             <h4 class="modal-title" align="center"><b>Approve Trade</b></h4>
                           </div>
                           <div class="modal-body">
-                            <form role="form" action="{{ route('admin.trade.approve') }}">
+                            <form role="form" action="{{ route('admin.trade.approve') }}" method="POST">
                               <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                               <div class="box-body">
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">No. of Installment</label> 
-                                  <input type="text" class="form-control" name="installment_number" placeholder="No. of Installment" >
+                                  <input type="number" class="form-control" name="installment_number" placeholder="No. of Installment" id="installment_number">
                                 
                                 </div>
-                                  <input type="hidden" class="form-control" name="user_id" placeholder="No. of Installment"  id="#modal-input-id">
+                                  <input type="hidden" class="form-control" name="trade_id"  id="trade_id1" value="{{$trade->id}}">
                                
                               </div>
                               <div class="modal-footer">
@@ -203,16 +219,10 @@
 
       // on modal show
       $('#edit-modal').on('show.bs.modal', function() {
-        var el = $("#trade_id"); // See how its usefull right here? 
-        console.log(el);
-        var row = el.closest(".data-row");
-
-        // get the data
-        var id = el.data('#trade');
+        var id = $("#trade_id").val(); 
         console.log(id);
+       // $('#installment_number').val(id)
 
-        // fill the data in the input fields
-        $("#modal-input-id").val(id);
 
       })
 

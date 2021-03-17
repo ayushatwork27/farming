@@ -1,4 +1,4 @@
-@extends('admin.adminlayout.container')
+@extends('user.userlayout.container')
 
 @section('container')
 

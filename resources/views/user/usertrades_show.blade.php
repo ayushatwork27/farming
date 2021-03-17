@@ -5,6 +5,7 @@
 <h1 class="page-title">User List
                     </h1>
                 -->
+                
                     <div class="page-bar">
                         <ul class="page-breadcrumb">
                             <li>
@@ -61,19 +62,21 @@
                                     </div>
                                     
                                 </div>
-                                 <div class="portlet-body">
-                                    <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_2">
+                                 <div class="portlet-body" >
+                                   <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_2">
                                         <thead>
                                             <tr>
                                                 
                                                 <th> Name </th>
                                                 <th> Crop </th>
                                                 <th> Quantity </th>
+
                                                 <th> Area</th>
                                                 <th> Accepected rate </th>
                                                 <th> Policy type </th>
                                                 <th> Actual price</th>
                                                 <th> Date</th>
+
                                                 <th> Action </th>
                                             </tr>
                                         </thead>
@@ -92,7 +95,6 @@
                                                     <td>{{$trade->quantity}}</td>
                                                     <td>{{$trade->area}}</td>
                                                     <td>{{$trade->accepected_rate}}</td>
-
                                                     <td>{{$trade->policy_type}}</td>
                                                     <td>{{$trade->actual_price}}</td>
                                                     <td>{{$trade->created_at->format('d/m/Y') }}</td>
@@ -106,17 +108,17 @@
                                                 @endforeach
                                         </tbody>
                                     </table>
-
-                                   {{-- {{$users->links()}}  --}} 
+                                    <div class="row">  
+                                     <div class="col-lg-12">
+                                     {{ $trades->links() }}
+                                     </div>
+                                    </div>
                                 </div>                            
 
-                        </div>
-                     
-                               
-                               
-
-                            </div>
+                          </div>
+                       </div>
                             <!-- END EXAMPLE TABLE PORTLET-->
                         </div>
                     </div>
+
 @endsection

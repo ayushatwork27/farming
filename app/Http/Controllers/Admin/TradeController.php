@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User\Trade;
+use App\Models\User\TradeDetail;
 use Illuminate\Http\Request;
 
 class TradeController extends Controller
@@ -94,6 +95,76 @@ class TradeController extends Controller
     }
 
     public function trade_approve(Request $request){
-        dd($request->all());
+        
+        if($request->installment_number > 0){
+
+            $trade = Trade::find($request->trade_id);
+            
+            if($trade->status_id == 0){
+
+                $trade->status_id = 1;
+                $trade->installment_number = $request->installment_number;
+                $trade->save();
+                $this->insertIntoTradeDetails($request->trade_id);
+                $request->session()->flash('feedback','Trade Approve successfully');
+                return back();
+
+            }else{
+
+                $request->session()->flash('failed','Trade Already Approved');
+                return back();
+            }
+
+            
+
+        }else{
+            $request->session()->flash('failed','Trade Approval Failed');
+            return back();
+        }
+    }
+
+    public function insertIntoTradeDetails($trade_id){
+
+        $trade = Trade::find($trade_id);
+        $actual_price = $trade->actual_price;
+        $quantity = $trade->quantity;
+        $installment_number = $trade->installment_number;
+
+        $single_trade_amount =( $actual_price * $quantity )/$installment_number;
+
+        $single_trade_quantity = $quantity/$installment_number;
+        $days = 360/$installment_number;
+
+        //$days = 30;
+        $today_date = date('Y-m-d');
+        //echo "today_date: ".$today_date."<br/>";
+
+        for ($ins_id=1; $ins_id <= $installment_number ; $ins_id++) { 
+
+            $total_days = $ins_id * $days;
+            $next_due_date = date('Y-m-d', strtotime($today_date. " +".$total_days." days"));
+            //echo $next_due_date."<br/>";
+            # code...
+
+            $trade_detail = new TradeDetail;
+            $trade_detail->trade_id = $trade_id;
+            $trade_detail->quantity = $single_trade_quantity;
+            $trade_detail->amount = $single_trade_amount;
+            $trade_detail->trading_date = $next_due_date;
+
+            $trade_detail->barcode = $this->generateBarcode(4);
+            $trade_detail->save();
+
+        }
+
+         // 
+    }
+
+   public function generateBarcode($digit){
+        $x = $digit; // Amount of digits
+        $min = pow(10,$x);
+        $max = pow(10,$x+1)-1;
+        $value = rand($min, $max);
+        return $value;
     }
 }
