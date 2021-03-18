@@ -37,14 +37,20 @@ Route::group(['prefix'=>'user'],function(){
 		Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, 'dashboard_view'])->name('user.dashboard');
 
 		Route::get('register', [App\Http\Controllers\User\UserDetailsController::class, 'user_register_form'])->name('user.register_form');
+
 		Route::get('usertrades_show', [App\Http\Controllers\User\UserTradeController::class, 'usertrades_show'])->name('user.usertrades_show');
-		Route::get('trade_user_list', [App\Http\Controllers\User\UserTradeController::class, 'user_trade'])->name('user.trade_user_list');
-		Route::post('user_tradedetail', [App\Http\Controllers\User\UserTradeController::class, 'user_tradedetail'])->name('user.user_tradedetail');
-		Route::post('save_user_tradedetail', [App\Http\Controllers\User\UserTradeController::class, 'save_user_tradedetail'])->name('user.save_user_tradedetail');
+
+		Route::get('trade_index', [App\Http\Controllers\User\UserTradeController::class, 'index'])->name('user.trade.index');
+
+		Route::get('trade_create', [App\Http\Controllers\User\UserTradeController::class, 'create'])->name('user.trade.create');
+
+		Route::post('trade_store_session', [App\Http\Controllers\User\UserTradeController::class, 'storeInSession'])->name('user.trade.store.session');
+
+		Route::post('trade_store', [App\Http\Controllers\User\UserTradeController::class, 'store'])->name('user.trade.store');
 		
 		// Route::get('user/post', [App\Http\Controllers\User\UserTradeController::class, 'usertrades_show'])->name('user.post');
 
-		Route::get('trade_show/{id}', [App\Http\Controllers\User\UserTradeController::class, 'trade_show'])->name('user.trade_show');
+		Route::get('trade_detailt/{trade_id}', [App\Http\Controllers\User\UserTradeController::class, 'show'])->name('user.trade.detail');
 
 		Route::post('save_user_details', [App\Http\Controllers\User\UserDetailsController::class, 'save_user_details'])->name('user.save_user_details');
 

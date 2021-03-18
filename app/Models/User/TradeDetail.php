@@ -12,5 +12,5 @@ class TradeDetail extends Model
     protected $table = 'trade_details';
     protected $gaurded = [
     ];
-    protected $dates = ['created_at','updated_at','deleted_at'];
+    protected $dates = ['created_at','updated_at','deleted_at','trading_date'];
 }

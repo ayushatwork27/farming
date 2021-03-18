@@ -15,6 +15,13 @@ class AddColumnInTradeTable1 extends Migration
     {
         Schema::table('trades', function (Blueprint $table) {
             $table->integer('installment_number')->nullable();
+            $table->string('total_amount')->nullable();
+            $table->string('total_trading_amount')->nullable();
+            $table->string('bonus_amount')->nullable();
+        });
+
+        Schema::table('trade_details', function (Blueprint $table) {
+            $table->tinyInteger('status_id')->default(0)->after('trading_date');
         });
     }
 

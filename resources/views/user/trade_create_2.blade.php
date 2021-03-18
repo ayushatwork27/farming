@@ -1,7 +1,14 @@
 @extends('user.userlayout.container')
 
 @section('container')
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('input:checkbox').click(function() {
+        $('input:checkbox').not(this).prop('checked', false);
+    });
+});
+</script>
 <h1 class="page-title"> Create Trade 
                         <small></small>
                     </h1>
@@ -53,7 +60,7 @@
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-share font-dark"></i>
-                                        <span class="caption-subject font-dark bold uppercase">Create Trade</span>
+                                        <span class="caption-subject font-dark bold uppercase">Available Policies</span>
                                     </div>
                                     <div class="actions">
                                         <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
@@ -72,59 +79,56 @@
                                     <div class="alert alert-success">
                                         <strong>Success:</strong> {{ session()->get('feedback') }}
                                     </div>
+                                    @if(session()->has('failed'))
+                                        <div class="alert alert-danger">
+                                            <strong>Failed:</strong> {{ session()->get('failed') }}
+                                        </div>
+                                    @endif
                                 @endif
-
+                                <h4><b> Crop Name:</b> {{ @$crop->name }}</h4>
+                                <table class="table table-bordered mb-5 table-bordered sm-12" >
+                                    <thead>
+                                        <tr>
+                                            <th>Policy Type</th>
+                                            <th>Price</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                           <th>Gold</th>
+                                           <td>{{ @$crop->gold }}</td>
+                                        </tr>
+                                        <tr>
+                                           <th>Silver</th>
+                                           <td>{{ @$crop->silver }}</td>
+                                        </tr>
+                                        <tr>
+                                           <th>Normal</th>
+                                           <td>{{ @$crop->normal }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>    
+                        
                                 <div class="portlet-body">
-                                    <form class="form-horizontal" role="form" action="{{ route('user.user_tradedetail') }}" method="POST">
+                                    <form class="form-horizontal" role="form" action="{{ route('user.trade.store') }}" method="POST">
                                         {{ csrf_field() }}
-                                        <h4>Trade Details</h4>
+                                        <h4>Select Policies:</h4>
                                          <hr>
-                                        
                                         <div class="form-group">
-                                            <label for="name" class="col-md-2 control-label">Crops</label>
+                                           <label for="normal" class="col-md-2 control-label">Select Policy Type</label>
                                             <div class="col-md-5">
-                                                
-                                                <select class="form-control" name="id">
-                                                    @foreach($crops as $crop)
-                                                        <option value="{{$crop->id}}">{{$crop->name}}</option> 
-                                                    @endforeach
+
+
+                                                <select class="form-control" id="policy_type" placeholder="Policy Type" name="policy_type" value="">
+                                                    <option value="gold">Gold</option>
+                                                    <option value="silver">Silver</option>
+                                                    <option value="normal">Normal</option>
                                                 </select>
 
-                                            </div>
-                                            
+                                             </div>
                                         </div>
-
-                                         <!-- <div class="form-group">
-                                            <label for="name" class="col-md-2 control-label">ID</label>
-                                            <div class="col-md-5">
-
-                                                <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="{{ Auth::user()->name }}" disabled>  
-                                            </div>
-                                            
-                                        </div> -->
-                                         <div class="form-group">
-                                            <label for="name" class="col-md-2 control-label">Quantity</label>
-                                            <div class="col-md-5">
-                                                <input type="number" name="quantity" class="form-control" placeholder="Quantity" > 
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="category" class="col-md-2 control-label">Area</label>
-                                            <div class="col-md-5">
-                                                <input type="number" name="area" class="form-control" placeholder="Area" >
-                                            </div>
-                                        </div>
-
-                                         <div class="form-group">
-                                            <label for="normal" class="col-md-2 control-label">Accepected Rate</label>
-                                            <div class="col-md-5">
-                                                <input type="number" name="accepected_rate" class="form-control" placeholder="Accepected Rate Price" value=""> 
-                                            </div>
-                                        </div>
-                                        
-                                           
-
+                                       
 
                               			<div class="form-group">
                               				

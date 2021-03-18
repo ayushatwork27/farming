@@ -1,4 +1,4 @@
-@extends('admin.adminlayout.container')
+@extends('user.userlayout.container')
 
 @section('container')
 <h1 class="page-title"> Trade Details 
@@ -41,13 +41,7 @@
                                                             <i class="fa fa-trademark"></i> <strong>Trade Status</strong> 
                                                             {{@ucfirst($trade->status)}} 
                                                         </li>
-                                                        @if($trade->status_id == 0)
-                                                            <li>
-                                                               <button type="button" class="btn btn-success" id="edit-item" data-item-id="{{$trade->id}}">Approve</button>
-                                                               <input type="hidden" class="form-control" name="trade_id" value="{{$trade->id}}" id="trade_id">
 
-                                                            </li>
-                                                        @endif
 
                                                        
                                                     </ul>
@@ -216,7 +210,6 @@
                                                                           <th>Next Trading Date</th>
                                                                           <th>Barcode</th>
                                                                           <th>Status</th>
-                                                                          <th>Action</th>
                                                                       </tr>
                                                                       
                                                                   </thead>
@@ -245,12 +238,7 @@
                                                                                    <td>Rejected</td>
                                                                               @endif
                                                                              
-                                                                              <td>
-                                                                                  {!! Html::linkRoute('admin.trade.detail','Change Status',[$trade->id],['class'=>'btn btn-outline btn-circle btn-sm blue']) !!}
-
-                                                                                   {!! Html::linkRoute('admin.trade.detail',' Add Payment',[$trade->id],['class'=>'btn btn-outline btn-circle btn-sm blue']) !!}
-                                  
-                                                                              </td>
+                                                                             
                                                                             </tr>
                                                                           @endforeach
                                                                   </tbody>

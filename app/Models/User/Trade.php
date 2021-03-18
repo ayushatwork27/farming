@@ -13,4 +13,8 @@ class Trade extends Model
 		
     ];
     protected $dates = ['created_at'];
+
+    public function trade_details(){
+    	return $this->hasMany('App\Models\User\TradeDetail','trade_id','id');
+    }
 }
