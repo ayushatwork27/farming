@@ -46,7 +46,8 @@ class AdminLoginController extends Controller
 
     	}else{
 
-    		//dd('heelo');
+    		    $request->session()->flash('failed','Please check Email id or Password');
+            return back();
     	}
 
     }

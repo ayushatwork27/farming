@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Auth;
 
 class UserLoginController extends Controller
 {
@@ -44,9 +45,17 @@ class UserLoginController extends Controller
 
     	if(Auth::guard()->attempt(['email'=> $request->username, 'password'=> $request->password], $request->remember
         )){
-
+            $user_id= \Auth::id();
+            $user = User::find($user_id);
+            $request->session()->put('is_active_user',$user->is_active);
         	return redirect()->intended(route('user.dashboard'));
-    	}
+
+    	}else{
+
+
+             $request->session()->flash('failed','Please check Email id or Password');
+            return back();
+        }
 
     }
     	

@@ -35,13 +35,21 @@ BEGIN SIDEBAR -->
                                 <span class="arrow"></span>
                             </a>
                         </li> -->
-                        <li class="nav-item start ">
-                            <a href="{{route('user.trade.index')}}" class="nav-link nav-toggle">
-                                <i class="fa fa-trademark"></i>
-                                <span class="title">Trades</span>
-                                <span class="arrow"></span>
-                            </a>
-                        </li>
+
+                        @if(session()->has('is_active_user'))
+                            @if(session()->get('is_active_user') == 1)
+
+                                <li class="nav-item start" >
+                                    <a href="{{route('user.trade.index')}}" class="nav-link nav-toggle">
+                                        <i class="fa fa-trademark"></i>
+                                        <span class="title">Trades</span>
+                                        <span class="arrow"></span>
+                                    </a>
+                                </li>
+                            @endif
+                             
+                         @endif
+                       
                         <!-- <li class="nav-item start ">
                             <a href="#" class="nav-link nav-toggle">
                                 <i class="fa fa-inr"></i>

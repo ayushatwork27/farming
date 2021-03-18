@@ -17,8 +17,10 @@ class UserTradeController extends Controller
      */
     public function index()
     {
+        $user_id = \Auth::id();
         $trades = Trade::join('crops','crops.id','trades.crop_id')
                         ->join('users','users.id','trades.created_by')
+                        ->where('trades.created_by',$user_id)
                         ->select('trades.*','crops.name as crop_name','users.name as created_by_name')
                         ->paginate(10);
         //dd($trades);

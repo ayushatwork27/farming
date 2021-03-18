@@ -77,6 +77,11 @@ License: You must have a valid license purchased only from themeforest(the above
                         <button class="close" data-close="alert"></button>
                         <span> Enter any username and password. </span>
                     </div>
+                    @if(session()->has('failed'))
+                        <div class="alert alert-danger">
+                            <strong>{{ session()->get('failed') }}</strong> 
+                        </div>
+                    @endif
                     <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
                         <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
                         <label class="control-label visible-ie8 visible-ie9">Username</label>
@@ -88,11 +93,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <strong>{{ $errors->first('email') }}</strong>
                             </span>
                         @endif
-                         @if(session()->has('feedback'))
-                            <div class="alert alert-danger">
-                                <strong>{{ session()->get('feedback') }}</strong> 
-                            </div>
-                        @endif
+                        
                     </div>
                     <div class="form-group {{$errors->has('password') ? 'has-error': ''}}">
                         <label class="control-label visible-ie8 visible-ie9">Password</label>
