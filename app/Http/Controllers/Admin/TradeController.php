@@ -128,10 +128,11 @@ class TradeController extends Controller
 
         $trade = Trade::find($trade_id);
         $actual_price = $trade->actual_price;
+        $total_trading_amount = $trade->total_trading_amount;
         $quantity = $trade->quantity;
         $installment_number = $trade->installment_number;
 
-        $single_trade_amount =( $actual_price * $quantity )/$installment_number;
+        $single_trade_amount = $total_trading_amount/$installment_number;
 
         $single_trade_quantity = $quantity/$installment_number;
         $days = 360/$installment_number;
