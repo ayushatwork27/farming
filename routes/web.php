@@ -94,6 +94,8 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::get('trade_index', [App\Http\Controllers\Admin\TradeController::class, 'index'])->name('admin.trade.list');
 		Route::get('trade_detail/{trade_id}', [App\Http\Controllers\Admin\TradeController::class, 'show'])->name('admin.trade.detail');
 		Route::post('trade_approve', [App\Http\Controllers\Admin\TradeController::class, 'trade_approve'])->name('admin.trade.approve');
+		Route::post('status_change', [App\Http\Controllers\Admin\TradeController::class, 'status_change'])->name('admin.trade.status_change');
+		Route::post('add_payment', [App\Http\Controllers\Admin\TradeController::class, 'add_payment'])->name('admin.trade.add_payment');
 
 
 

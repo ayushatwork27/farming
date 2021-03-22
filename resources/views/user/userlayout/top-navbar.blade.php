@@ -22,18 +22,7 @@
                 <!-- DOC: Remove "hide" class to enable the page header actions -->
                 <div class="page-actions">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-circle btn-outline blue dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-plus"></i>&nbsp;
-                            <span class="hidden-sm hidden-xs">New&nbsp;</span>&nbsp;
-                            <i class="fa fa-angle-down"></i>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="#">
-                                    <i class="icon-docs"></i> Expected Visitor</a>
-                            </li>
-                            
-                        </ul>
+                        
                     </div>
                 </div>
                 <!-- END PAGE ACTIONS -->
@@ -347,7 +336,7 @@
                             <li class="dropdown dropdown-user">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                     {{Html::image('/assets/layouts/layout2/img/avatar3_small.jpg','',array('class'=>'img-circle'))}}
-                                    <span class="username username-hide-on-mobile"> Nick </span>
+                                    <span class="username username-hide-on-mobile"> {{ \Auth::user()->name}} </span>
                                     <i class="fa fa-angle-down"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-default">

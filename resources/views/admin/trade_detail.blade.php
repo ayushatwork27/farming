@@ -150,14 +150,7 @@
                                                                             {{ @$trade->created_by_name }} 
                                                                         </td>
                                                                     </tr>
-                                                                    <tr>
-                                                                        <td> 
-                                                                            Number Of Installment
-                                                                        </td>
-                                                                        <td>
-                                                                            {{ @$trade->installment_number }} 
-                                                                        </td>
-                                                                    </tr>
+                                                                    
                                                                     <tr>
                                                                         <td> 
                                                                             Total Amount
@@ -180,6 +173,14 @@
                                                                         </td>
                                                                         <td>
                                                                             {{ @$trade->bonus_amount }} 
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td> 
+                                                                            Number Of Installment
+                                                                        </td>
+                                                                        <td>
+                                                                            {{ @$trade->installment_number }} 
                                                                         </td>
                                                                     </tr>
                                                                     
@@ -236,21 +237,22 @@
                                                                                    <td>Pending</td>
                                                                               @endif
                                                                               @if($trade_detail->status_id == 1)
-                                                                                   <td>Active</td>
+                                                                                   <td>Received But Payment Not Done</td>
                                                                               @endif
                                                                               @if($trade_detail->status_id == 2)
-                                                                                   <td>Completed</td>
+                                                                                   <td>Payment Done</td>
                                                                               @endif
                                                                               @if($trade_detail->status_id == 3)
                                                                                    <td>Rejected</td>
                                                                               @endif
                                                                              
                                                                               <td>
-                                                                                  {!! Html::linkRoute('admin.trade.detail','Change Status',[$trade->id],['class'=>'btn btn-outline btn-circle btn-sm blue']) !!}
+                                                                                 <button type="button" class="btn btn-outline btn-circle btn-sm blue" id="change-status" value="{{$trade_detail->id}}" data-item-id="{{$trade_detail->id}}">Change Status</button>
+                                                                                 <button type="button" class="btn btn-outline btn-circle btn-sm blue" id="add-payment" value="{{$trade_detail->id}}" data-item-id="{{$trade_detail->id}}">Add Payment</button>
 
-                                                                                   {!! Html::linkRoute('admin.trade.detail',' Add Payment',[$trade->id],['class'=>'btn btn-outline btn-circle btn-sm blue']) !!}
                                   
                                                                               </td>
+
                                                                             </tr>
                                                                           @endforeach
                                                                   </tbody>
@@ -305,6 +307,81 @@
                       <!-- /Attachment Modal -->
 
 
+                  
+
+
+                      <!-- Attachment Modal -->
+                    <div class="modal fade" id="change_status_modal">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" align="center"><b>Change Status</b></h4>
+                          </div>
+                          <div class="modal-body">
+                            <form role="form" action="{{ route('admin.trade.status_change') }}" method="POST" id="change-status-form">
+                              <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+
+                              <div class="box-body">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Status</label> 
+                                  <select class="form-control" id="status" placeholder="Status" name="status" value="">
+                                    <option value="pending">Pending</option>
+                                    <option value="receive_payment_pending">Received But Payment Pending</option>
+                                    <option value="payment_done">Payment Done</option>
+                                </select>
+                                
+                                </div>
+                                <input type="hidden" class="form-control" name="trade_detail_id"  id="trade_detail_id" value="">
+                               
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                      <!-- /Attachment Modal -->
+
+                          <!-- Attachment Modal -->
+                    <div class="modal fade" id="add_payment_modal">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" align="center"><b>Change Status</b></h4>
+                          </div>
+                          <div class="modal-body">
+                            <form role="form" action="{{ route('admin.trade.add_payment') }}" method="POST" id="add-payment-form">
+                              <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+
+                              <div class="box-body">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Amount</label> 
+                                  <input type="number" class="form-control" name="amount" placeholder="Add Amount" id="amount">
+                                </div>
+                                <input type="hidden" class="form-control" name="trade_detail_id"  id="add_trade_detail_id" value="">
+                               
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                      <!-- /Attachment Modal -->
+
+
 <script type="text/javascript">
     $(document).ready(function() {
       /**
@@ -334,6 +411,52 @@
         $('.edit-item-trigger-clicked').removeClass('edit-item-trigger-clicked')
         $("#edit-form").trigger("reset");
       })
+      //Chnage status jquery
+      $(document).on('click',"#change-status",function(){
+        $(this).addClass('change-status-trigger-clicked'); 
+        $("#change_status_modal").modal()
+      })
+
+
+      // on modal show
+      $('#change_status_modal').on('show.bs.modal', function() {
+        var trade_detail_id = $(".change-status-trigger-clicked").val(); 
+        $("#trade_detail_id").val(trade_detail_id)
+        console.log(trade_detail_id);
+       // $('#installment_number').val(id)
+
+
+      })
+
+      // on modal hide
+      $('#change_status_modal').on('hide.bs.modal', function() {
+        $('.change-status-trigger-clicked').removeClass('change-status-trigger-clicked')
+        $("#change-status-form").trigger("reset");
+      })
+
+
+       //Add Payment  jquery
+      $(document).on('click',"#add-payment",function(){
+        $(this).addClass('add-payment-trigger-clicked'); 
+        $("#add_payment_modal").modal()
+      })
+
+
+      // on modal show
+      $('#add_payment_modal').on('show.bs.modal', function() {
+        var trade_detail_id = $(".add-payment-trigger-clicked").val(); 
+        $("#add_trade_detail_id").val(trade_detail_id)
+        console.log(trade_detail_id);
+       // $('#installment_number').val(id)
+
+      })
+
+      // on modal hide
+      $('#add_payment_modal').on('hide.bs.modal', function() {
+        $('.add-payment-trigger-clicked').removeClass('add-payment-trigger-clicked')
+        $("#add-payment-form").trigger("reset");
+      })
+
     })
 </script>
 @endsection

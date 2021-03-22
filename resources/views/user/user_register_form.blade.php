@@ -139,7 +139,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="city" class="col-md-2 control-label">City</label>
+                                            <label for="city" class="col-md-2 control-label">City / Village</label>
                                             <div class="col-md-5">
                                                 <input type="text" class="form-control" id="city" placeholder="City" name="city" value="{{@$user_detail->city}}"> 
                                             </div>

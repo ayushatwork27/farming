@@ -144,14 +144,7 @@
                                                                             {{ @$trade->created_by_name }} 
                                                                         </td>
                                                                     </tr>
-                                                                    <tr>
-                                                                        <td> 
-                                                                            Number Of Installment
-                                                                        </td>
-                                                                        <td>
-                                                                            {{ @$trade->installment_number }} 
-                                                                        </td>
-                                                                    </tr>
+                                                                    
                                                                     <tr>
                                                                         <td> 
                                                                             Total Amount
@@ -174,6 +167,14 @@
                                                                         </td>
                                                                         <td>
                                                                             {{ @$trade->bonus_amount }} 
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td> 
+                                                                            Number Of Installment
+                                                                        </td>
+                                                                        <td>
+                                                                            {{ @$trade->installment_number }} 
                                                                         </td>
                                                                     </tr>
                                                                     
@@ -229,10 +230,10 @@
                                                                                    <td>Pending</td>
                                                                               @endif
                                                                               @if($trade_detail->status_id == 1)
-                                                                                   <td>Active</td>
+                                                                                   <td>Received But Payment Not Done</td>
                                                                               @endif
                                                                               @if($trade_detail->status_id == 2)
-                                                                                   <td>Completed</td>
+                                                                                   <td>Payment Done</td>
                                                                               @endif
                                                                               @if($trade_detail->status_id == 3)
                                                                                    <td>Rejected</td>

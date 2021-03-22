@@ -91,16 +91,16 @@
                                                     <td>{{$trade->actual_price}}</td>
                                                     <td>{{$trade->created_by_name}}</td>
                                                     <td>{{$trade->created_at->format('d/m/Y') }}</td>
-                                                    @if($trade->status == 0)
+                                                    @if($trade->status_id == 0)
                                                          <td>Pending</td>
                                                     @endif
-                                                    @if($trade->status == 1)
+                                                    @if($trade->status_id == 1)
                                                          <td>Active</td>
                                                     @endif
-                                                    @if($trade->status == 2)
+                                                    @if($trade->status_id == 2)
                                                          <td>Completed</td>
                                                     @endif
-                                                    @if($trade->status == 3)
+                                                    @if($trade->status_id == 3)
                                                          <td>Rejected</td>
                                                     @endif
                                                    

@@ -92,6 +92,16 @@
                                                 <input type="text" name="category" class="form-control" placeholder="Category" value="{{ @$crop->category}}">
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="category" class="col-md-2 control-label">Crop Type</label>
+                                            <div class="col-md-5">
+                                               
+                                                <select class="form-control" id="crop_type" placeholder="Crop Type" name="crop_type" value="{{@$crop->crop_type}}">
+                                                    <option value="0" <?php if($crop->crop_type == "0") { ?> selected="selected"<?php } ?>>Bonus</option>
+                                                    <option value="1" <?php if($crop->crop_type == "1") { ?> selected="selected"<?php } ?>>Non-Bonus</option>
+                                                </select>
+                                            </div>
+                                        </div>
 
                                         
                                         <hr>

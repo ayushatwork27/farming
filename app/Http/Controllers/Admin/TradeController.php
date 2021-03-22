@@ -169,4 +169,52 @@ class TradeController extends Controller
         $value = rand($min, $max);
         return $value;
     }
+
+    public function status_change(Request $request){
+        //dd($request->all());
+
+        if($request->status == 'pending'){
+            $status_id = 0;
+        }elseif ($request->status == 'receive_payment_pending') {
+            $status_id = 1;
+        }elseif ($request->status == 'payment_done') {
+            $status_id = 2;
+        }
+
+        $trade_detail = TradeDetail::find($request->trade_detail_id);
+        if($status_id){
+
+            $trade_detail->status_id = $status_id;
+            $trade_detail->save();
+
+            $request->session()->flash('feedback','Status Change successfully');
+                return back();
+
+
+        }else{
+             $request->session()->flash('failed','Status Change Failed');
+                return back();
+        }
+
+    }
+
+    public function add_payment(Request $request){
+        //dd($request->all());
+      
+
+        $trade_detail = TradeDetail::find($request->trade_detail_id);
+        if($trade_detail->status_id==1){
+
+            $trade_detail->status_id = 2;
+            $trade_detail->save();
+
+            $request->session()->flash('feedback','Add Payment successfully');
+                return back();
+
+
+        }else{
+             $request->session()->flash('failed','Add Payment Failed');
+                return back();
+        }
+    }
 }

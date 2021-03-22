@@ -43,7 +43,7 @@ class CropManagementController extends Controller
 
         }
 
-         return redirect()->route('admin.crop_user_list')
+         return redirect()->route('admin.index')
                           ->with('success','Created Successfully');
     }
 

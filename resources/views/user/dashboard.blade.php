@@ -48,8 +48,11 @@
                         </div>
                     </div>
                     @if ($is_active == 0)
+                         <div class="alert alert-danger">
+                            <strong>Please Complete your Profile****** </strong>  <a href="{{route('user.register_form')}}" class="btn btn-default">User Profile</a>
+                        </div>
                         <div>
-                            <a href="{{route('user.register_form')}}" class="btn btn-default">User Profile</a>
+                           
                         </div>
                     @endif
                     

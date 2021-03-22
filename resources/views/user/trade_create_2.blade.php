@@ -85,7 +85,8 @@ $(document).ready(function(){
                                         </div>
                                     @endif
                                 @endif
-                                <h4><b> Crop Name:</b> {{ @$crop->name }}</h4>
+                                <p><b> Crop Name:</b> {{ @$crop->name }}<br/>
+                                <b> Crop Type:</b> {{ $crop->crop_type == 1 ? 'Non-Bonus': 'Bonus'   }}</p>
                                 <table class="table table-bordered mb-5 table-bordered sm-12" >
                                     <thead>
                                         <tr>
@@ -95,14 +96,17 @@ $(document).ready(function(){
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                           <th>Gold</th>
-                                           <td>{{ @$crop->gold }}</td>
-                                        </tr>
-                                        <tr>
-                                           <th>Silver</th>
-                                           <td>{{ @$crop->silver }}</td>
-                                        </tr>
+                                        @if($crop->crop_type == 0)
+                                            <tr >
+                                               <th>Gold</th>
+                                               <td>{{ @$crop->gold }}</td>
+                                            </tr>
+                                            <tr>
+                                               <th>Silver</th>
+                                               <td>{{ @$crop->silver }}</td>
+                                            </tr>
+                                        @endif
+                                        
                                         <tr>
                                            <th>Normal</th>
                                            <td>{{ @$crop->normal }}</td>
@@ -121,8 +125,12 @@ $(document).ready(function(){
 
 
                                                 <select class="form-control" id="policy_type" placeholder="Policy Type" name="policy_type" value="">
-                                                    <option value="gold">Gold</option>
-                                                    <option value="silver">Silver</option>
+                                                    @if($crop->crop_type == 0)
+                                                        <option value="gold">Gold</option>
+                                                        <option value="silver">Silver</option>
+                                                    @endif
+
+                                                    
                                                     <option value="normal">Normal</option>
                                                 </select>
 
