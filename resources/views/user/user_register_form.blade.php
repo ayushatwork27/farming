@@ -153,7 +153,7 @@
                                         <div class="form-group">
                                             <label for="address" class="col-md-2 control-label">Address</label>
                                             <div class="col-md-5">
-                                                 <textarea class="form-control" id="address" placeholder="Address" rows="3" name="address" value="{{@$user_detail->address}}"></textarea>
+                                                 <textarea class="form-control" id="address" placeholder="Address" rows="3" name="address">{{@$user_detail->address}}</textarea>
                                             </div>
                                         </div>
                                         <hr>
