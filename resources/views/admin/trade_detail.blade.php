@@ -39,7 +39,18 @@
                                                         </li>
                                                         <li>
                                                             <i class="fa fa-trademark"></i> <strong>Trade Status</strong> 
-                                                            {{@ucfirst($trade->status)}} 
+                                                            @if($trade->status_id == 0)
+                                                                 Pending
+                                                            @endif
+                                                            @if($trade->status_id == 1)
+                                                                 Active
+                                                            @endif
+                                                            @if($trade->status_id == 2)
+                                                                 Completed
+                                                            @endif
+                                                            @if($trade->status_id == 3)
+                                                                 Rejected
+                                                            @endif
                                                         </li>
                                                         @if($trade->status_id == 0)
                                                             <li>
@@ -96,6 +107,14 @@
                                                                 <tbody>
                                                                     <tr>
                                                                         <td> 
+                                                                            Customer Name / Profile
+                                                                        </td>
+                                                                        <td>
+                                                                            {{ @$trade->created_by_name }} ***** {!! Html::linkRoute('admin.user_detail','View User',[$trade->created_by],['class'=>'btn btn-outline btn-circle btn-sm blue jquery-btn-view']) !!}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td> 
                                                                              Crop
                                                                         </td>
                                                                         <td>
@@ -104,7 +123,7 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td> 
-                                                                             Quantity
+                                                                             Quantity In Kg
                                                                         </td>
                                                                         <td>
                                                                            {{ @$trade->quantity}} 
@@ -120,7 +139,7 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td> 
-                                                                             Accepected Rate
+                                                                             Accepected Rate  in Rs.
                                                                         </td>
                                                                         <td>
                                                                             {{ @$trade->accepected_rate}} 
@@ -136,24 +155,17 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td> 
-                                                                            Actual Price
+                                                                            Actual Price  in Rs.
                                                                         </td>
                                                                         <td>
                                                                             {{ @$trade->actual_price }} 
                                                                         </td>
                                                                     </tr>
-                                                                    <tr>
-                                                                        <td> 
-                                                                            Customer Name
-                                                                        </td>
-                                                                        <td>
-                                                                            {{ @$trade->created_by_name }} 
-                                                                        </td>
-                                                                    </tr>
+                                                                    
                                                                     
                                                                     <tr>
                                                                         <td> 
-                                                                            Total Amount
+                                                                            Total Amount in Rs.
                                                                         </td>
                                                                         <td>
                                                                             {{ @$trade->total_amount }} 
@@ -161,7 +173,7 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td> 
-                                                                            Total Trading Amount
+                                                                            Total Trading Amount  in Rs.
                                                                         </td>
                                                                         <td>
                                                                             {{ @$trade->total_trading_amount }} 
@@ -169,7 +181,7 @@
                                                                     </tr>
                                                                      <tr>
                                                                         <td> 
-                                                                            Bonus Amount
+                                                                            Bonus Amount  in Rs.
                                                                         </td>
                                                                         <td>
                                                                             {{ @$trade->bonus_amount }} 
@@ -213,10 +225,12 @@
                                                                       <tr>
                                                                           <th>Trade Detail Id</th>
                                                                           <th>Quantity</th>
-                                                                          <th>Amount</th>
+                                                                          <th>Amount </th>
+                                                                          <th>Bonus Amount</th>
                                                                           <th>Next Trading Date</th>
                                                                           <th>Barcode</th>
                                                                           <th>Status</th>
+                                                                          <th>Transaction Number</th>
                                                                           <th>Action</th>
                                                                       </tr>
                                                                       
@@ -230,21 +244,22 @@
                                                                               <td>{{$trade_detail->id}}</td>
                                                                               <td>{{$trade_detail->quantity}}</td>
                                                                               <td>{{$trade_detail->amount}}</td>
+                                                                              <td>{{$trade_detail->bonus_amount}}</td>
                                                                               <td>{{$trade_detail->trading_date->format('d/m/Y') }}</td>
                                                                               <td>{{$trade_detail->barcode}}</td>
-
-                                                                              @if($trade_detail->status_id == 0)
-                                                                                   <td>Pending</td>
-                                                                              @endif
-                                                                              @if($trade_detail->status_id == 1)
-                                                                                   <td>Received But Payment Not Done</td>
-                                                                              @endif
-                                                                              @if($trade_detail->status_id == 2)
-                                                                                   <td>Payment Done</td>
-                                                                              @endif
-                                                                              @if($trade_detail->status_id == 3)
-                                                                                   <td>Rejected</td>
-                                                                              @endif
+                                                                                  @if($trade_detail->status_id == 0)
+                                                                                       <td>Pending</td>
+                                                                                  @endif
+                                                                                  @if($trade_detail->status_id == 1)
+                                                                                       <td>Received But Payment Not Done</td>
+                                                                                  @endif
+                                                                                  @if($trade_detail->status_id == 2)
+                                                                                       <td>Payment Done</td>
+                                                                                  @endif
+                                                                                  @if($trade_detail->status_id == 3)
+                                                                                       <td>Rejected</td>
+                                                                                  @endif
+                                                                              <td>{{$trade_detail->transaction_number}}</td>
                                                                              
                                                                               <td>
                                                                                  <button type="button" class="btn btn-outline btn-circle btn-sm blue" id="change-status" value="{{$trade_detail->id}}" data-item-id="{{$trade_detail->id}}">Change Status</button>
@@ -330,7 +345,6 @@
                                   <select class="form-control" id="status" placeholder="Status" name="status" value="">
                                     <option value="pending">Pending</option>
                                     <option value="receive_payment_pending">Received But Payment Pending</option>
-                                    <option value="payment_done">Payment Done</option>
                                 </select>
                                 
                                 </div>
@@ -366,6 +380,10 @@
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">Amount</label> 
                                   <input type="number" class="form-control" name="amount" placeholder="Add Amount" id="amount">
+                                </div>
+                                 <div class="form-group">
+                                  <label for="exampleInputEmail1">Transaction Number</label> 
+                                  <input type="text" class="form-control" name="transaction_number" placeholder="Transaction Number" id="transaction_number">
                                 </div>
                                 <input type="hidden" class="form-control" name="trade_detail_id"  id="add_trade_detail_id" value="">
                                

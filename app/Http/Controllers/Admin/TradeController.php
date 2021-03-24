@@ -129,10 +129,12 @@ class TradeController extends Controller
         $trade = Trade::find($trade_id);
         $actual_price = $trade->actual_price;
         $total_trading_amount = $trade->total_trading_amount;
+        $total_bonus_amount = $trade->bonus_amount;
         $quantity = $trade->quantity;
         $installment_number = $trade->installment_number;
 
         $single_trade_amount = $total_trading_amount/$installment_number;
+        $single_bonus_amount = $total_bonus_amount/$installment_number;
 
         $single_trade_quantity = $quantity/$installment_number;
         $days = 360/$installment_number;
@@ -152,8 +154,8 @@ class TradeController extends Controller
             $trade_detail->trade_id = $trade_id;
             $trade_detail->quantity = $single_trade_quantity;
             $trade_detail->amount = $single_trade_amount;
+            $trade_detail->bonus_amount = $single_bonus_amount;
             $trade_detail->trading_date = $next_due_date;
-
             $trade_detail->barcode = $this->generateBarcode(4);
             $trade_detail->save();
 
@@ -200,12 +202,20 @@ class TradeController extends Controller
 
     public function add_payment(Request $request){
         //dd($request->all());
-      
+        
+        if(!$request->transaction_number){
+            $request->session()->flash('failed','Transaction Number Required');
+                return back();
+        }
 
         $trade_detail = TradeDetail::find($request->trade_detail_id);
         if($trade_detail->status_id==1){
 
             $trade_detail->status_id = 2;
+            $trade_detail->transaction_number = $request->transaction_number;
+            
+            $trade_detail->payment_done_for = $request->amount;
+          
             $trade_detail->save();
 
             $request->session()->flash('feedback','Add Payment successfully');
@@ -213,7 +223,7 @@ class TradeController extends Controller
 
 
         }else{
-             $request->session()->flash('failed','Add Payment Failed');
+             $request->session()->flash('failed','Payment Already Added');
                 return back();
         }
     }

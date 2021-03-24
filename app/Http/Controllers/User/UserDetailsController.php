@@ -50,10 +50,10 @@ class UserDetailsController extends UserController
     	$user_detail->name_on_bank = $request->name_on_bank;
     	$user_detail->account_number = $request->account_number;
     	$user_detail->ifsc_code = $request->ifsc_code;
-    	$user_detail->passbook_image = $request->file('passbook_image')->store('useredetalisimage');
-    	$user_detail->passport_size_image = $request->file('passport_size_image')->store('useredetalisimage');
-    	$user_detail->signature_image = $request->file('signature_image')->store('useredetalisimage');
-    	$user_detail->aadhar_image = $request->file('aadhar_image')->store('useredetalisimage');
+    	$user_detail->passbook_image = @$request->file('passbook_image')->store('useredetalisimage');
+    	$user_detail->passport_size_image = @$request->file('passport_size_image')->store('useredetalisimage');
+    	$user_detail->signature_image = @$request->file('signature_image')->store('useredetalisimage');
+    	$user_detail->aadhar_image = @$request->file('aadhar_image')->store('useredetalisimage');
     	$user_detail->save();
 
         $request->session()->flash('feedback','Your Details has been sent successfully Updated!');
