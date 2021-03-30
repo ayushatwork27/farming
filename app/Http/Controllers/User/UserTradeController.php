@@ -24,6 +24,7 @@ class UserTradeController extends Controller
                         ->select('trades.*','crops.name as crop_name','users.name as created_by_name')
                         ->paginate(10);
         //dd($trades);
+                       
 
         return view('user.trade_list',['trades'=>$trades]);
     }

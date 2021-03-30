@@ -223,7 +223,7 @@
                                                               <table class="table table-striped table-bordered table-advance table-hover">
                                                                   <thead>
                                                                       <tr>
-                                                                          <th>Trade Detail Id</th>
+                                                                          <th>Serial Number</th>
                                                                           <th>Quantity</th>
                                                                           <th>Amount </th>
                                                                           <th>Bonus Amount</th>
@@ -240,8 +240,9 @@
                                                                           <th>Trade Not Approved Yet</th>
                                                                       @endif
                                                                           @foreach($trade->trade_details as $trade_detail)
+                                                                         
                                                                             <tr class="odd gradeX">
-                                                                              <td>{{$trade_detail->id}}</td>
+                                                                              <td>{{ @$i+=1 }}</td>
                                                                               <td>{{$trade_detail->quantity}}</td>
                                                                               <td>{{$trade_detail->amount}}</td>
                                                                               <td>{{$trade_detail->bonus_amount}}</td>

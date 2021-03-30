@@ -108,23 +108,23 @@
                                             
                                         </div> -->
                                          <div class="form-group">
-                                            <label for="name" class="col-md-2 control-label">Quantity</label>
+                                            <label for="name" class="col-md-2 control-label">Quantity in Kg</label>
                                             <div class="col-md-5">
-                                                <input type="number" name="quantity" class="form-control" placeholder="Quantity" > 
+                                                <input type="number" name="quantity" class="form-control" placeholder="Quantity in Kg" step="0.01"> 
                                             </div>
                                             
                                         </div>
                                         <div class="form-group">
-                                            <label for="category" class="col-md-2 control-label">Area</label>
+                                            <label for="category" class="col-md-2 control-label">Area in Akad</label>
                                             <div class="col-md-5">
-                                                <input type="number" name="area" class="form-control" placeholder="Area" >
+                                                <input type="number" name="area" class="form-control" placeholder="Area in Akad" step="0.01" >
                                             </div>
                                         </div>
 
                                          <div class="form-group">
-                                            <label for="normal" class="col-md-2 control-label">Accepected Rate</label>
+                                            <label for="normal" class="col-md-2 control-label">Accepected Rate in Rupees</label>
                                             <div class="col-md-5">
-                                                <input type="number" name="accepected_rate" class="form-control" placeholder="Accepected Rate Price" value=""> 
+                                                <input type="number" name="accepected_rate" class="form-control" placeholder="Accepected Rate Price in Rupees" value="" step="0.01"> 
                                             </div>
                                         </div>
                                         

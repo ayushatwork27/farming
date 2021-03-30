@@ -23,7 +23,11 @@ class UserDetailsController extends UserController
 
     public function save_user_details(Request $request){
 
-    	//dd($request->all());
+    	// dd($request->all());
+       $request->validate([
+            'terms' => 'required'
+        ]);
+
     	$user_id = Auth::id();
     	$user = User::find($user_id);
     	$user->email = $request->email;
@@ -39,6 +43,7 @@ class UserDetailsController extends UserController
     	$user_detail->dob = $request->dob;
     	$user_detail->aadhar_number = $request->aadhar_number;
     	$user_detail->mobile = $request->mobile;
+        
     	$user_detail->state = $request->state;
     	$user_detail->district = $request->district;
     	$user_detail->city = $request->city;

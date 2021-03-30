@@ -129,7 +129,7 @@
                                          <div class="form-group">
                                             <label for="state" class="col-md-2 control-label">State</label>
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" id="state" placeholder="State" name="state" value="{{@$user_detail->state}}"> 
+                                                <input type="text" class="form-control" id="state" placeholder="State" name="state" value="{{@$user_detail->state}}" readonly="readonly"> 
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -253,15 +253,15 @@
                                         </div>
 
 
-                                        <!--
+                                        
                                         <div class="form-group">
                                             <div class="col-md-offset-2 col-md-4">
                                                 <label class="mt-checkbox">
-                                                    <input type="checkbox"> Remember me
+                                                    <input type="checkbox" name="terms"> Do you agree to Terms & Conditions
                                                     <span></span>
                                                 </label>
                                             </div>
-                                        </div>-->
+                                        </div>
 
                                         <div class="form-group">
                                             <div class="col-md-offset-2 col-md-10">

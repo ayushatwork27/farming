@@ -66,13 +66,13 @@
                                         <thead>
                                             <tr>
                                                 
-                                                <th> Name </th>
+                                                <th> Crop Name </th>
                                                 <th> Category </th>
                                                 <th> Normal </th>
                                                 <th> Silver </th>
                                                 <th> Gold </th>
                                                 <th> Registered On </th>
-                                                <th> Active</th>
+                                                <th> Status</th>
                                                 <th> Action </th>
                                             </tr>
                                         </thead>
@@ -93,15 +93,13 @@
                                                     <td>{{$crop->gold}}</td>
                                                     <td>{{$crop->created_at->format('d.m.Y') }}</td>
                                                     <!-- <td>{{$crop->is_active == 1 ? 'Yes' : 'No'}}</td> -->
-                                                   <td>@if($crop ?? ''->active == '1') 
 
-                                                    <a href="{{url('admin/status_update',$crop->id)}}" class="btn btn-success">Active</a>
-
-                                                     @else 
-
-                                                    <a href="{{url('admin/status_update',$crop->id)}}" class="btn btn-danger">Deactive</a>
-
-                                                     @endif                                   </td>
+                                                    @if($crop->active == 0)
+                                                         <td>Deactive</td>
+                                                    @endif
+                                                    @if($crop->active == 1)
+                                                        <td>Active</td>
+                                                    @endif                               
                                                    
                                                     <td>
                                                         {!! Html::linkRoute('admin.update',' Edit',[$crop->id],['class'=>'btn btn-outline btn-circle btn-sm blue jquery-btn-view']) !!}
