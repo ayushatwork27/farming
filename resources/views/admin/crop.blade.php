@@ -68,6 +68,7 @@
                                                 
                                                 <th> Crop Name </th>
                                                 <th> Category </th>
+                                                <th> Crop Type</th>
                                                 <th> Normal </th>
                                                 <th> Silver </th>
                                                 <th> Gold </th>
@@ -88,6 +89,12 @@
                                                   <tr class="odd gradeX">
                                                     <td>{{$crop->name}}</td>
                                                     <td>{{$crop->category}}</td>
+                                                    @if($crop->crop_type==0)
+                                                    <td>Bouns</td>
+                                                    @endif
+                                                    @if($crop->crop_type==1)
+                                                    <td>Non Bouns</td>
+                                                    @endif
                                                     <td>{{$crop->normal}}</td>
                                                     <td>{{$crop->silver}}</td>
                                                     <td>{{$crop->gold}}</td>

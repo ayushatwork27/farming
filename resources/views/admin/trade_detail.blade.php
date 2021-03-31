@@ -243,8 +243,8 @@
                                                                          
                                                                             <tr class="odd gradeX">
                                                                               <td>{{ @$i+=1 }}</td>
-                                                                              <td>{{$trade_detail->quantity}}</td>
-                                                                              <td>{{$trade_detail->amount}}</td>
+                                                                              <td>{{$trade_detail->quantity}} Kg</td>
+                                                                              <td>{{$trade_detail->amount}} Rs</td>
                                                                               <td>{{$trade_detail->bonus_amount}}</td>
                                                                               <td>{{$trade_detail->trading_date->format('d/m/Y') }}</td>
                                                                               <td>{{$trade_detail->barcode}}</td>

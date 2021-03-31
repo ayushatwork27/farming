@@ -16,8 +16,8 @@ class CreateTradeDetailsTable extends Migration
         Schema::create('trade_details', function (Blueprint $table) {
             $table->id();
             $table->integer('trade_id');
-            $table->string('quantity');
-            $table->string('amount');
+            $table->float('quantity',8,6)->change;
+            $table->float('amount',8,6)->change;
             $table->integer('barcode');
             $table->date('trading_date');
             $table->softDeletes();

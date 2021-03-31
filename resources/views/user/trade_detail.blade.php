@@ -221,8 +221,8 @@
                                                                           @foreach($trade->trade_details as $trade_detail)
                                                                             <tr class="odd gradeX">
                                                                               <td>{{@$i+=1}}</td>
-                                                                              <td>{{$trade_detail->quantity}}</td>
-                                                                              <td>{{$trade_detail->amount}}</td>
+                                                                              <td>{{$trade_detail->quantity}} Kg</td>
+                                                                              <td>{{$trade_detail->amount}} Rs</td>
                                                                               <td>{{$trade_detail->trading_date->format('d/m/Y') }}</td>
                                                                               <td>{{$trade_detail->barcode}}</td>
 
