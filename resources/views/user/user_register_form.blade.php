@@ -72,6 +72,14 @@
                                         <strong>Success:</strong> {{ session()->get('feedback') }}
                                     </div>
                                 @endif
+                               @if(session()->has('errors'))
+                                    <div class="alert alert-danger">
+                                        <strong id="" class="text-danger">
+                                                    {{ $errors->first('terms') }}
+                                        </strong>
+                                    </div>
+                                    
+                                @endif
 
                                 <div class="portlet-body">
                                     <form class="form-horizontal" role="form" action="{{route('user.save_user_details')}}" method="post" enctype="multipart/form-data">
@@ -129,7 +137,7 @@
                                          <div class="form-group">
                                             <label for="state" class="col-md-2 control-label">State</label>
                                             <div class="col-md-5">
-                                                <input type="text" class="form-control" id="state" placeholder="State" name="state" value="{{@$user_detail->state}}" readonly="readonly"> 
+                                                <input type="text" class="form-control" id="state" placeholder="Chhattisgarh" name="state" value="{{@$user_detail->state}}" readonly="readonly"> 
                                             </div>
                                         </div>
                                         <div class="form-group">

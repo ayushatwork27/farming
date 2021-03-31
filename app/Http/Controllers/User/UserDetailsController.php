@@ -44,7 +44,7 @@ class UserDetailsController extends UserController
     	$user_detail->aadhar_number = $request->aadhar_number;
     	$user_detail->mobile = $request->mobile;
         
-    	$user_detail->state = $request->state;
+    	$user_detail->state = 'Chhattisgarh';
     	$user_detail->district = $request->district;
     	$user_detail->city = $request->city;
     	$user_detail->pincode = $request->pincode;
