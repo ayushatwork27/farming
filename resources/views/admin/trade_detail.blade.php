@@ -127,7 +127,7 @@
                                                                              Quantity In Kg
                                                                         </td>
                                                                         <td>
-                                                                           {{ @$trade->quantity}} 
+                                                                           {{ @$trade->quantity}} Kg
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -135,7 +135,7 @@
                                                                              Area
                                                                         </td>
                                                                         <td>
-                                                                            {{ @$trade->area}} 
+                                                                            {{ @$trade->area}} Acre
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -143,7 +143,7 @@
                                                                              Accepected Rate  in Rs.
                                                                         </td>
                                                                         <td>
-                                                                            {{ @$trade->accepected_rate}} 
+                                                                            {{ @$trade->accepected_rate}} Rs.
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -159,7 +159,7 @@
                                                                             Actual Price  in Rs.
                                                                         </td>
                                                                         <td>
-                                                                            {{ @$trade->actual_price }} 
+                                                                            {{ @$trade->actual_price }} Rs.
                                                                         </td>
                                                                     </tr>
                                                                     
@@ -169,7 +169,7 @@
                                                                             Total Amount in Rs.
                                                                         </td>
                                                                         <td>
-                                                                            {{ @$trade->total_amount }} 
+                                                                            {{ @$trade->total_amount }} Rs.
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -177,7 +177,7 @@
                                                                             Total Trading Amount  in Rs.
                                                                         </td>
                                                                         <td>
-                                                                            {{ @$trade->total_trading_amount }} 
+                                                                            {{ @$trade->total_trading_amount }} Rs.
                                                                         </td>
                                                                     </tr>
                                                                      <tr>
@@ -185,7 +185,7 @@
                                                                             Bonus Amount  in Rs.
                                                                         </td>
                                                                         <td>
-                                                                            {{ @$trade->bonus_amount }} 
+                                                                            {{ @$trade->bonus_amount }} Rs.
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
