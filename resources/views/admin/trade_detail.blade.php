@@ -56,6 +56,7 @@
                                                             <li>
                                                                <button type="button" class="btn btn-success" id="edit-item" data-item-id="{{$trade->id}}">Approve</button>
                                                                <input type="hidden" class="form-control" name="trade_id" value="{{$trade->id}}" id="trade_id">
+                                                               <input type="hidden" class="form-control" name="crop_type" value="{{$trade->crop_type}}" id="crop_type">
 
                                                             </li>
                                                         @endif
@@ -305,7 +306,15 @@
                               <div class="box-body">
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">No. of Installment</label> 
-                                  <input type="number" class="form-control" name="installment_number" placeholder="No. of Installment" id="installment_number">
+                                  @if($trade->crop_type == 1)
+
+                                     <input type="number" class="form-control" name="installment_number" placeholder="No. of Installment" id="installment_number" value="1" readonly="true">
+
+                                  @else
+
+                                     <input type="number" class="form-control" name="installment_number" placeholder="No. of Installment" id="installment_number">
+
+                                  @endif
                                 
                                 </div>
                                   <input type="hidden" class="form-control" name="trade_id"  id="trade_id1" value="{{$trade->id}}">
@@ -419,7 +428,6 @@
       // on modal show
       $('#edit-modal').on('show.bs.modal', function() {
         var id = $("#trade_id").val(); 
-        console.log(id);
        // $('#installment_number').val(id)
 
 
