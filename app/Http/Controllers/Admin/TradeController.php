@@ -56,7 +56,7 @@ class TradeController extends Controller
        $trade =  Trade::with('trade_details')
                         ->join('crops','crops.id','trades.crop_id')
                         ->join('users','users.id','trades.created_by')
-                        ->select('trades.*','crops.name as crop_name','users.name as created_by_name')->find($id);
+                        ->select('trades.*','crops.name as crop_name','crops.crop_type','users.name as created_by_name')->find($id);
        // dd($trade->trade_details);
        return view('admin.trade_detail',['trade'=>$trade]);
     }

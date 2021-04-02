@@ -56,6 +56,7 @@
                                                             <li>
                                                                <button type="button" class="btn btn-success" id="edit-item" data-item-id="{{$trade->id}}">Approve</button>
                                                                <input type="hidden" class="form-control" name="trade_id" value="{{$trade->id}}" id="trade_id">
+                                                               <input type="hidden" class="form-control" name="crop_type" value="{{$trade->crop_type}}" id="crop_type">
 
                                                             </li>
                                                         @endif
@@ -126,7 +127,7 @@
                                                                              Quantity In Kg
                                                                         </td>
                                                                         <td>
-                                                                           {{ @$trade->quantity}} 
+                                                                           {{ @$trade->quantity}} Kg
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -134,7 +135,7 @@
                                                                              Area
                                                                         </td>
                                                                         <td>
-                                                                            {{ @$trade->area}} 
+                                                                            {{ @$trade->area}} Acre
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -142,7 +143,7 @@
                                                                              Accepected Rate  in Rs.
                                                                         </td>
                                                                         <td>
-                                                                            {{ @$trade->accepected_rate}} 
+                                                                            {{ @$trade->accepected_rate}} Rs.
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -158,7 +159,7 @@
                                                                             Actual Price  in Rs.
                                                                         </td>
                                                                         <td>
-                                                                            {{ @$trade->actual_price }} 
+                                                                            {{ @$trade->actual_price }} Rs.
                                                                         </td>
                                                                     </tr>
                                                                     
@@ -168,7 +169,7 @@
                                                                             Total Amount in Rs.
                                                                         </td>
                                                                         <td>
-                                                                            {{ @$trade->total_amount }} 
+                                                                            {{ @$trade->total_amount }} Rs.
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -176,7 +177,7 @@
                                                                             Total Trading Amount  in Rs.
                                                                         </td>
                                                                         <td>
-                                                                            {{ @$trade->total_trading_amount }} 
+                                                                            {{ @$trade->total_trading_amount }} Rs.
                                                                         </td>
                                                                     </tr>
                                                                      <tr>
@@ -184,7 +185,7 @@
                                                                             Bonus Amount  in Rs.
                                                                         </td>
                                                                         <td>
-                                                                            {{ @$trade->bonus_amount }} 
+                                                                            {{ @$trade->bonus_amount }} Rs.
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -305,7 +306,15 @@
                               <div class="box-body">
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">No. of Installment</label> 
-                                  <input type="number" class="form-control" name="installment_number" placeholder="No. of Installment" id="installment_number">
+                                  @if($trade->crop_type == 1)
+
+                                     <input type="number" class="form-control" name="installment_number" placeholder="No. of Installment" id="installment_number" value="1" readonly="true">
+
+                                  @else
+
+                                     <input type="number" class="form-control" name="installment_number" placeholder="No. of Installment" id="installment_number">
+
+                                  @endif
                                 
                                 </div>
                                   <input type="hidden" class="form-control" name="trade_id"  id="trade_id1" value="{{$trade->id}}">
@@ -419,7 +428,6 @@
       // on modal show
       $('#edit-modal').on('show.bs.modal', function() {
         var id = $("#trade_id").val(); 
-        console.log(id);
        // $('#installment_number').val(id)
 
 

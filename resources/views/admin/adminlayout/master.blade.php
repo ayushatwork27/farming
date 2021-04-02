@@ -50,7 +50,7 @@ License: You must have a valid license purchased only from themeforest(the above
         
         <!-- BEGIN THEME LAYOUT STYLES -->
         {{Html::style('/assets/layouts/layout2/css/layout.min.css')}}
-        {{Html::style('/assets/layouts/layout2/css/themes/blue.min.css')}}
+        {{Html::style('/assets/layouts/layout2/css/themes/default.min.css')}}
         {{Html::style('/assets/layouts/layout2/css/custom.min.css')}}
          {{Html::style('/css/digi_custom.css')}}
         <!-- END THEME LAYOUT STYLES -->
@@ -68,7 +68,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END CORE PLUGINS -->
     </head>
     <!-- END HEAD -->
-   <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid">
+   <body class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid" >
     @include('admin.adminlayout.top-navbar')
 
     @yield('content')
