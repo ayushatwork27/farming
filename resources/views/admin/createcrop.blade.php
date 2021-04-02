@@ -77,8 +77,11 @@
                                 <div class="portlet-body">
                                     <form class="form-horizontal" role="form" action="{{ route('admin.store') }}" method="POST">
                                         {{ csrf_field() }}
+
+                                         
                                         <h4>Crop Details</h4>
                                          <hr>
+
                                          <div class="form-group">
                                             <label for="name" class="col-md-2 control-label">Name</label>
                                             <div class="col-md-5">
@@ -89,7 +92,12 @@
                                         <div class="form-group">
                                             <label for="category" class="col-md-2 control-label">Category</label>
                                             <div class="col-md-5">
-                                                <input type="text" name="category" class="form-control" placeholder="Category" value="{{ @$crop->category}}">
+                                                
+                                                 <select class="form-control" id="crop_type" placeholder="Category Type" name="category_id">
+                                                    @foreach($categories as $category)
+                                                    <option value="{{ @$category->category_id }}" <?php if(@$crop->category_id == $category->category_id) { ?> selected="selected"<?php } ?>>{{ $category->category_name }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -181,3 +189,7 @@
                         </div>
                     </div>
 					@endsection
+
+                                        
+                                            
+                                            

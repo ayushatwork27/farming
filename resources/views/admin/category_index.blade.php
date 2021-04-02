@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="col-lg-12 margin-tb">
                                         <div class="pull-right">
-                                            <a class="btn btn-success" href="{{ route('admin.create') }}">Create New Crop</a>
+                                            <a class="btn btn-success" href="{{ route('admin.create_category') }}">Create New Category</a>
                                         </div>
                                             
                                     </div>
@@ -66,50 +66,34 @@
                                         <thead>
                                             <tr>
                                                 
-                                                <th> Crop Name </th>
+                                                
                                                 <th> Category </th>
-                                                <th> Crop Type</th>
-                                                <th> Normal </th>
-                                                <th> Silver </th>
-                                                <th> Gold </th>
-                                                <th> Registered On </th>
-                                                <th> Status</th>
+                                                <th> Description</th>
+                                                <th> Created By  </th>
+                                                
                                                 <th> Action </th>
+                                                
                                             </tr>
                                         </thead>
 
                                         <tbody>
-                                            @if(! count($crops) > 0)
+                                            @if(! count($categorys) > 0)
                                                 <tr  class="odd gradeX">
                                                       <th colspan="8">No Crop Added</th>
                                                 </tr>
                                               
                                             @endif
-                                                @foreach($crops as $crop)
+                                                @foreach($categorys as $category)
                                                   <tr class="odd gradeX">
-                                                    <td>{{$crop->name}}</td>
-                                                    <td>{{$crop->category_name}}</td>
-                                                    @if($crop->crop_type==0)
-                                                    <td>Bouns</td>
-                                                    @endif
-                                                    @if($crop->crop_type==1)
-                                                    <td>Non Bouns</td>
-                                                    @endif
-                                                    <td>{{$crop->normal}}</td>
-                                                    <td>{{$crop->silver}}</td>
-                                                    <td>{{$crop->gold}}</td>
-                                                    <td>{{$crop->created_at->format('d.m.Y') }}</td>
-                                                    <!-- <td>{{$crop->is_active == 1 ? 'Yes' : 'No'}}</td> -->
-
-                                                    @if($crop->active == 0)
-                                                         <td>Deactive</td>
-                                                    @endif
-                                                    @if($crop->active == 1)
-                                                        <td>Active</td>
-                                                    @endif                               
+                                                    <td>{{$category->category_name}}</td>
+                                                    <td>{{$category->description}}</td>
+                                                    
+                                                    
+                                                    <td>{{$category->created_at->format('d.m.Y') }}</td>
+                                                                        
                                                    
                                                     <td>
-                                                        {!! Html::linkRoute('admin.update',' Edit',[$crop->id],['class'=>'btn btn-outline btn-circle btn-sm blue jquery-btn-view']) !!}
+                                                        {!! Html::linkRoute('admin.category_update',' Edit',[$category->category_id],['class'=>'btn btn-outline btn-circle btn-sm blue jquery-btn-view']) !!}
 
         
                                                     </td>
@@ -131,38 +115,3 @@
                         </div>
                     </div>
 @endsection
-<script>
-
-  $(function() {
-
-    $('.toggle-class').change(function() {
-
-        var status = $(this).prop('checked') == true ? 1 : 0; 
-
-        var user_id = $(this).data('id'); 
-
-         
-
-        $.ajax({
-
-            type: "GET",
-
-            dataType: "json",
-
-            url: '/changeStatus',
-
-            data: {'status': status, 'user_id': user_id},
-
-            success: function(data){
-
-              console.log(data.success)
-
-            }
-
-        });
-
-    })
-
-  })
-
-</script>

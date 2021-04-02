@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Crop;
+use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 
 
@@ -14,7 +15,10 @@ class CropManagementController extends Controller
     public function index(Request $request)
     {
     
-        $crops =  Crop::all();
+        
+         $crops = Crop::join('category','category.category_id','crops.category_id')
+                        
+                    ->paginate(10);
 
         return view('admin.crop',['crops'=>$crops]);
 
@@ -23,8 +27,9 @@ class CropManagementController extends Controller
     
     public function create()
     {
-        
-        return view('admin.createcrop');
+        $categories=Category::all();
+        return view('admin.createcrop',['categories'=>$categories]);
+    
     }
 
    
@@ -66,8 +71,11 @@ class CropManagementController extends Controller
     {
         
         $crop = Crop::find($crop_id);
+        $categories=Category::all();
 
-        return view('admin.createcrop',['crop'=>$crop]);
+        return view('admin.createcrop',['crop'=>$crop,'categories'=>$categories]);
+
+
     }
 
 

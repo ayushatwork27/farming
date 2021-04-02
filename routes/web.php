@@ -77,6 +77,7 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::get('registered_user_list', [App\Http\Controllers\Admin\UserManagementController::class, 'registered_user_list'])->name('admin.registered_user_list');
 
 		Route::get('index', [App\Http\Controllers\Admin\CropManagementController::class, 'index'])->name('admin.index');
+
 		Route::get('indextrades', [App\Http\Controllers\Admin\TradeShowController::class, 'indextrades'])->name('admin.indextrades');
 
 		Route::get('create', [App\Http\Controllers\Admin\CropManagementController::class, 'create'])->name('admin.create');
@@ -84,6 +85,7 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::get('update/{crop_id}', [App\Http\Controllers\Admin\CropManagementController::class, 'update'])->name('admin.update');
 		
 		Route::post('store', [App\Http\Controllers\Admin\CropManagementController::class, 'store'])->name('admin.store');
+		
 		Route::get('status_update/{id}',[App\Http\Controllers\Admin\CropManagementController::class,'status_update'])->name('admin.status_update');
 
 		Route::get('user_detail/{user_id}', [App\Http\Controllers\Admin\UserManagementController::class, 'user_detail'])->name('admin.user_detail');
@@ -97,7 +99,10 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::post('status_change', [App\Http\Controllers\Admin\TradeController::class, 'status_change'])->name('admin.trade.status_change');
 		Route::post('add_payment', [App\Http\Controllers\Admin\TradeController::class, 'add_payment'])->name('admin.trade.add_payment');
 
+		Route::get('category_index', [App\Http\Controllers\Admin\AddcategoryController::class, 'category_index'])->name('admin.category_index');
 
-
+		Route::get('create_category', [App\Http\Controllers\Admin\AddcategoryController::class, 'create_category'])->name('admin.create_category');
+		Route::post('category_store', [App\Http\Controllers\Admin\AddcategoryController::class, 'category_store'])->name('admin.category_store');
+		Route::get('admin.category_update/{category_id}', [App\Http\Controllers\Admin\AddcategoryController::class, 'category_update'])->name('admin.category_update');
 	});
 });
