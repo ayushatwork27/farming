@@ -81,7 +81,19 @@
                                          
                                         <h4>Crop Details</h4>
                                          <hr>
+                                         <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                @if(@$crop->active) 
 
+                                                     <a href="{{ route('admin.update_crop_status', $crop->id) }}" class="btn btn-danger">Deactivate</a>
+
+                                                @else 
+
+                                                   <a href="{{ route('admin.update_crop_status', $crop->id) }}" class="btn btn-primary">Activate</a>
+
+                                                @endif  
+                                            </div>
+                                        </div>
                                          <div class="form-group">
                                             <label for="name" class="col-md-2 control-label">Name</label>
                                             <div class="col-md-5">

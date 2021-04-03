@@ -92,6 +92,7 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::get('download_image/{user_id}/{path}', [App\Http\Controllers\Admin\UserManagementController::class, 'download_image'])->name('admin.download_image');
 
 		Route::get('update_user_status/{user_id}', [App\Http\Controllers\Admin\UserManagementController::class, 'update_user_status'])->name('admin.update_user_status');
+		Route::get('update_crop_status/{id}', [App\Http\Controllers\Admin\CropManagementController::class, 'update_crop_status'])->name('admin.update_crop_status');
 
 		Route::get('trade_index', [App\Http\Controllers\Admin\TradeController::class, 'index'])->name('admin.trade.list');
 		Route::get('trade_detail/{trade_id}', [App\Http\Controllers\Admin\TradeController::class, 'show'])->name('admin.trade.detail');
