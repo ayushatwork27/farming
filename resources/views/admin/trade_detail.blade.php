@@ -246,7 +246,7 @@
                                                                               <td>{{ @$i+=1 }}</td>
                                                                               <td>{{$trade_detail->quantity}} Kg</td>
                                                                               <td>{{$trade_detail->amount}} Rs</td>
-                                                                              <td>{{$trade_detail->bonus_amount}}</td>
+                                                                              <td>{{$trade_detail->bonus_amount}} Rs.</td>
                                                                               <td>{{$trade_detail->trading_date->format('d/m/Y') }}</td>
                                                                               <td>{{$trade_detail->barcode}}</td>
                                                                                   @if($trade_detail->status_id == 0)
@@ -316,6 +316,10 @@
 
                                   @endif
                                 
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Select Installment Date</label> 
+                                   <input type="date" class="form-control" id="dob" placeholder="Date of installment" name="doi" > 
                                 </div>
                                   <input type="hidden" class="form-control" name="trade_id"  id="trade_id1" value="{{$trade->id}}">
                                

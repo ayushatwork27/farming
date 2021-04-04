@@ -125,7 +125,7 @@ class TradeController extends Controller
     }
 
     public function insertIntoTradeDetails($trade_id){
-
+        dd(all());
         $trade = Trade::find($trade_id);
         $actual_price = $trade->actual_price;
         $total_trading_amount = $trade->total_trading_amount;
@@ -140,7 +140,8 @@ class TradeController extends Controller
         $days = 360/$installment_number;
 
         //$days = 30;
-        $today_date = date('Y-m-d');
+        $today_date = $trade->doi;
+
         //echo "today_date: ".$today_date."<br/>";
 
         for ($ins_id=1; $ins_id <= $installment_number ; $ins_id++) { 

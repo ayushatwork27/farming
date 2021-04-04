@@ -80,6 +80,14 @@
                                     </div>
                                     
                                 @endif
+                                @if(session()->has('errors'))
+                                    <div class="alert alert-danger">
+                                        <strong id="" class="text-danger">
+                                                    {{ $errors->first('bank_name') }}
+                                        </strong>
+                                    </div>
+                                    
+                                @endif
 
                                 <div class="portlet-body">
                                     <form class="form-horizontal" role="form" action="{{route('user.save_user_details')}}" method="post" enctype="multipart/form-data">

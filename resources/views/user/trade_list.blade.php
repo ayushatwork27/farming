@@ -67,13 +67,14 @@
                                             <tr>
                                                 
                                                 <th>Trade Id</th>
-                                                <th>Quantity</th>
-                                                <th>Area</th>
+                                                <th>Quantity In Kg</th>
+                                                <th>Area In Akad</th>
                                                 <th>Accepected Rate</th>
                                                 <th>Crop</th>
                                                 <th>Policy Type</th>
                                                 <th>Policy Price</th>
                                                 <th>Customer Name</th>
+                                                <th>Bonus Amount</th>
                                                 <th>Created On</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -89,13 +90,14 @@
                                                 
 
                                                     <td>{{$trade->id}}</td>
-                                                    <td>{{$trade->quantity}}</td>
-                                                    <td>{{$trade->area}}</td>
-                                                    <td>{{$trade->accepected_rate}}</td>
+                                                    <td>{{$trade->quantity}} Kg</td>
+                                                    <td>{{$trade->area}} Akad</td>
+                                                    <td>{{$trade->accepected_rate}} Rs.</td>
                                                     <td>{{$trade->crop_name}}</td>
                                                     <td>{{$trade->policy_type}}</td>
-                                                    <td>{{$trade->actual_price}}</td>
+                                                    <td>{{$trade->actual_price}} Rs.</td>
                                                     <td>{{$trade->created_by_name}}</td>
+                                                    <td>{{ @$trade->bonus_amount }} Rs.</td>
                                                     <td>{{$trade->created_at->format('d/m/Y') }}</td>
                                                     @if($trade->status_id == 0)
                                                          <td>Pending</td>

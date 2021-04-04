@@ -28,7 +28,8 @@ class CropManagementController extends Controller
     public function create()
     {
         $categories=Category::all();
-        return view('admin.createcrop',['categories'=>$categories]);
+    
+           return view('admin.createcrop',['categories'=>$categories]);
     
     }
 

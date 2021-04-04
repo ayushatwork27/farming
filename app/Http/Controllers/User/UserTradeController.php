@@ -21,6 +21,7 @@ class UserTradeController extends Controller
         $trades = Trade::join('crops','crops.id','trades.crop_id')
                         ->join('users','users.id','trades.created_by')
                         ->where('trades.created_by',$user_id)
+                        ->where('crops.active','=','1')
                         ->select('trades.*','crops.name as crop_name','users.name as created_by_name')
                         ->paginate(10);
         //dd($trades);
