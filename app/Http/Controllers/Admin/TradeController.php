@@ -137,7 +137,7 @@ class TradeController extends Controller
         $single_bonus_amount = $total_bonus_amount/$installment_number;
 
         $single_trade_quantity = $quantity/$installment_number;
-        $days = 360/$installment_number;
+        $days = 360/($installment_number-1);
 
         //$days = 30;
         $today_date = $request->start_date;

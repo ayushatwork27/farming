@@ -209,7 +209,7 @@
                                                                           <th>Quantity</th>
                                                                           <th>Amount</th>
                                                                           <th>Bonus Amount</th>
-                                                                          <th>Next Trading Date</th>
+                                                                          <th>Trading Date</th>
                                                                           <th>Barcode</th>
                                                                           <th>Status</th>
                                                                       </tr>
