@@ -86,6 +86,7 @@ $(document).ready(function(){
                                     @endif
                                 @endif
                                 <p><b> Crop Name:</b> {{ @$crop->name }}<br/>
+                                <p><b> Crop Category:</b> {{ @$crop->category_name }}<br/>
                                 <b> Crop Type:</b> {{ $crop->crop_type == 1 ? 'Non-Bonus': 'Bonus'   }}</p>
                                 <table class="table table-bordered mb-5 table-bordered sm-12" >
                                     <thead>

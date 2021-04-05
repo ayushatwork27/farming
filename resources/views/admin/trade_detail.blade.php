@@ -319,7 +319,7 @@
                                 </div>
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">Select Installment Date</label> 
-                                   <input type="date" class="form-control" id="dob" placeholder="Date of installment" name="doi" > 
+                                   <input type="date" class="form-control" id="start_date" placeholder="Date of installment" name="start_date" > 
                                 </div>
                                   <input type="hidden" class="form-control" name="trade_id"  id="trade_id1" value="{{$trade->id}}">
                                

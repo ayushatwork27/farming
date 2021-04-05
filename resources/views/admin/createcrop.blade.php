@@ -84,12 +84,17 @@
                                          <div class="form-group">
                                             <div class="col-md-offset-2 col-md-10">
                                                 @if(@$crop->active) 
-
-                                                     <a href="{{ route('admin.update_crop_status', $crop->id) }}" class="btn btn-danger">Deactivate</a>
+                                                    @if(@$crop->id)
+                                                         <a href="{{ route('admin.update_crop_status', @$crop->id) }}" class="btn btn-danger">Deactivate</a>
+                                                    @endif
+                                                    
 
                                                 @else 
+                                                    @if(@$crop->id)
+                                                        <a href="{{ route('admin.update_crop_status', @$crop->id) }}" class="btn btn-primary">Activate</a>
+                                                    @endif
 
-                                                   <a href="{{ route('admin.update_crop_status', $crop->id) }}" class="btn btn-primary">Activate</a>
+                                                   
 
                                                 @endif  
                                             </div>

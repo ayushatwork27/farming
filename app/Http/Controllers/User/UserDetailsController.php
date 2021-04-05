@@ -32,7 +32,9 @@ class UserDetailsController extends UserController
 
     	$user_id = Auth::id();
     	$user = User::find($user_id);
-    	$user->email = $request->email;
+
+
+
     	$user->name = $request->name;
         
     	$user_detail = UserDetail::where('user_id',$user_id)->first();
@@ -43,7 +45,7 @@ class UserDetailsController extends UserController
     	$user_detail->father_name = $request->father_name;
     	$user_detail->family_member = $request->family_member;
     	$user_detail->dob = $request->dob;
-    	$user_detail->aadhar_number = $request->aadhar_number;
+    	
     	$user_detail->mobile = $request->mobile;
         
     	$user_detail->state = 'Chhattisgarh';
@@ -53,26 +55,37 @@ class UserDetailsController extends UserController
     	$user_detail->address = $request->address;
     	$user_detail->area = $request->area;
     	$user_detail->land_type = $request->land_type;
-    	$user_detail->bank_name = $request->bank_name;
-    	$user_detail->name_on_bank = $request->name_on_bank;
-    	$user_detail->account_number = $request->account_number;
-    	$user_detail->ifsc_code = $request->ifsc_code;
-        if($request->file('passbook_image')){
-    	   $user_detail->passbook_image = @$request->file('passbook_image')->store('useredetalisimage');
+
+        if(!$user->is_active){
+
+           $user->email = $request->email;
+           $user_detail->aadhar_number = $request->aadhar_number;
+
+            
+            $user_detail->bank_name = $request->bank_name;
+            $user_detail->name_on_bank = $request->name_on_bank;
+            $user_detail->account_number = $request->account_number;
+            $user_detail->ifsc_code = $request->ifsc_code;
+            if($request->file('passbook_image')){
+               $user_detail->passbook_image = @$request->file('passbook_image')->store('useredetalisimage');
+
+            }
+            if($request->file('passport_size_image')){
+              $user_detail->passport_size_image = @$request->file('passport_size_image')->store('useredetalisimage');
+
+            }
+             if($request->file('signature_image')){
+              $user_detail->signature_image = @$request->file('signature_image')->store('useredetalisimage');
+
+            }
+            if($request->file('aadhar_image')){
+               $user_detail->aadhar_image = @$request->file('aadhar_image')->store('useredetalisimage');
+
+            }
 
         }
-        if($request->file('passport_size_image')){
-          $user_detail->passport_size_image = @$request->file('passport_size_image')->store('useredetalisimage');
 
-        }
-         if($request->file('signature_image')){
-          $user_detail->signature_image = @$request->file('signature_image')->store('useredetalisimage');
 
-        }
-        if($request->file('aadhar_image')){
-           $user_detail->aadhar_image = @$request->file('aadhar_image')->store('useredetalisimage');
-
-        }
 
     	
     	

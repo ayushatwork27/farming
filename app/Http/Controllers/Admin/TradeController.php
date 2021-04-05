@@ -97,7 +97,7 @@ class TradeController extends Controller
 
     public function trade_approve(Request $request){
         
-        if($request->installment_number > 0){
+        if($request->installment_number > 0 && $request->start_date){
 
             $trade = Trade::find($request->trade_id);
             
@@ -106,7 +106,7 @@ class TradeController extends Controller
                 $trade->status_id = 1;
                 $trade->installment_number = $request->installment_number;
                 $trade->save();
-                $this->insertIntoTradeDetails($request->trade_id);
+                $this->insertIntoTradeDetails($request);
                 $request->session()->flash('feedback','Trade Approve successfully');
                 return back();
 
@@ -124,9 +124,9 @@ class TradeController extends Controller
         }
     }
 
-    public function insertIntoTradeDetails($trade_id){
-        dd(all());
-        $trade = Trade::find($trade_id);
+    public function insertIntoTradeDetails($request){
+
+        $trade = Trade::find($request->trade_id);
         $actual_price = $trade->actual_price;
         $total_trading_amount = $trade->total_trading_amount;
         $total_bonus_amount = $trade->bonus_amount;
@@ -140,11 +140,12 @@ class TradeController extends Controller
         $days = 360/$installment_number;
 
         //$days = 30;
-        $today_date = $trade->doi;
+        $today_date = $request->start_date;
+       
 
         //echo "today_date: ".$today_date."<br/>";
 
-        for ($ins_id=1; $ins_id <= $installment_number ; $ins_id++) { 
+        for ($ins_id=0; $ins_id < $installment_number ; $ins_id++) { 
 
             $total_days = $ins_id * $days;
             $next_due_date = date('Y-m-d', strtotime($today_date. " +".$total_days." days"));
@@ -152,7 +153,7 @@ class TradeController extends Controller
             # code...
 
             $trade_detail = new TradeDetail;
-            $trade_detail->trade_id = $trade_id;
+            $trade_detail->trade_id = $request->trade_id;
             $trade_detail->quantity = $single_trade_quantity;
             $trade_detail->amount = $single_trade_amount;
             $trade_detail->bonus_amount = $single_bonus_amount;

@@ -78,8 +78,6 @@ Route::group(['prefix'=>'admin'],function(){
 
 		Route::get('index', [App\Http\Controllers\Admin\CropManagementController::class, 'index'])->name('admin.index');
 
-		Route::get('indextrades', [App\Http\Controllers\Admin\TradeShowController::class, 'indextrades'])->name('admin.indextrades');
-
 		Route::get('create', [App\Http\Controllers\Admin\CropManagementController::class, 'create'])->name('admin.create');
 
 		Route::get('update/{crop_id}', [App\Http\Controllers\Admin\CropManagementController::class, 'update'])->name('admin.update');
