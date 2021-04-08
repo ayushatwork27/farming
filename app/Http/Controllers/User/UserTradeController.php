@@ -37,7 +37,9 @@ class UserTradeController extends Controller
      */
     public function create()
     {
-        $crops =  Crop::all();
+        $crops =  Crop::join('category','category.category_id','crops.category_id')
+                        ->where('active', 1)
+                        ->get();
       return view('user.trade_create_1',['crops'=>$crops]);
     }
 
@@ -59,7 +61,8 @@ class UserTradeController extends Controller
                                 'accepected_rate'=>$request->accepected_rate, 
                             ]);
         
-        $crop = Crop::find($request->id);
+        $crop = Crop::join('category','crops.category_id','category.category_id')
+                    ->find($request->id);
         return view('user.trade_create_2',['crop'=>$crop]);
 
       }else{
@@ -133,7 +136,7 @@ class UserTradeController extends Controller
                         ->join('users','users.id','trades.created_by')
                         ->select('trades.*','crops.name as crop_name','users.name as created_by_name')->find($trade_id);
        // dd($trade->trade_details);
-       return view('user.trade_detail',['trade'=>$trade]);
+   return view('user.trade_detail',['trade'=>$trade]);
     }
 
     /**

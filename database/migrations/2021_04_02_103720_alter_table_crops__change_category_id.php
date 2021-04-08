@@ -15,7 +15,8 @@ class AlterTableCropsChangeCategoryId extends Migration
     {
         Schema::table('crops', function (Blueprint $table) {
             //
-              $table->integer('category_id')->nullable()->change();
+            
+            $table->integer('category_id')->nullable()->change();
 
         });
     }

@@ -208,7 +208,8 @@
                                                                           <th>Serial Number</th>
                                                                           <th>Quantity</th>
                                                                           <th>Amount</th>
-                                                                          <th>Next Trading Date</th>
+                                                                          <th>Bonus Amount</th>
+                                                                          <th>Trading Date</th>
                                                                           <th>Barcode</th>
                                                                           <th>Status</th>
                                                                       </tr>
@@ -223,6 +224,7 @@
                                                                               <td>{{@$i+=1}}</td>
                                                                               <td>{{$trade_detail->quantity}} Kg</td>
                                                                               <td>{{$trade_detail->amount}} Rs</td>
+                                                                              <td>{{$trade_detail->bonus_amount}} Rs</td>
                                                                               <td>{{$trade_detail->trading_date->format('d/m/Y') }}</td>
                                                                               <td>{{$trade_detail->barcode}}</td>
 

@@ -89,9 +89,17 @@
                                             <label for="name" class="col-md-2 control-label">Crops</label>
                                             <div class="col-md-5">
                                                 
-                                                <select class="form-control" name="id">
+                                                <select class="form-control" name="id" id="crop_id">
                                                     @foreach($crops as $crop)
-                                                        <option value="{{$crop->id}}">{{$crop->name}}</option> 
+                                                        <option value="{{$crop->id}}">{{$crop->name}} (
+                                                            @if($crop->crop_type == 0)
+                                                                Bonus
+                                                            @else
+                                                              Non-Bonus
+                                                            @endif
+                                                            )
+
+                                                        </option> 
                                                     @endforeach
                                                 </select>
 
@@ -107,6 +115,9 @@
                                             </div>
                                             
                                         </div> -->
+
+
+
                                          <div class="form-group">
                                             <label for="name" class="col-md-2 control-label">Quantity in Kg</label>
                                             <div class="col-md-5">
@@ -151,4 +162,19 @@
                             <!-- END SAMPLE FORM PORTLET-->
                         </div>
                     </div>
-					@endsection
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+  $("#crop_id").on('change',function(){
+   crop_id = $(this).val();
+   console.log(crop_id);
+
+  });
+
+});
+
+</script>
+@endsection
+
