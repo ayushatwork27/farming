@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\User\UserDetail;
 use Illuminate\Http\Request;
+use PDF;
 
 class UserManagementController extends Controller
 {
@@ -21,6 +22,21 @@ class UserManagementController extends Controller
 
     	return view('admin.user_detail',['user'=>$user]);
     	//dd($user->user_details);
+    }
+
+    public function downloadPDF(Request $request,$user_id)
+    {    
+
+        $user= User::with('user_detail')->find($user_id);
+        $file_path_name = $user->passbook_image;
+        $view = \View::make('admin.pdf', ['user'=>$user]);
+        $html_content = $view->render();
+        PDF::SetTitle("List of users");
+        PDF::AddPage();
+        PDF::writeHTML($html_content, true, false, true, false, '');
+        // D is the change of these two functions. Including D parameter will avoid 
+        // loading PDF in browser and allows downloading directly
+        PDF::Output('userlist.pdf', 'D');    
     }
 
     public function download_image(Request $request,$user_id,$path){

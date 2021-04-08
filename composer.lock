@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a13b1e4d38bb913b147cd1512050170d",
+    "content-hash": "82558d59c8e3000881273effc23995f4",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -794,6 +794,58 @@
             "time": "2020-12-29T14:50:06+00:00"
         },
         {
+            "name": "elibyy/tcpdf-laravel",
+            "version": "8.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elibyy/tcpdf-laravel.git",
+                "reference": "50a5c6bfc38fc0c03deb16d4065267f471c787d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elibyy/tcpdf-laravel/zipball/50a5c6bfc38fc0c03deb16d4065267f471c787d9",
+                "reference": "50a5c6bfc38fc0c03deb16d4065267f471c787d9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "tecnickcom/tcpdf": "6.2.*|6.3.*|6.4.*|dev-main"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Elibyy\\TCPDF\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "PDF": "Elibyy\\TCPDF\\Facades\\TCPDF"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Elibyy\\TCPDF\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "eli y",
+                    "email": "elibyy@gmail.com"
+                }
+            ],
+            "description": "tcpdf support for Laravel 6, 7, 8",
+            "keywords": [
+                "TCPDF",
+                "laravel",
+                "pdf"
+            ],
+            "time": "2021-03-27T14:23:50+00:00"
+        },
+        {
             "name": "fideloper/proxy",
             "version": "4.4.1",
             "source": {
@@ -1205,16 +1257,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.35.1",
+            "version": "v8.36.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d118c0df39e7524131176aaf76493eae63a8a602"
+                "reference": "c07477098c3685fcf812920d2fa8fa3a77e1e0bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d118c0df39e7524131176aaf76493eae63a8a602",
-                "reference": "d118c0df39e7524131176aaf76493eae63a8a602",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c07477098c3685fcf812920d2fa8fa3a77e1e0bf",
+                "reference": "c07477098c3685fcf812920d2fa8fa3a77e1e0bf",
                 "shasum": ""
             },
             "require": {
@@ -1365,7 +1417,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2021-03-30T21:34:17+00:00"
+            "time": "2021-04-06T13:58:47+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -4869,6 +4921,74 @@
             "time": "2021-03-28T09:42:18+00:00"
         },
         {
+            "name": "tecnickcom/tcpdf",
+            "version": "6.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tecnickcom/TCPDF.git",
+                "reference": "5ba838befdb37ef06a16d9f716f35eb03cb1b329"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/5ba838befdb37ef06a16d9f716f35eb03cb1b329",
+                "reference": "5ba838befdb37ef06a16d9f716f35eb03cb1b329",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "config",
+                    "include",
+                    "tcpdf.php",
+                    "tcpdf_parser.php",
+                    "tcpdf_import.php",
+                    "tcpdf_barcodes_1d.php",
+                    "tcpdf_barcodes_2d.php",
+                    "include/tcpdf_colors.php",
+                    "include/tcpdf_filters.php",
+                    "include/tcpdf_font_data.php",
+                    "include/tcpdf_fonts.php",
+                    "include/tcpdf_images.php",
+                    "include/tcpdf_static.php",
+                    "include/barcodes/datamatrix.php",
+                    "include/barcodes/pdf417.php",
+                    "include/barcodes/qrcode.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Nicola Asuni",
+                    "email": "info@tecnick.com",
+                    "role": "lead"
+                }
+            ],
+            "description": "TCPDF is a PHP class for generating PDF documents and barcodes.",
+            "homepage": "http://www.tcpdf.org/",
+            "keywords": [
+                "PDFD32000-2008",
+                "TCPDF",
+                "barcodes",
+                "datamatrix",
+                "pdf",
+                "pdf417",
+                "qrcode"
+            ],
+            "funding": [
+                {
+                    "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&currency_code=GBP&business=paypal@tecnick.com&item_name=donation%20for%20tcpdf%20project",
+                    "type": "custom"
+                }
+            ],
+            "time": "2021-03-27T16:00:33+00:00"
+        },
+        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.3",
             "source": {
@@ -5542,16 +5662,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.4.10",
+            "version": "v1.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "4f0b2bac128ee60a11d9758651f103f78157474a"
+                "reference": "e46a3228da4e95a411a981ac807bd119ab2485fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/4f0b2bac128ee60a11d9758651f103f78157474a",
-                "reference": "4f0b2bac128ee60a11d9758651f103f78157474a",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/e46a3228da4e95a411a981ac807bd119ab2485fa",
+                "reference": "e46a3228da4e95a411a981ac807bd119ab2485fa",
                 "shasum": ""
             },
             "require": {
@@ -5594,7 +5714,7 @@
                 "docker",
                 "laravel"
             ],
-            "time": "2021-03-30T21:26:44+00:00"
+            "time": "2021-04-06T14:00:39+00:00"
         },
         {
             "name": "mockery/mockery",

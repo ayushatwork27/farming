@@ -54,8 +54,12 @@
                                         <i class="icon-share font-dark"></i>
                                         <span class="caption-subject font-dark bold uppercase">User Details</span>
                                     </div>
+                                    <div class="form-group pull-right">
+                                        
+                                            {!! Html::linkRoute('admin.user_detail.downloadPDF',' DOWNLOAD PDF',[$user->user_detail->user_id],['class'=>'btn btn-outline btn-circle btn-sm blue fa fa-download']) !!}
+                                        </div>
                                     <div class="actions">
-                                        <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
+                                        <!-- <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
                                             <i class="icon-cloud-upload"></i>
                                         </a>
                                         <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
@@ -63,7 +67,7 @@
                                         </a>
                                         <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
                                             <i class="icon-trash"></i>
-                                        </a>
+                                        </a> -->
                                     </div>
                                 </div>
                                 
@@ -78,6 +82,8 @@
                                         {{ csrf_field() }}
                                         <h4>Personal Details</h4>
                                          <hr>
+
+                                         
                                          <div class="form-group">
                                             <label for="name" class="col-md-2 control-label">Name</label>
                                             <div class="col-md-5">

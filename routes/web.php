@@ -105,5 +105,7 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::get('create_category', [App\Http\Controllers\Admin\AddcategoryController::class, 'create_category'])->name('admin.create_category');
 		Route::post('category_store', [App\Http\Controllers\Admin\AddcategoryController::class, 'category_store'])->name('admin.category_store');
 		Route::get('admin.category_update/{category_id}', [App\Http\Controllers\Admin\AddcategoryController::class, 'category_update'])->name('admin.category_update');
+		// Route::get('user_detail/{user_id}/download-pdf', ['as'=>'DownloadPDF','uses'=>'UserManagementController@downloadPDF']);
+		Route::get('user_detail/download-pdf/{user_id}', [App\Http\Controllers\Admin\UserManagementController::class, 'downloadPDF'])->name('admin.user_detail.downloadPDF');
 	});
 });
