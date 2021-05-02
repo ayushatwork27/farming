@@ -63,9 +63,9 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="content">
             <div class="row login-wrap">
                 <div class="col-sm-6">
-                    <div class="login-left-logo">
+                    {{-- <div class="login-left-logo">
                         <img src="../assets/pages/img/login-left-logo.png" alt="" />
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-sm-6 form-wrap">
                      <!-- BEGIN LOGIN FORM -->
@@ -140,7 +140,7 @@ License: You must have a valid license purchased only from themeforest(the above
          
             
         </div>
-        <div class="copyright"> 2018 © Digi Entry Private Limited </div>
+        <div class="copyright"> 2021 © Digital Kheti </div>
         <!--[if lt IE 9]>
 <script src="../assets/global/plugins/respond.min.js"></script>
 <script src="../assets/global/plugins/excanvas.min.js"></script> 
