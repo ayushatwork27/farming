@@ -14,9 +14,9 @@ class AddColumnInTradeTable extends Migration
     public function up()
     {
         Schema::table('trades', function (Blueprint $table) {
-            $table->string('status')->default('pending');
+            $table->string('status')->default('pending')->change();
             $table->tinyInteger('status_id')->default(0);
-        });
+        }); 
     }
 
     /**
