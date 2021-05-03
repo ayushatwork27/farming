@@ -173,7 +173,7 @@
                 <div class="col-md-12 icon-box">
                   <i class="bx bx-receipt"></i>
                   <h4>Shree Traders</h4>
-                  <p>Shree Traders is a farmer-traders based Firm, which works for farmers and make sure that farmers will get true value for their crops and it will be a win win situation for all, Our dream is to try to focus on the growth of the independent farmers and grow together with them, Our focus is on nutrition instead of exploitation, and to assure that farmers will get the right price and bonus for there crops is our main goal. Famers be like our business partners and to keep them happy is our priority, and we respect their advices or suggestions would be more than welcome from our " annadatas".</p>
+                  <p>Shree Traders, which works for farmers and make sure that farmers will get true value for their crops and it will be a win win situation for all, Our dream is to try to focus on the growth of the independent farmers and grow together with them, Our focus is on nutrition instead of exploitation, and to assure that farmers will get the right price and bonus for there crops is our main goal. Famers be like our business partners and to keep them happy is our priority, and we respect their advices or suggestions would be more than welcome from our " annadatas".</p>
                 </div>
                 
               </div>
