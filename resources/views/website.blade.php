@@ -72,7 +72,7 @@
         <div class="carousel-inner" role="listbox">
 
           <!-- Slide 1 -->
-          <div class="carousel-item active" style="background: url(website_assets/img/slide/4.jpg);">
+          <div class="carousel-item active" style="background: url(website_assets/img/slide/4.jpg); background-repeat: none; background-position: center;background-size: cover;">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown">Grow Your Business</h2>
@@ -85,7 +85,7 @@
           </div>
 
           <!-- Slide 2 -->
-          <div class="carousel-item" style="background: url(website_assets/img/slide/2.jpg);">
+          <div class="carousel-item" style="background: url(website_assets/img/slide/2.jpg); background-repeat: none; background-position: center;background-size: cover;">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown">Genuine Buyers For Farmers</h2>
@@ -98,7 +98,7 @@
           </div>
 
           <!-- Slide 3 -->
-          <div class="carousel-item" style="background: url(website_assets/img/slide/3.jpg);">
+          <div class="carousel-item" style="background: url(website_assets/img/slide/3.jpg); background-repeat: none; background-position: center;background-size: cover;">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown">We Promote organic farming &amp; training</h2>
@@ -111,7 +111,7 @@
           </div>
 
            <!-- Slide 3 -->
-          <div class="carousel-item" style="background: url(website_assets/img/slide/1.jpg);">
+          <div class="carousel-item" style="background: url(website_assets/img/slide/1.jpg); background-repeat: none; background-position: center;background-size: cover;">
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2 class="animate__animated animate__fadeInDown">Genuine Buyers For Farmers</h2>
