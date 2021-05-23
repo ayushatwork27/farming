@@ -54,10 +54,13 @@
                                         <i class="icon-share font-dark"></i>
                                         <span class="caption-subject font-dark bold uppercase">User Details</span>
                                     </div>
-                                    {{-- <div class="form-group pull-right">
-                                        
-                                            {!! Html::linkRoute('admin.user_detail.downloadPDF',' DOWNLOAD PDF',[$user->user_detail->user_id],['class'=>'btn btn-outline btn-circle btn-sm blue fa fa-download']) !!}
-                                        </div> --}}
+
+                                    <div class="form-group pull-right">
+                                      {{-- <a href="{{url('user_detail/download-pdf/' . $user->id )}} " class="btn btn-primary">DOWNLOAD PDF</a> --}}
+
+                                        {!! Html::linkRoute('admin.user_detail.downloadPDF',' DOWNLOAD PDF',[$user->id],['class'=>'btn btn-outline btn-circle btn-sm blue fa fa-download']) !!}
+                                    </div>
+
                                     <div class="actions">
                                         <!-- <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
                                             <i class="icon-cloud-upload"></i>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -52,6 +52,7 @@
           <li><a href="#why-us">Why-Us</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="{{ url('available-crop') }}">Availabe Crops</a></li>
           <li><a href="{{ url('/login') }}">Login</a></li>
 
         </ul>
@@ -114,7 +115,7 @@
           <div class="carousel-item" style="background: url(website_assets/img/slide/1.jpg); background-repeat: none; background-position: center;background-size: cover;">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">Genuine Buyers For Farmers</h2>
+                <h2 class="animate__animated animate__fadeInDown">Farmers Tradings Platform</h2>
                 
                 <div>
                   <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
@@ -272,14 +273,14 @@
           <p>Today our farmers are facing two major challenges.</p>
           <p class="text-left">A) Farmers are not getting adequate value for their crops.</p>
           <p class="text-left">B) Farmers are afraid to harvest crops just because they had fear that they
-will not get proper value and also they are afraid of not getting worthy
-buyer who buy their crops at a reasonable rate.</p>
+          will not get proper value and also they are afraid of not getting worthy
+          buyer who buy their crops at a reasonable rate.</p>
 
-          <p>So we are here to focus on these issues and try to resolve them. And our main
-objective is that we can reach maximum no. of farmers and help them finding
-genuine buyers for their crops before their harvesting at a reasonable rate. It
-sounds hard to achieve this but we assure u that we can overcome these
-issues.</p>
+                    <p>So we are here to focus on these issues and try to resolve them. And our main
+          objective is that we can reach maximum no. of farmers and help them finding
+          genuine buyers for their crops before their harvesting at a reasonable rate. It
+          sounds hard to achieve this but we assure u that we can overcome these
+          issues.</p>
         </div>
 
         <div class="row">
@@ -327,14 +328,14 @@ issues.</p>
          <p>Today our farmers are facing two major challenges.</p>
           <p >A) Farmers are not getting adequate value for their crops.</p>
           <p >B) Farmers are afraid to harvest crops just because they had fear that they
-will not get proper value and also they are afraid of not getting worthy
-buyer who buy their crops at a reasonable rate.</p>
+            will not get proper value and also they are afraid of not getting worthy
+            buyer who buy their crops at a reasonable rate.</p>
 
-          <p>So we are here to focus on these issues and try to resolve them. And our main
-objective is that we can reach maximum no. of farmers and help them finding
-genuine buyers for their crops before their harvesting at a reasonable rate. It
-sounds hard to achieve this but we assure u that we can overcome these
-issues.</p>
+                      <p>So we are here to focus on these issues and try to resolve them. And our main
+            objective is that we can reach maximum no. of farmers and help them finding
+            genuine buyers for their crops before their harvesting at a reasonable rate. It
+            sounds hard to achieve this but we assure u that we can overcome these
+            issues.</p>
         </div>
 
         <div class="row">
@@ -344,8 +345,8 @@ issues.</p>
               <span>01</span>
               <h4>We fulfil raw materials demands for FMCG mills/ Companies:</h4>
               <p>We supply raw materials like wheat, peas, rice, pulses etc to these mills
-and companies by keeping in mind that we should fulfil their raw
-materials requirement as per their production capacity.</p>
+                and companies by keeping in mind that we should fulfil their raw
+                materials requirement as per their production capacity.</p>
             </div>
           </div>
 
@@ -354,8 +355,8 @@ materials requirement as per their production capacity.</p>
               <span>02</span>
               <h4>We find genuine buyers for farmers:</h4>
               <p>We try to find worthy buyers for farmers so that they have multiple
-choice to sell their crops and would get reasonable and value for money
-rate for their crops.</p>
+                choice to sell their crops and would get reasonable and value for money
+                rate for their crops.</p>
             </div>
           </div>
 
@@ -364,10 +365,10 @@ rate for their crops.</p>
               <span>03</span>
               <h4>We promote organic farming &amp; training:</h4>
               <p>Our motive is to create an infrastructure to promote organic farming to
-farmers. And we are trying to aware them about the benefits of organic
-farming and try to aware them about disadvantages of chemical farming.
-We also keep them in touch with various organic farming trainings
-running across the country.</p>
+                farmers. And we are trying to aware them about the benefits of organic
+                farming and try to aware them about disadvantages of chemical farming.
+                We also keep them in touch with various organic farming trainings
+                running across the country.</p>
             </div>
           </div>
 
@@ -522,8 +523,8 @@ running across the country.</p>
               <div id="faq-list-1" class="collapse show" data-parent=".faq-list">
                 <p>
                  Our main aim is to find genuine buyers for the farmers who can purchase
-their crops at reasonable rate(s) and we also fulfil raw materials demands of
-FMCG mills &amp; companies.
+                their crops at reasonable rate(s) and we also fulfil raw materials demands of
+                FMCG mills &amp; companies.
                 </p>
               </div>
             </li>
@@ -547,7 +548,7 @@ FMCG mills &amp; companies.
               <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-3" class="collapsed">What are Bonus &amp; Non-bonus crops? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-3" class="collapse" data-parent=".faq-list">
                 <p>Bonus crops: These are those crops in which farmers will get bonus every year.
-Non-bonus crops: Under these farmers can trade their crops at their own decided rate.
+                Non-bonus crops: Under these farmers can trade their crops at their own decided rate.
                 </p>
               </div>
             </li>
@@ -557,8 +558,8 @@ Non-bonus crops: Under these farmers can trade their crops at their own decided 
               <div id="faq-list-4" class="collapse" data-parent=".faq-list">
                 <p>
                   We reserve some amount of our profit of trade as reserve and when
-there is adequate reserve amount then we share our profit to them as
-bonus for their trading.
+                  there is adequate reserve amount then we share our profit to them as
+                  bonus for their trading.
                 </p>
               </div>
             </li>
@@ -568,9 +569,9 @@ bonus for their trading.
               <div id="faq-list-5" class="collapse" data-parent=".faq-list">
                 <p>
                   Yes “TRUST”.<br>
-As agriculture is backbone of our country, So we want our farmers to
-trust us, because without their trust we can’t be able to get success in
-our mission.
+                As agriculture is backbone of our country, So we want our farmers to
+                trust us, because without their trust we can’t be able to get success in
+                our mission.
                 </p>
               </div>
             </li>

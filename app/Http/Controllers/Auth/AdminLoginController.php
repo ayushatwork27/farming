@@ -35,7 +35,7 @@ class AdminLoginController extends Controller
     		'password' => 'required|min:6',
     	]);
     	
-
+ 
 
     	//dd($request->all());
 

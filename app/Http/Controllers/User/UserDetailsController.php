@@ -55,6 +55,7 @@ class UserDetailsController extends UserController
     	$user_detail->address = $request->address;
     	$user_detail->area = $request->area;
     	$user_detail->land_type = $request->land_type;
+        $user_detail->terms = $request->terms;
 
         if(!$user->is_active){
 
@@ -66,19 +67,20 @@ class UserDetailsController extends UserController
             $user_detail->name_on_bank = $request->name_on_bank;
             $user_detail->account_number = $request->account_number;
             $user_detail->ifsc_code = $request->ifsc_code;
-            if($request->file('passbook_image')){
+            
+            if(@$request->file('passbook_image')){
                $user_detail->passbook_image = @$request->file('passbook_image')->store('useredetalisimage');
 
             }
-            if($request->file('passport_size_image')){
+            if(@$request->file('passport_size_image')){
               $user_detail->passport_size_image = @$request->file('passport_size_image')->store('useredetalisimage');
 
             }
-             if($request->file('signature_image')){
+             if(@$request->file('signature_image')){
               $user_detail->signature_image = @$request->file('signature_image')->store('useredetalisimage');
 
             }
-            if($request->file('aadhar_image')){
+            if(@$request->file('aadhar_image')){
                $user_detail->aadhar_image = @$request->file('aadhar_image')->store('useredetalisimage');
 
             }

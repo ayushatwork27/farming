@@ -277,91 +277,16 @@
                                                 <p class="help-block">*png / *jpeg are only allowed</p>
                                             </div>
                                         </div>
+                                         
 
-                                         <div class="c-content-feedback-1 c-option-1" >
-                                            <div class="c-container" style="padding: 10px;background: #eef1f5!important;">
-                                                <div class="c-content-title-1 c-inverse">
-                                                    <h3 class="uppercase">Terms & Conditions</h3>
-                                                    <div class="c-line-left">Privacy Policy</div>
-                                                    <p class="c-font-lowercase">
-                                                        <ul>
-                                                            <li>
-                                                                The motive behind our association with farmers is to move toward success with farmers and for farmers.
-                                                            </li>
-                                                            <li>
-                                                                We want to work on quantity as well as the quality of a product.
-                                                            </li>
-                                                            <li>
-                                                               We want to give farmers what they deserve for their hard work.
-                                                            </li>
-                                                            <li>
-                                                                “Annadata Sukhi Bhav" is the motto of our business, for us, Annadata means a farmer who works day and night to supply basic food to the whole nation.
-As we said earlier we want to move toward success with farmers and for farmers, in continuation of the same, all suggestions of the farmer for their betterment and better productivity are always welcomed.
-                                                            </li>
-                                                            <li>
-                                                               With the hope of working with farmers and for farmers we are maintaining a database of farmers that includes basic details such as name, email, phone, etc. that can be used by Shree traders as and when used. 
-                                                            </li>
-                                                        </ul>
-                                                    </p>
-
-
-                                                    <div class="c-line-left">Terms & Conditions</div>
-                                                    <p class="c-font-lowercase">
-                                                        <ul>
-                                                            <li>
-                                                                Our work is based on the business model approved by the Shree traders and the Shree traders is not bound to share the same with the ultimate consumer to maintain confidentiality; however, the Shree traders  will make provide complete detail in respect of policy which contains the working terms with farmers. 
-                                                            </li>
-                                                            <li>
-                                                               Shree traders will distribute bonus at the end of every financial year which depends upon the profit earned by Shree Traders during the year in compliance with the policy followed by the Shree traders, of which few conditions are as follows:
-                                                               <ul>
-                                                                   <li>
-                                                                       Distribution of bonus depends upon the quality of the product (to be measured with the verified techniques), past working relation, etc.
-                                                                   </li>
-                                                                   <li>
-                                                                      There will be some exception for the distribution of bonus such as the occurrence of natural calamities like Earthquakes., Landslides.,Famines & Droughts.,Hurricanes, Tornados, and Cyclones, Extreme precipitation and flooding, Extreme Temperature (Heat & Cold), Global Pandemic, etc. However, the Shree traders is always bound for repayment of the principal trading amount which is pending.
-                                                                   </li>
-                                                               </ul>
-                                                            </li>
-
-                                                            <li>
-                                                               The Shree traders will work as per the scheme introduced and farmers have to follow the same after taking into consideration all terms and conditions of the respective scheme. However, the farmer cannot force the Shree traders for a refund before the completion of the scheme.
-                                                            </li>
-                                                            <li>
-                                                               In case farmers force the Shree traders for any activity which is out of the range of the scheme, the Shree traders reserves full right to act as per the terms and conditions decided at the time of introduction of the scheme.
-                                                            </li>
-                                                            <li>
-                                                               The Shree traders will enter into an agreement with farmers containing all the terms and conditions of the business before initiation of any business relationship and both parties will be bound to such agreement. 
-                                                            </li>
-                                                            <li>
-                                                              If any technical issue faced by the farmer during online submission or completion of procedure they can switch for offline mode for completion of the trade process.
-                                                            </li>
-                                                            <li>
-                                                               If the farmer is proven guilty for any misconduct, default, misappropriation of funds, then the Shree traders has the right to block the respective account of such person and also blacklist the person to avoid happening of any future event.
-                                                            </li>
-                                                        </ul>
-                                                    </p>
-                                                    <p class="c-font-lowercase">
-                                                        I have read the above mentioned Privacy policy and Terms and Conditions and I agree to it and ready to start a new business relationship with Shree traders.
-                                                    </p>
-
-                                                   {{--  <div class="form-group">
-                                                        <div class="col-md-4">
-                                                            <label class="mt-checkbox">
-                                                                <input type="checkbox" name="terms"> Do you agree to Terms & Conditions
-                                                                <span></span>
-                                                            </label>
-                                                        </div>
-                                                    </div> --}}
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="clear"></div>
                                         <br>
                                         <div class="form-group">
                                             <div class="col-md-4">
                                                 <label class="mt-checkbox">
-                                                    <input type="checkbox" name="terms"> Do you agree to Terms & Conditions
-                                                    <span></span>
+                                                    <input type="checkbox" name="terms" value="{{@$user_detail->name_on_bank}}"> Do you agree to Terms & Conditions
+                                                    <span></span> <button type="button" class="btn btn-success" id="policy_details" data-item-id="1">Read</button>
                                                 </label>
                                             </div>
                                         </div>
@@ -387,5 +312,111 @@ As we said earlier we want to move toward success with farmers and for farmers, 
                             <!-- END SAMPLE FORM PORTLET-->
                         </div>
                     </div>
+
+                     <!-- Privacy Modal -->
+                    <div class="modal fade" id="policy-modal">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" align="center"><b>Terms & Conditions</b></h4>
+                          </div>
+                          <div class="modal-body">
+                            <div class="c-content-feedback-1 c-option-1" >
+                                <div class="c-container" style="padding: 10px;background: #eef1f5!important;">
+                                    <div class="c-content-title-1 c-inverse">
+
+                                        <div class="c-line-left">Privacy Policy</div>
+                                        <p class="c-font-lowercase">
+                                            <ul>
+                                                <li>
+                                                    The motive behind our association with farmers is to move toward success with farmers and for farmers.
+                                                </li>
+                                                <li>
+                                                    We want to work on quantity as well as the quality of a product.
+                                                </li>
+                                                <li>
+                                                   We want to give farmers what they deserve for their hard work.
+                                                </li>
+                                                <li>
+                                                    “Annadata Sukhi Bhav" is the motto of our business, for us, Annadata means a farmer who works day and night to supply basic food to the whole nation.
+                                                    As we said earlier we want to move toward success with farmers and for farmers, in continuation of the same, all suggestions of the farmer for their betterment and better productivity are always welcomed.
+                                                </li>
+                                                <li>
+                                                   With the hope of working with farmers and for farmers we are maintaining a database of farmers that includes basic details such as name, email, phone, etc. that can be used by Shree traders as and when used. 
+                                                </li>
+                                            </ul>
+                                        </p>
+
+
+                                        <div class="c-line-left">Terms & Conditions</div>
+                                        <p class="c-font-lowercase">
+                                            <ul>
+                                                <li>
+                                                    Our work is based on the business model approved by the Shree traders and the Shree traders is not bound to share the same with the ultimate consumer to maintain confidentiality; however, the Shree traders  will make provide complete detail in respect of policy which contains the working terms with farmers. 
+                                                </li>
+                                                <li>
+                                                   Shree traders will distribute bonus at the end of every financial year which depends upon the profit earned by Shree Traders during the year in compliance with the policy followed by the Shree traders, of which few conditions are as follows:
+                                                   <ul>
+                                                       <li>
+                                                           Distribution of bonus depends upon the quality of the product (to be measured with the verified techniques), past working relation, etc.
+                                                       </li>
+                                                       <li>
+                                                          There will be some exception for the distribution of bonus such as the occurrence of natural calamities like Earthquakes., Landslides.,Famines & Droughts.,Hurricanes, Tornados, and Cyclones, Extreme precipitation and flooding, Extreme Temperature (Heat & Cold), Global Pandemic, etc. However, the Shree traders is always bound for repayment of the principal trading amount which is pending.
+                                                       </li>
+                                                   </ul>
+                                                </li>
+
+                                                <li>
+                                                   The Shree traders will work as per the scheme introduced and farmers have to follow the same after taking into consideration all terms and conditions of the respective scheme. However, the farmer cannot force the Shree traders for a refund before the completion of the scheme.
+                                                </li>
+                                                <li>
+                                                   In case farmers force the Shree traders for any activity which is out of the range of the scheme, the Shree traders reserves full right to act as per the terms and conditions decided at the time of introduction of the scheme.
+                                                </li>
+                                                <li>
+                                                   The Shree traders will enter into an agreement with farmers containing all the terms and conditions of the business before initiation of any business relationship and both parties will be bound to such agreement. 
+                                                </li>
+                                                <li>
+                                                  If any technical issue faced by the farmer during online submission or completion of procedure they can switch for offline mode for completion of the trade process.
+                                                </li>
+                                                <li>
+                                                   If the farmer is proven guilty for any misconduct, default, misappropriation of funds, then the Shree traders has the right to block the respective account of such person and also blacklist the person to avoid happening of any future event.
+                                                </li>
+                                            </ul>
+                                        </p>
+                                        <p class="c-font-lowercase">
+                                            I have read the above mentioned Privacy policy and Terms and Conditions and I agree to it and ready to start a new business relationship with Shree traders.
+                                        </p>
+
+                                       {{--  <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="mt-checkbox">
+                                                    <input type="checkbox" name="terms"> Do you agree to Terms & Conditions
+                                                    <span></span>
+                                                </label>
+                                            </div>
+                                        </div> --}}
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                      <!-- /Privacy Modal -->
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $(document).on('click', "#policy_details", function() {
+      
+        $('#policy-modal').modal()
+      })
+
+    });
+</script>
 
 @endsection

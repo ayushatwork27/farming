@@ -1,4 +1,4 @@
-BEGIN SIDEBAR -->
+<!--BEGIN SIDEBAR -->
             <div class="page-sidebar-wrapper">
                 <!-- END SIDEBAR -->
                 <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
@@ -46,38 +46,39 @@ BEGIN SIDEBAR -->
                                         <span class="arrow"></span>
                                     </a>
                                 </li>
+                                 <li class="nav-item start ">
+                                    <a href="#" class="nav-link nav-toggle">
+                                        <i class="fa fa-inr"></i>
+                                        <span class="title">My Bonus</span>
+                                        <span class="arrow"></span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start ">
+                                    <a href="#" class="nav-link nav-toggle">
+                                        <i class="fa fa-history"></i>
+                                        <span class="title">History</span>
+                                        <span class="arrow"></span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start ">
+                                    <a href="#" class="nav-link nav-toggle">
+                                        <i class="fa fa-question"></i>
+                                        <span class="title">Help</span>
+                                        <span class="arrow"></span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start ">
+                                    <a href="#" class="nav-link nav-toggle">
+                                        <i class="fa fa-comment"></i>
+                                        <span class="title">Feedback</span>
+                                        <span class="arrow"></span>
+                                    </a>
+                                </li>
                             @endif
                              
                          @endif
                        
-                        <!-- <li class="nav-item start ">
-                            <a href="#" class="nav-link nav-toggle">
-                                <i class="fa fa-inr"></i>
-                                <span class="title">My Bonus</span>
-                                <span class="arrow"></span>
-                            </a>
-                        </li>
-                        <li class="nav-item start ">
-                            <a href="#" class="nav-link nav-toggle">
-                                <i class="fa fa-history"></i>
-                                <span class="title">History</span>
-                                <span class="arrow"></span>
-                            </a>
-                        </li>
-                        <li class="nav-item start ">
-                            <a href="#" class="nav-link nav-toggle">
-                                <i class="fa fa-question"></i>
-                                <span class="title">Help</span>
-                                <span class="arrow"></span>
-                            </a>
-                        </li>
-                        <li class="nav-item start ">
-                            <a href="#" class="nav-link nav-toggle">
-                                <i class="fa fa-comment"></i>
-                                <span class="title">Feedback</span>
-                                <span class="arrow"></span>
-                            </a>
-                        </li> -->
+                        
                         
 
                      

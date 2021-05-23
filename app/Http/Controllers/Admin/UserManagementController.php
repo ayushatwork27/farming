@@ -25,18 +25,21 @@ class UserManagementController extends Controller
     }
 
     public function downloadPDF(Request $request,$user_id)
-    {    
+    {   
 
-        $user= User::with('user_detail')->find($user_id);
-        $file_path_name = $user->passbook_image;
-        $view = \View::make('admin.pdf', ['user'=>$user]);
-        $html_content = $view->render();
-        PDF::SetTitle("List of users");
+
+
+        $user = User::with('user_detail')->find($user_id);
+        $view = \View::make('admin.user_pdf',['user'=>$user]);
+        $html_content = $view->render(); 
+        //dd($html_content);
+        PDF::SetTitle('Sample PDF');
         PDF::AddPage();
         PDF::writeHTML($html_content, true, false, true, false, '');
-        // D is the change of these two functions. Including D parameter will avoid 
-        // loading PDF in browser and allows downloading directly
-        PDF::Output('userlist.pdf', 'D');    
+        //PDF::Image(storage_path('app/public/' .$user->user_detail->passport_size_image), 500);
+        PDF::Output('SamplePDF.pdf','I');
+
+
     }
 
     public function download_image(Request $request,$user_id,$path){

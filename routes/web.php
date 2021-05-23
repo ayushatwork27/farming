@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('website');
 });
 
+Route::get('available-crop', function () {
+	$crops = App\Models\Crop::join('category','category.category_id','crops.category_id')->get();
+    return view('available_crop',['crops'=>$crops]);
+});
+
 Auth::routes();
 
 Route::get('/login', [App\Http\Controllers\Auth\UserLoginController::class, 'showLoginForm'])->name('user.login');

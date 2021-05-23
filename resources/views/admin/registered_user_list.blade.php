@@ -55,7 +55,7 @@
                                
                                
                                 <div class="portlet-body">
-                                    <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_2">
+                                    <table class="table table-responsive  table-striped table-bordered table-hover order-column" id="sample_2">
                                         <thead>
                                             <tr>
                                                 

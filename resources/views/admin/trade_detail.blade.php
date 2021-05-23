@@ -53,7 +53,7 @@
                                                             @endif
                                                         </li>
                                                         @if($trade->status_id == 0)
-                                                            <li>
+                                                            <li> 
                                                                <button type="button" class="btn btn-success" id="edit-item" data-item-id="{{$trade->id}}">Approve</button>
                                                                <input type="hidden" class="form-control" name="trade_id" value="{{$trade->id}}" id="trade_id">
                                                                <input type="hidden" class="form-control" name="crop_type" value="{{$trade->crop_type}}" id="crop_type">
