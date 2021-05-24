@@ -23,7 +23,7 @@ class UserDetailsController extends UserController
 
     public function save_user_details(Request $request, UserDetail $user_detail){
 
-    	 dd($request->all());
+    	// dd($request->all());
        $request->validate([
             'terms' => 'required',
         ]);
