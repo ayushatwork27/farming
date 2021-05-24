@@ -285,7 +285,7 @@
                                         <div class="form-group">
                                             <div class="col-md-4">
                                                 <label class="mt-checkbox">
-                                                    <input type="checkbox" name="terms" value="{{@$user_detail->name_on_bank}}"> Do you agree to Terms & Conditions
+                                                    <input type="checkbox" name="terms" value=true > Do you agree to Terms & Conditions
                                                     <span></span> <button type="button" class="btn btn-success" id="policy_details" data-item-id="1">Read</button>
                                                 </label>
                                             </div>

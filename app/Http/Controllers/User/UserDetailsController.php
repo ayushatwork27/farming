@@ -23,18 +23,14 @@ class UserDetailsController extends UserController
 
     public function save_user_details(Request $request, UserDetail $user_detail){
 
-    	// dd($request->all());
+    	 dd($request->all());
        $request->validate([
             'terms' => 'required',
-            
         ]);
 
 
     	$user_id = Auth::id();
     	$user = User::find($user_id);
-
-
-
     	$user->name = $request->name;
         
     	$user_detail = UserDetail::where('user_id',$user_id)->first();
