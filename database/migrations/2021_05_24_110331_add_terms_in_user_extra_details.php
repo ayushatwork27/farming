@@ -14,7 +14,7 @@ class AddTermsInUserExtraDetails extends Migration
     public function up()
     {
         Schema::table('user_extra_details', function (Blueprint $table) {
-            $table->tinyInteger('terms')->default(0);
+            $table->boolean('terms')->default(false);
         });
     }
 
