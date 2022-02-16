@@ -1,5 +1,5 @@
 <?php
-
+//comment added
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
